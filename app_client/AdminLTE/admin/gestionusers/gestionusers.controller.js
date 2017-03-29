@@ -4,8 +4,8 @@
         .module('meanApp')
         .controller('gestionusersCtrl', gestionusersCtrl);
 
-    gestionusersCtrl.$inject = ['$scope', '$http'];
-    function gestionusersCtrl($scope, $http) {
+    gestionusersCtrl.$inject = ['$scope', '$http','$location'];
+    function gestionusersCtrl($scope, $http ,$location) {
 
         $scope.names = ["Emil", "Tobias", "Linus"];
         $scope.message = "hello ahmed";
@@ -28,6 +28,8 @@
 
             })
         }
+
+
 
 
         // ici pour pagination

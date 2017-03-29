@@ -56,6 +56,7 @@
                                 </th>
                                 <th>Edit</th>
                                 <th>Delete</th>
+                                <th>Afficher</th>
 
                             </tr>
                             </thead>
@@ -63,10 +64,12 @@
                             <tr ng-repeat="ville in villes| filter : search| pagination: curPage * pageSize |orderBy : sortKey:reverse">
                                 <td>{{ville._id}}</td>
                                 <td>{{ville.name}}</td>
-                                <td> <a href="/editville/{{ville._id}}" class="btn btn-primary">Edit
-                                    <span class="glyphicon glyphicon-edit"></span></a></td>
-                                <td> <a href="" ng-click="deleteVille(ville)" class="btn btn-danger">Delete
-                                    <span class="glyphicon glyphicon-remove"></span></a></td>
+                                <td> <a href="/editville/{{ville._id}}" >
+                                    <span class="fa fa-fw fa-edit"></span></a></td>
+                                <td> <a href="" ng-click="deleteVille(ville)" >
+                                    <span class="fa fa-fw fa-remove"></span></a></td>
+                                <td> <a href="/showville/{{ville._id}}" >
+                                    <span class="fa fa-fw fa-eye"></span></a></td>
                             </tr>
                             </tfoot>
                         </table>

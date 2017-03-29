@@ -15,6 +15,11 @@
                 controller: 'edituserCtrl',
                 controllerAs: 'vm'
             })
+            .when('/showuser/:id', {
+                templateUrl: '/AdminLTE/admin/gestionusers/showuser.view.html',
+                controller: 'showuserCtrl',
+                controllerAs: 'vm'
+            })
             .when('/service', {
                 templateUrl: '/AdminLTE/admin/services/services.view.html',
                 controller: 'servicesCtrl',
@@ -30,6 +35,11 @@
                 controller: 'editserviceCtrl',
                 controllerAs: 'vm'
             })
+            .when('/showservice/:id', {
+                templateUrl: '/AdminLTE/admin/services/showservice.view.html',
+                controller: 'showserviceCtrl',
+                controllerAs: 'vm'
+            })
             .when('/ville', {
                 templateUrl: '/AdminLTE/admin/ville/ville.view.html',
                 controller: 'villeCtrl',
@@ -43,6 +53,11 @@
             .when('/addville', {
                 templateUrl: '/AdminLTE/admin/ville/addville.view.html',
                 controller: 'addvilleCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/showville/:id', {
+                templateUrl: '/AdminLTE/admin/ville/showville.view.html',
+                controller: 'showvilleCtrl',
                 controllerAs: 'vm'
             })
             .when('/register', {

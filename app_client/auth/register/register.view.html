@@ -1,4 +1,8 @@
-<navigation></navigation>
+<div class="row">
+  <div class="col-md-12">
+
+    <div class="box box-danger">
+      <div class="box-header">
 
 <div class="container">
 
@@ -23,12 +27,24 @@
           <input type="text" class="form-control" id="phoneNumber" placeholder="Enter your phoneNumber" ng-model="vm.credentials.phoneNumber">
         </div>
         <div class="form-group">
-          <label for="name">Role</label>
-          <input type="text" class="form-control" id="role" placeholder="Enter your role" ng-model="vm.credentials.role">
+                <div class="form-group">
+                  <label>Role</label>
+                  <select class="form-control select2" style="width: 100%;"  id="role" ng-model="vm.credentials.role">>
+                    <option selected="selected">Admin</option>
+                    <option>Utilisateur</option>
+                    <option>Sallone</option>
+                  </select>
+                </div>
+
         </div>
         <button type="submit" class="btn btn-default">Register!</button>
       </form>
     </div>
   </div>
 
+</div>
+
+      </div>
+    </div>
+  </div>
 </div>
