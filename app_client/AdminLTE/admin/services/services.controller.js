@@ -22,8 +22,9 @@
 
         $scope.deleteService = function deleteservice(service) {
             $scope.messaguser = "delete success";
-            $http.delete("/gestionusers/service/" + service._id).then(function () {
-                $scope.services.pop(service);
+            $http.delete("/gestionusers/service/" + service._id).success(function (response) {
+                var index = $scope.services.indexOf(service)
+                $scope.services.splice( index ,1);
             })
         }
 

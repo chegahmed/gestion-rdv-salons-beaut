@@ -23,9 +23,10 @@
 
         $scope.deleteUser = function deleteUser(user) {
             $scope.messaguser = "delete success";
-            $http.delete("/gestionusers/" + user._id).then(function () {
-                $scope.users.pop(user);
-
+            $http.delete("/gestionusers/" + user._id).success(function (response) {
+                var index = $scope.users.indexOf(user)
+                $scope.users.splice( index ,1);
+                //   $scope.users.pop(user);
             })
         }
 

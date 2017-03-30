@@ -1,15 +1,15 @@
-
+<div ng-include="'/AdminLTE/admin/header.html'"></div>
 <div class="container">
 
     <div class="row form-center">
         <div class="col-md-6">
-            <h1>Update Ville</h1>
+            <h1>Modifier Ville</h1>
             <form ng-submit="updateService()">
                 <div class="form-group">
-                    <label for="name">Full name</label>
+                    <label for="name">Nom</label>
                     <input type="text" class="form-control" id="name" placeholder="Entre Nom Ville" ng-model="ville.name">
                 </div>
-                <button type="submit" class="btn btn-default">Update !</button>
+                <button type="submit" class="btn btn-default">Modifier</button>
             </form>
         </div>
     </div>

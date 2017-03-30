@@ -5,6 +5,11 @@
     function config($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
+                templateUrl:'/auth/login/login.view.html',
+                controller: 'loginCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/accueil', {
                 templateUrl: '/AdminLTE/admin/gestionusers/gestionusers.view.html',  //home/home.view.html
                 controller: 'gestionusersCtrl',
                controllerAs: 'vm',
@@ -60,14 +65,29 @@
                 controller: 'showvilleCtrl',
                 controllerAs: 'vm'
             })
+            .when('/sservice', {
+                templateUrl: '/AdminLTE/admin/sservices/sservices.view.html',
+                controller: 'sservicesCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/editsservice/:id', {
+                templateUrl: '/AdminLTE/admin/sservices/editsservice.view.html',
+                controller: 'editsserviceCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/addsservice', {
+                templateUrl: '/AdminLTE/admin/sservices/addsservice.view.html',
+                controller: 'addsserviceCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/showsservice/:id', {
+                templateUrl: '/AdminLTE/admin/sservices/showsservice.view.html',
+                controller: 'showsserviceCtrl',
+                controllerAs: 'vm'
+            })
             .when('/register', {
                 templateUrl: '/auth/register/register.view.html',
                 controller: 'registerCtrl',
-                controllerAs: 'vm'
-            })
-            .when('/login', {
-                templateUrl:'/auth/login/login.view.html',
-                controller: 'loginCtrl',
                 controllerAs: 'vm'
             })
             .when('/profile', {
@@ -89,7 +109,7 @@
 
     function run($rootScope, $location, authentication) {
         $rootScope.$on('$routeChangeStart', function (event, nextRoute, currentRoute) {
-            if ($location.path() === '/profile' && !authentication.isLoggedIn()) {
+            if ($location.path() != '/' && !authentication.isLoggedIn()) {
                 $location.path('/');
             }
         });

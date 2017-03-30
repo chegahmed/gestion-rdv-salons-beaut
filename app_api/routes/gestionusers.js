@@ -5,7 +5,8 @@ var router = express.Router();
 var gestionuser = require('../controllers/gestionuser')
 var villeCtr = require('../controllers/villecontroller')
 var serviceCtr = require('../controllers/servicecontroller')
-var sousserviceCtr = require('../controllers/s_servicecontroller')
+var sserviceCtr = require('../controllers/sservicecontroller')
+
 
 
 
@@ -13,20 +14,19 @@ var sousserviceCtr = require('../controllers/s_servicecontroller')
 //////////////////////ici Route Sous Service /////////////////
 
 /* POST /ville  */
-router.post('/sousservice',sousserviceCtr.post);
+router.post('/sservice',sserviceCtr.post);
 
 // GET /sousservice
-router.get('/sousservice',sousserviceCtr.get);
+router.get('/sservice',sserviceCtr.get);
 
 // GET service/fjaslfj478329fsafashf2
-router.get('/sousservice/:sousserviceId',sousserviceCtr.show);
+router.get('/sservice/:sserviceId',sserviceCtr.show);
 
 // PUT sousservice/fjaslfj478329fsafashf2
-router.put('/sousservice/:sousserviceId',sousserviceCtr.put);
+router.put('/sservice/:sserviceId',sserviceCtr.put);
 
 // DELETE sousservice/fjaslfj478329fsafashf2
-router.delete('/sousservice/:sousserviceId',sousserviceCtr.delete);
-
+router.delete('/sservice/:sserviceId',sserviceCtr.delete);
 //////////////////////ici Route Service /////////////////
 
 /* POST /ville  */

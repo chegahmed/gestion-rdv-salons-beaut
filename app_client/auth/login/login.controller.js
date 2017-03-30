@@ -6,6 +6,7 @@
 
   loginCtrl.$inject = ['$location', 'authentication','$scope'];
   function loginCtrl($location, authentication,$scope) {
+    $scope.message =true;
 
     $scope.names = ["Emil", "Tobias", "Linus"];
     var vm = this;
@@ -22,7 +23,7 @@
           alert(err);
         })
         .then(function(){
-          $location.path('profile');
+          $location.path('accueil');
         });
     };
 

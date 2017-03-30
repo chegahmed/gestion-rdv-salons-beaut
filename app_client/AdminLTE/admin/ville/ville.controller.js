@@ -22,8 +22,9 @@
 
         $scope.deleteVille = function deleteVille(ville) {
             $scope.messaguser = "delete success";
-            $http.delete("/gestionusers/ville/" + ville._id).then(function () {
-                $scope.villes.pop(ville);
+            $http.delete("/gestionusers/ville/" + ville._id).success(function (response) {
+                var index = $scope.villes.indexOf(ville)
+                $scope.villes.splice( index ,1);
             })
         }
 
