@@ -11,9 +11,10 @@ var sserviceCtr = require('../controllers/sservicecontroller')
 
 
 
+
 //////////////////////ici Route Sous Service /////////////////
 
-/* POST /ville  */
+/* POST /sservice  */
 router.post('/sservice',sserviceCtr.post);
 
 // GET /sousservice

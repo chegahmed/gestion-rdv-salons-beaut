@@ -91,7 +91,7 @@
                 controllerAs: 'vm'
             })
             .when('/profile', {
-                templateUrl: 'index.html',
+                templateUrl: 'index2.html',
                 controller: 'profileCtrl',
                 controllerAs: 'vm'
             })
@@ -100,6 +100,15 @@
                 controller: 'registerCtrl',
                 controllerAs: 'vm'
             })
+            ////////////////////////////////////////here start for salone///////////////////////////////////
+            .when('/sallon', {
+                templateUrl: '/AdminLTE/sallon/rondezvous/index.view.html',
+                controller: 'rdvsallonCtrl',
+                controllerAs: 'vm'
+            })
+
+
+            ////////////////////////////////////////here End for salone/////////////////////////////////////
             .otherwise({redirectTo: '/'});
 
         // use the HTML5 History API
