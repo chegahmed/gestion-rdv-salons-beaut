@@ -2,10 +2,10 @@
 
     angular
         .module('meanApp')
-        .controller('gestionusersCtrl', gestionusersCtrl);
+        .controller('rdvsallonCtrl', rdvsallonCtrl);
 
-    gestionusersCtrl.$inject = ['$scope', '$http','$location'];
-    function gestionusersCtrl($scope, $http ,$location) {
+    rdvsallonCtrl.$inject = ['$scope', '$http','$location'];
+    function rdvsallonCtrl($scope, $http ,$location) {
 
         $scope.names = ["Emil", "Tobias", "Linus"];
         $scope.message = "hello ahmed";
@@ -21,27 +21,13 @@
         });
 
 
-
-
-
-
-
-
         $scope.deleteUser = function deleteUser(user) {
-
             $scope.messaguser = "delete success";
             $http.delete("/gestionusers/" + user._id).success(function (response) {
                 var index = $scope.users.indexOf(user)
                 $scope.users.splice( index ,1);
-                $scope.ALertSuccess(user.name +' supprimer avec success');
                 //   $scope.users.pop(user);
             })
-
-        }
-
-        $scope.ALertSuccess =function ALertSuccess(message) {
-            $scope.msgalert=message;
-            $scope.alert = true;
         }
 
 

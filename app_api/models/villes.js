@@ -6,6 +6,7 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
+
 /**
  * Validation
  */
@@ -33,10 +34,11 @@ var VilleSchema = new Schema({
     updatedAt :{type : Date , default : Date.now },
 });
 
+
 VilleSchema.statics = {
     load: function(id,cb){
         this.findOne({_id : id}).exec(cb);
     }}
 
 
-mongoose.model('Ville', VilleSchema);
+ mongoose.model('Ville', VilleSchema);

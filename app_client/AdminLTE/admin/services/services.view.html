@@ -1,4 +1,4 @@
-<div ng-include="'/AdminLTE/admin/header.html'"></div>
+<navigation></navigation>
 
 
 
@@ -9,16 +9,9 @@
 <!-- Content Header (Page header) -->
 <section class="content-header" >
     <h1>
-        Gestion Des service
-        <small ng-click="vm.onshow()">advanced tables  </small>
+        Gestion des services
     </h1>
-    <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Tables</a></li>
-        <li class="active">Data tables </li>
 
-
-    </ol>
 </section>
 
 <!-- Main content -->
@@ -31,7 +24,7 @@
 
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Gestion Des service</h3>
+                        <h3 class="box-title">Gestion des services</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -42,7 +35,7 @@
                         </form>
 
 
-                        <a class="btn btn-primary pull-right" href="/addservice">Ajouter</a>
+                        <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/addservice">Ajouter</a>
                         <table id="example1" class="table table-bordered table-striped" at-paginated at-list="list" at-config="config">
                             <thead>
                             <tr>
@@ -59,7 +52,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="service in services| filter : search| pagination: curPage * pageSize |orderBy : sortKey:reverse">
+                            <tr dir-paginate="service in services|itemsPerPage: 4| filter : search| orderBy : sortKey:reverse" >
                                 <td>{{service._id}}</td>
                                 <td>{{service.name}}</td>
                                 <td> <a href="/editservice/{{service._id}}" >
@@ -75,19 +68,8 @@
 
 
                         <!--Pagination div --->
+                        <dir-pagination-controls ng-hide="query.length>0"></dir-pagination-controls>
 
-                        <div class="pager" ng-show="services.length">
-
-                            <li> <a type="button" ng-disabled="curPage == 0"
-                                    ng-click="curPage=curPage-1">PREV</a></li>
-
-                            <span>Page {{curPage + 1}} of {{ numberOfPages() }}</span>
-
-                            <li> <a type="button"
-                                    ng-disabled="curPage >= services.length/pageSize - 1"
-                                    ng-click="curPage = curPage+1">NEXT </a></li>
-
-                        </div>
                         <!-- End Pagination div --->
                     </div>
                     <!-- /.box-body -->

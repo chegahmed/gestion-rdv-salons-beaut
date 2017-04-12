@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
 
+
 var userSchema = new mongoose.Schema({
 
     createdAt: {type: Date, default: Date.now},
@@ -26,6 +27,7 @@ var userSchema = new mongoose.Schema({
     hash: String,
     salt: String
 });
+
 
 userSchema.statics = {
     load: function(id,cb){

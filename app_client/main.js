@@ -1,6 +1,6 @@
 (function () {
 
-    angular.module('meanApp', ['ngRoute']);
+    angular.module('meanApp', ['ngRoute','angularUtils.directives.dirPagination']);
 
     function config($routeProvider, $locationProvider) {
         $routeProvider
@@ -23,6 +23,11 @@
             .when('/showuser/:id', {
                 templateUrl: '/AdminLTE/admin/gestionusers/showuser.view.html',
                 controller: 'showuserCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/adduser', {
+                templateUrl: '/AdminLTE/admin/gestionusers/adduser.view.html',
+                controller: 'adduserCtrl',
                 controllerAs: 'vm'
             })
             .when('/service', {
@@ -100,6 +105,12 @@
                 controller: 'registerCtrl',
                 controllerAs: 'vm'
             })
+            .when('/header', {
+                templateUrl: '/AdminLTE/admin/header.html',  //home/home.view.html
+                controller: 'headerAdminCtrl',
+                controllerAs: 'vm',
+
+            })
             ////////////////////////////////////////here start for salone///////////////////////////////////
             .when('/sallon', {
                 templateUrl: '/AdminLTE/sallon/rondezvous/index.view.html',
@@ -118,7 +129,7 @@
 
     function run($rootScope, $location, authentication) {
         $rootScope.$on('$routeChangeStart', function (event, nextRoute, currentRoute) {
-            if ($location.path() != '/' && !authentication.isLoggedIn()) {
+            if ($location.path() != '/register'&& !authentication.isLoggedIn()) {
                 $location.path('/');
             }
         });

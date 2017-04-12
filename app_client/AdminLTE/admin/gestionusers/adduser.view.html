@@ -1,0 +1,58 @@
+<navigation></navigation>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="box box-danger">
+            <div class="box-header">
+
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h1>Ajouter un utilisateur</h1>
+                            <form ng-submit="vm.onSubmit()">
+                                <div class="form-group">
+                                    <label for="name">Nom et prénom</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter your name" ng-model="vm.credentials.name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="vm.credentials.email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.credentials.password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Téléphone</label>
+                                    <input type="text" class="form-control" id="phoneNumber" placeholder="Enter your phoneNumber" ng-model="vm.credentials.phoneNumber">
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label>Role</label>
+                                        <select class="form-control select2" style="width: 100%;"  id="role" ng-model="vm.credentials.role">>
+                                            <option selected="selected">Admin</option>
+                                            <option>Utilisateur</option>
+                                            <option>Sallon</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="pull-right">
+                                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                                    <button type="cancel" class="btn btn-danger">Annuler</button>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

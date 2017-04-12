@@ -24,13 +24,14 @@
           alert(err);
         })
         .then(function(){
-          if( angular.equals(vm.credentials.role,"Admin")){
+          $location.path('/accueil');
+    /*      if( angular.equals(vm.credentials.role,"Admin")){
             $location.path('/accueil');  //profileuser
           } if( angular.equals(vm.credentials.role,"Utilisateur")){
             $location.path('/sallon');  //profileuser
           }else{
             $location.path('/');   //profile
-          }
+          }*/
         });
     };
 

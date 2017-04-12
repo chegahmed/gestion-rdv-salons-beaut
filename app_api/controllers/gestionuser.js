@@ -12,8 +12,16 @@ exports.post = function(req ,res){
     res.jsonp(user);
 };
 
+/*exports.get = function(req,res){
+    User.paginate({}, { offset: 20, limit: 10 },function(err,user){
+        res.jsonp(user);
+    });
+};*/
+
 exports.get = function(req,res){
+    console.log('ici nombre ')
     User.find().exec(function(err,user){
+        console.log('ici nombre 2 ')
         res.jsonp(user);
     });
 };

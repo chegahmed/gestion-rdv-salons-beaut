@@ -18,6 +18,7 @@
             $scope.messaguser="add success";
             $http.post('/gestionusers/ville/', $scope.ville)
                 .success(function (response) {
+                    alert(response.name +' a été ajoute avec succès')
                     $location.url('/ville')
                 })
                 .error(function(err){

@@ -1,4 +1,4 @@
-<div ng-include="'/AdminLTE/admin/header.html'"></div>
+<navigation></navigation>
 <div class="container">
 
     <div class="row form-center">
@@ -9,12 +9,12 @@
                     <label for="name">Nom</label>
                     <input type="text" class="form-control" id="name" placeholder="Entre Nom Ville" ng-model="ville.name">
                 </div>
-                <button type="submit" class="btn btn-default">Modifier</button>
+                <div class="pull-right">
+                    <button type="submit" class="btn btn-primary">Modifier</button>
+                    <button  class="btn btn-danger ">Annuler</button>
+                </div>
             </form>
         </div>
     </div>
 
 </div>
-
-
-ici message : {{messaguser}} and {{message}}

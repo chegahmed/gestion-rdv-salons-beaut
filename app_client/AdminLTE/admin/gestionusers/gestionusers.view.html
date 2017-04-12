@@ -1,26 +1,11 @@
-<div ng-include="'/AdminLTE/admin/header.html'"></div>
-
-
-
-
-
-
-
+<navigation></navigation>
 
 
     <!-- Content Header (Page header) -->
     <section class="content-header" >
         <h1>
-           Gestion utilisateur
-            <small ng-click="vm.onshow()">advanced tables  </small>
+           Gestions des utilisateurs
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Tables</a></li>
-            <li class="active">Data tables </li>
-
-
-        </ol>
     </section>
 
     <!-- Main content -->
@@ -33,7 +18,7 @@
 
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Gestion utilisateur</h3>
+                            <h3 class="box-title">Gestions des  utilisateurs</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -44,7 +29,15 @@
                             </form>
 
 
-                            <a class="btn btn-primary pull-right" href="/register">Ajouter</a>
+                            <div ng-show="alert==true" class="alert alert-success  col-md-6  col-md-offset-3" role="alert" >
+                                <button type="button" class="btn" ng-click="alert=false"><span aria-hidden="true">&times;
+                                  </span><span class="sr-only">Close</span></button>
+                                {{msgalert}}.
+                            </div>
+
+
+
+                            <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/adduser">Ajouter</a>
                             <table id="example1" class="table table-bordered table-striped" at-paginated at-list="list" at-config="config">
                                 <thead>
                                 <tr>
@@ -70,7 +63,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr ng-repeat="user in users| filter : search| pagination: curPage * pageSize |orderBy : sortKey:reverse">
+                                <tr  dir-paginate="user in users| itemsPerPage: 4| filter : search| orderBy : sortKey:reverse " >
                                     <td>{{user._id}}</td>
                                     <td>{{user.name}}</td>
                                     <td>{{user.email}}</td>
@@ -85,24 +78,11 @@
                                 </tr>
                                 </tfoot>
                             </table>
+                            <dir-pagination-controls ng-hide="query.length>0"></dir-pagination-controls>
 
 
 
-                            <!--Pagination div --->
 
-                            <div class="pager" ng-show="users.length">
-
-                                <li> <a type="button" ng-disabled="curPage == 0"
-                                        ng-click="curPage=curPage-1">PREV</a></li>
-
-                                <span>Page {{curPage + 1}} of {{ numberOfPages() }}</span>
-
-                                <li> <a type="button"
-                                        ng-disabled="curPage >= users.length/pageSize - 1"
-                                        ng-click="curPage = curPage+1">NEXT </a></li>
-
-                            </div>
-                            <!-- End Pagination div --->
                         </div>
                         <!-- /.box-body -->
                     </div>

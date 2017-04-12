@@ -1,32 +1,46 @@
-<div ng-include="'/AdminLTE/admin/header.html'"></div>
+<navigation></navigation>
 
 <div class="container">
 
     <div class="row form-center">
         <div class="col-md-6">
-            <h1>Update User</h1>
+            <h1>Modifier utilisateur</h1>
             <form ng-submit="updateUser()">
                 <div class="form-group">
-                    <label for="name">Full name</label>
+                    <label for="name">Nom</label>
                     <input type="text" class="form-control" id="name" placeholder="Enter your name" ng-model="user.name">
                 </div>
                 <div class="form-group">
-                    <label for="email">Email address</label>
+                    <label for="email">Email</label>
                     <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="user.email">
                 </div>
                 <div class="form-group">
-                    <label for="name">phoneNumber</label>
+                    <label for="name">Téléphone</label>
                     <input type="text"  class="form-control" id="phoneNumber" placeholder="Enter your phoneNumber" ng-model="user.phoneNumber">
                 </div>
                 <div class="form-group">
-                    <label for="name">Role</label>
-                    <input type="text" class="form-control" id="role" placeholder="Enter your role" ng-model="user.role">
+                    <div class="form-group">
+                        <label>Role</label>
+                        <select class="form-control select2" style="width: 100%;"  id="role" ng-model="user.role">>
+                            <option selected="selected">Admin</option>
+                            <option>Utilisateur</option>
+                            <option>Sallon</option>
+                        </select>
+                    </div>
+
                 </div>
-                <button type="submit" class="btn btn-default">Update !</button>
+
+
+                <div class="pull-right">
+                    <button type="submit" class="btn btn-primary">Modifier</button>
+                    <button  class="btn btn-danger ">Annuler</button>
+                </div>
+
             </form>
         </div>
     </div>
 
 </div>
+
 
 

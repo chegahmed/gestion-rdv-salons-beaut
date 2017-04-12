@@ -45,7 +45,7 @@
 
         register = function(user) {
             return $http.post('/api/register', user).success(function(data){
-                saveToken(data.token);
+                //saveToken(data.token);
             });
         };
 
@@ -70,7 +70,9 @@
 
         logout = function() {
             $window.localStorage.removeItem('mean-token');
+            $location.path('/')
         };
+
 
         return {
             currentUser : currentUser,
@@ -79,7 +81,8 @@
             isLoggedIn : isLoggedIn,
             register : register,
             login : login,
-            logout : logout
+            logout : logout,
+
         };
     }
 

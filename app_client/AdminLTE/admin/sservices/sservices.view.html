@@ -1,17 +1,16 @@
-
-
-
-
-
-
-
 <navigation></navigation>
+
+
+
+
+
 
 
 <!-- Content Header (Page header) -->
 <section class="content-header" >
     <h1>
-        Gestion des Villes
+        Gestion Des sous  service
+
     </h1>
 
 </section>
@@ -26,7 +25,7 @@
 
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Gestion des Villes</h3>
+                        <h3 class="box-title">Gestion des sous services</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -37,14 +36,17 @@
                         </form>
 
 
-                        <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/addville">Ajouter</a>
+                        <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/addsservice">Ajouter</a>
                         <table id="example1" class="table table-bordered table-striped" at-paginated at-list="list" at-config="config">
                             <thead>
                             <tr>
                                 <th ng-click="sort('_id')">_Id
                                     <span class="glyphicon sort-icon" ng-show="sortKey=='_id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                                 </th>
-                                <th ng-click="sort('name')">Ville
+                                <th ng-click="sort('service')">service
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='service'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                </th>
+                                <th ng-click="sort('name')">sous service
                                     <span class="glyphicon sort-icon" ng-show="sortKey=='name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                                 </th>
                                 <th>Modifier</th>
@@ -54,14 +56,15 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="ville in villes| filter : search| pagination: curPage * pageSize |orderBy : sortKey:reverse">
-                                <td>{{ville._id}}</td>
-                                <td>{{ville.name}}</td>
-                                <td> <a href="/editville/{{ville._id}}" >
+                            <tr dir-paginate="sservice in sservices|itemsPerPage: 4| filter : search| pagination: curPage * pageSize |orderBy : sortKey:reverse">
+                                <td>{{sservice._id}}</td>
+                                <td>{{sservice.service}}</td>
+                                <td>{{sservice.name}}</td>
+                                <td> <a href="/editsservice/{{sservice._id}}" >
                                     <span class="fa fa-fw fa-edit"></span></a></td>
-                                <td> <a href="" ng-click="deleteVille(ville)" >
+                                <td> <a href="" ng-click="deleteSservice(sservice)" >
                                     <span class="fa fa-fw fa-remove"></span></a></td>
-                                <td> <a href="/showville/{{ville._id}}" >
+                                <td> <a href="/showsservice/{{sservice._id}}" >
                                     <span class="fa fa-fw fa-eye"></span></a></td>
                             </tr>
                             </tfoot>
@@ -71,18 +74,7 @@
 
                         <!--Pagination div --->
 
-                        <div class="pager" ng-show="villes.length">
-
-                            <li> <a type="button" ng-disabled="curPage == 0"
-                                    ng-click="curPage=curPage-1">PREV</a></li>
-
-                            <span>Page {{curPage + 1}} of {{ numberOfPages() }}</span>
-
-                            <li> <a type="button"
-                                    ng-disabled="curPage >= villes.length/pageSize - 1"
-                                    ng-click="curPage = curPage+1">NEXT </a></li>
-
-                        </div>
+                        <dir-pagination-controls ></dir-pagination-controls>
                         <!-- End Pagination div --->
                     </div>
                     <!-- /.box-body -->
@@ -95,9 +87,6 @@
 
     </div>
 </section>
-
-
-
 
 
 

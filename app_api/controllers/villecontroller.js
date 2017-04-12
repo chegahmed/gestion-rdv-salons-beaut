@@ -13,10 +13,17 @@ exports.post = function(req ,res){
 
 
 
-exports.get = function(req,res){
-    Ville.find().exec(function(err,ville){
+/*exports.get = function(req,res){
+    Ville.paginate({}, { page: 1, limit: 3},function(err,ville){
         res.jsonp(ville);
     });
+};*/
+
+exports.get = function(req,res){
+    Ville.find()
+        .exec(function(err,ville){
+            res.jsonp(ville);
+        });
 };
 
 

@@ -27,7 +27,8 @@
             console.log('ici fonction update user')
             $http.put('/gestionusers/' + $scope.user._id, $scope.user)
                 .success(function (response) {
-                    $location.url('/')
+                    alert(' modifier avec succès');
+                    $location.url('/accueil')
 
                 })
         }

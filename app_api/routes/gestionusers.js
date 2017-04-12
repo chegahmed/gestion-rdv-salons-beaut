@@ -1,16 +1,21 @@
 var express = require('express');
 var router = express.Router();
-
+var jwt = require('express-jwt');
+var auth = jwt({
+    secret: 'MY_SECRET',
+    userProperty: 'payload'
+});
 
 var gestionuser = require('../controllers/gestionuser')
 var villeCtr = require('../controllers/villecontroller')
 var serviceCtr = require('../controllers/servicecontroller')
 var sserviceCtr = require('../controllers/sservicecontroller')
+var testCtr = require('../controllers/testcontroller')
 
 
 
 
-
+//router.get('/test',testCtr.get);
 
 //////////////////////ici Route Sous Service /////////////////
 
