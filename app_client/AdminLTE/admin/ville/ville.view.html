@@ -41,27 +41,24 @@
                         <table id="example1" class="table table-bordered table-striped" at-paginated at-list="list" at-config="config">
                             <thead>
                             <tr>
-                                <th ng-click="sort('_id')">_Id
-                                    <span class="glyphicon sort-icon" ng-show="sortKey=='_id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-                                </th>
+
                                 <th ng-click="sort('name')">Ville
                                     <span class="glyphicon sort-icon" ng-show="sortKey=='name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                                 </th>
-                                <th>Modifier</th>
-                                <th>Supprimer</th>
-                                <th>Afficher</th>
+                                <th>Action</th>
+
 
                             </tr>
                             </thead>
                             <tbody>
                             <tr ng-repeat="ville in villes| filter : search| pagination: curPage * pageSize |orderBy : sortKey:reverse">
-                                <td>{{ville._id}}</td>
+
                                 <td>{{ville.name}}</td>
                                 <td> <a href="/editville/{{ville._id}}" >
-                                    <span class="fa fa-fw fa-edit"></span></a></td>
-                                <td> <a href="" ng-click="deleteVille(ville)" >
-                                    <span class="fa fa-fw fa-remove"></span></a></td>
-                                <td> <a href="/showville/{{ville._id}}" >
+                                    <span class="fa fa-fw fa-edit"></span></a>
+                                 <a href="" ng-click="deleteVille(ville)" >
+                                    <span class="fa fa-fw fa-remove"></span></a>
+                                 <a href="/showville/{{ville._id}}" >
                                     <span class="fa fa-fw fa-eye"></span></a></td>
                             </tr>
                             </tfoot>

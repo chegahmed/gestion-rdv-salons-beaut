@@ -1,0 +1,30 @@
+<navigation></navigation>
+<!-- Main content -->
+<section class="content ">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Les Informations de catégorie  {{categorie.name}}  : </h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-bordered">
+
+                        <tr>
+                            <th>Nom</th>
+                            <td>{{categorie.name}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Image Catégorie</th>
+                            <td ><img width="13%"  class="img-responsive img-thumbnail "  alt="Cinque Terre" src="./uploads/{{categorie.image}}"></td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</section>

@@ -29,7 +29,7 @@
             console.log('ici fonction update user');
             $http.put('/gestionusers/ville/' + $scope.ville._id, $scope.ville)
                 .success(function (response) {
-                    alert(response.name +' modifier avec succès');
+                    sweetAlert("félicitation...", "la ville est Modifier avec success", "success");
                     $location.url('/ville')
                 })
         }

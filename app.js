@@ -14,17 +14,20 @@ var bodyParser = require('body-parser');
 // [SH] Require Passport
 var passport = require('passport');
 
+
+
 // [SH] Bring in the data model
 require('./app_api/models/db');
 // [SH] Bring in the Passport config after model is defined
 require('./app_api/config/passport');
 
 
+
 // [SH] Bring in the routes for the API (delete the default routes)
 var routesApi = require('./app_api/routes/index');
 
 var app = express();
-
+//app.use(express.bodyParser({uploadDir:'./public/upload/'}));
 
 var gestionusers= require('./app_api/routes/gestionusers');
 // view engine setup

@@ -24,16 +24,9 @@
                         <div class="box-body">
                             <form class="form-inline">
                                 <div class="form-group">
-                                    <input type="text" ng-model="search" class="form-control" placeholder="Search">
+                                    <input type="text" ng-model="search" ng-keyup="showSearch(search)" class="form-control" placeholder="Search">
                                 </div>
                             </form>
-
-
-                            <div ng-show="alert==true" class="alert alert-success  col-md-6  col-md-offset-3" role="alert" >
-                                <button type="button" class="btn" ng-click="alert=false"><span aria-hidden="true">&times;
-                                  </span><span class="sr-only">Close</span></button>
-                                {{msgalert}}.
-                            </div>
 
 
 
@@ -41,9 +34,6 @@
                             <table id="example1" class="table table-bordered table-striped" at-paginated at-list="list" at-config="config">
                                 <thead>
                                 <tr>
-                                    <th ng-click="sort('_id')">_Id
-                                        <span class="glyphicon sort-icon" ng-show="sortKey=='_id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-                                    </th>
                                     <th ng-click="sort('name')">Nom
                                         <span class="glyphicon sort-icon" ng-show="sortKey=='name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                                     </th>
@@ -56,30 +46,28 @@
                                     <th ng-click="sort('role')">Role
                                         <span class="glyphicon sort-icon" ng-show="sortKey=='role'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                                     </th>
-                                    <th>Modifier</th>
-                                    <th>Supprimer</th>
-                                    <th>Afficher</th>
+                                    <th>Action</th>
 
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr  dir-paginate="user in users| itemsPerPage: 4| filter : search| orderBy : sortKey:reverse " >
-                                    <td>{{user._id}}</td>
+                                <tr  dir-paginate="user in users| itemsPerPage: 4| orderBy : sortKey:reverse " >
                                     <td>{{user.name}}</td>
                                     <td>{{user.email}}</td>
                                     <td>{{user.phoneNumber}}</td>
                                     <td>{{user.role}}</td>
                                     <td> <a href="/edituser/{{user._id}}" >
-                                        <span class="fa fa-fw fa-edit"></span></a></td>
-                                    <td> <a href="" ng-click="deleteUser(user)">
-                                        <span class="fa fa-fw fa-remove"></span></a></td>
-                                    <td> <a href="/showuser/{{user._id}}" >
+                                        <span class="fa fa-fw fa-edit"></span></a>
+                                   <a href="" ng-click="deleteUser(user)">
+                                        <span class="fa fa-fw fa-remove"></span></a>
+                                    <a href="/showuser/{{user._id}}" >
                                         <span class="fa fa-fw fa-eye"></span></a></td>
                                 </tr>
                                 </tfoot>
                             </table>
+                            <div class="text-center">
                             <dir-pagination-controls ng-hide="query.length>0"></dir-pagination-controls>
-
+                            </div>
 
 
 

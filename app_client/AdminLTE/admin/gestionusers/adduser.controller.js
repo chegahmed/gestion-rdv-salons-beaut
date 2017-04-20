@@ -17,14 +17,14 @@
         };
 
         vm.onSubmit = function () {
-            console.log('Submitting registration');
+
             authentication
                 .register(vm.credentials)
                 .error(function(err){
                     alert(err);
                 })
-                .then(function(){
-                    alert(vm.credentials.name+' a été ajoute avec succès')
+                .success(function(){
+                    sweetAlert("félicitation...", vm.credentials.name+' a été ajoute avec succès', "success");
                     $location.path('/accueil');
                     /*      if( angular.equals(vm.credentials.role,"Admin")){
                      $location.path('/accueil');  //profileuser

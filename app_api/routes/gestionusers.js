@@ -6,16 +6,38 @@ var auth = jwt({
     userProperty: 'payload'
 });
 
-var gestionuser = require('../controllers/gestionuser')
-var villeCtr = require('../controllers/villecontroller')
-var serviceCtr = require('../controllers/servicecontroller')
-var sserviceCtr = require('../controllers/sservicecontroller')
-var testCtr = require('../controllers/testcontroller')
+
+
+
+var gestionuser = require('./gestionuser')
+var villeCtr = require('./villeController')
+var categorieCtr = require('./categoriecontroller')
+var sserviceCtr = require('./sservicecontroller')
+var salonCtr = require('./salonController')
 
 
 
 
-//router.get('/test',testCtr.get);
+
+//////////////////////ici Route Salon /////////////////
+
+/* POST /user  */
+router.post('/salon',salonCtr.post);
+
+// GET /user
+router.get('/salon',salonCtr.get);
+
+// GET user/fjaslfj478329fsafashf2
+router.get('/salon/:salonId',salonCtr.show);
+
+// PUT user/fjaslfj478329fsafashf2
+router.put('/salon/:salonId',salonCtr.put);
+
+// DELETE user/fjaslfj478329fsafashf2
+router.delete('/salon/:salonId',salonCtr.delete);
+
+/// get
+router.get('/salonsearch/:q',salonCtr.search);
 
 //////////////////////ici Route Sous Service /////////////////
 
@@ -33,22 +55,39 @@ router.put('/sservice/:sserviceId',sserviceCtr.put);
 
 // DELETE sousservice/fjaslfj478329fsafashf2
 router.delete('/sservice/:sserviceId',sserviceCtr.delete);
-//////////////////////ici Route Service /////////////////
 
-/* POST /ville  */
-router.post('/service',serviceCtr.post);
+router.get('/sservicesearch/:q',sserviceCtr.search);
+//////////////////////ici Route Categorie /////////////////
 
-// GET /service
-router.get('/service',serviceCtr.get);
+/* POST /categorie  */
+router.post('/categorie',categorieCtr.post);
 
-// GET service/fjaslfj478329fsafashf2
-router.get('/service/:serviceId',serviceCtr.show);
+// GET /categorie
+router.get('/categorie',categorieCtr.getCategorie);
 
-// PUT service/fjaslfj478329fsafashf2
-router.put('/service/:serviceId',serviceCtr.put);
+// GET categorie/fjaslfj478329fsafashf2
+router.get('/categoriesearch/:q',categorieCtr.search);
 
-// DELETE service/fjaslfj478329fsafashf2
-router.delete('/service/:serviceId',serviceCtr.delete);
+// GET categorie/fjaslfj478329fsafashf2
+router.get('/categorie/:categorieId',categorieCtr.show);
+
+// PUT categorie/fjaslfj478329fsafashf2
+router.put('/categorie/:categorieId',categorieCtr.put);
+
+// PUT categorie/fjaslfj478329fsafashf2
+router.put('/categoriepm/:categorieId',categorieCtr.putcatgwithimg);
+
+
+// DELETE categorie/fjaslfj478329fsafashf2
+router.delete('/categorie/:categorieId',categorieCtr.delete);
+
+
+/*******pour sous categorie ******/
+// GET /souscategorie
+router.get('/souscategorie',categorieCtr.getSousCategorie);
+
+// GET souscategoriesearch/fjaslfj478329fsafashf2
+router.get('/souscategoriesearch/:q',categorieCtr.searchscatg);
 
 //////////////////////ici Route Ville /////////////////
 
@@ -67,6 +106,8 @@ router.put('/ville/:villeId',villeCtr.put);
 // DELETE ville/fjaslfj478329fsafashf2
 router.delete('/ville/:villeId',villeCtr.delete);
 
+router.get('/villesearch/:q',villeCtr.search);
+
 //////////////////////ici Route USERS /////////////////
 
 /* POST /user  */
@@ -84,8 +125,8 @@ router.put('/:userId',gestionuser.put);
 // DELETE user/fjaslfj478329fsafashf2
 router.delete('/:userId',gestionuser.delete);
 
-
-
+/// get
+router.get('/usersearch/:q',gestionuser.search);
 
 
 module.exports = router;

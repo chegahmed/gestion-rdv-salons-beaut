@@ -6,11 +6,11 @@ var auth = jwt({
     userProperty: 'payload'
 });
 
-var ctrlProfile = require('../controllers/profile');
-var ctrlAuth = require('../controllers/authentication');
+//var ctrlProfile = require('../controllerss/profile');
+var ctrlAuth = require('./authentication');
 
 // profile
-router.get('/profile', auth, ctrlProfile.profileRead);
+//router.get('/profile', auth, ctrlProfile.profileRead);
 
 // authentication
 router.post('/register', ctrlAuth.register);

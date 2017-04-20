@@ -1,6 +1,6 @@
 (function () {
 
-    angular.module('meanApp', ['ngRoute','angularUtils.directives.dirPagination']);
+    angular.module('meanApp', ['ngRoute','angularUtils.directives.dirPagination','ngFileUpload']);
 
     function config($routeProvider, $locationProvider) {
         $routeProvider
@@ -30,24 +30,44 @@
                 controller: 'adduserCtrl',
                 controllerAs: 'vm'
             })
-            .when('/service', {
-                templateUrl: '/AdminLTE/admin/services/services.view.html',
-                controller: 'servicesCtrl',
+            .when('/categorie', {
+                templateUrl: '/AdminLTE/admin/categorie/categorie.view.html',
+                controller: 'categorieCtrl',
+                controllerAs: 'up'
+            })
+            .when('/addcategorie', {
+                templateUrl: '/AdminLTE/admin/categorie/addcategorie.view.html',
+                controller: 'addcategorieCtrl',
                 controllerAs: 'vm'
             })
-            .when('/addservice', {
-                templateUrl: '/AdminLTE/admin/services/addservice.view.html',
-                controller: 'addserviceCtrl',
+            .when('/editcategorie/:id', {
+                templateUrl: '/AdminLTE/admin/categorie/editcategorie.view.html',
+                controller: 'editcategorieCtrl',
                 controllerAs: 'vm'
             })
-            .when('/editservice/:id', {
-                templateUrl: '/AdminLTE/admin/services/editservice.view.html',
-                controller: 'editserviceCtrl',
+            .when('/showcategorie/:id', {
+                templateUrl: '/AdminLTE/admin/categorie/showcategorie.view.html',
+                controller: 'showcategorieCtrl',
                 controllerAs: 'vm'
             })
-            .when('/showservice/:id', {
-                templateUrl: '/AdminLTE/admin/services/showservice.view.html',
-                controller: 'showserviceCtrl',
+            .when('/souscategorie', {
+                templateUrl: '/AdminLTE/admin/souscategorie/souscategorie.view.html',
+                controller: 'souscategorieCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/addsouscategorie', {
+                templateUrl: '/AdminLTE/admin/souscategorie/addsouscategorie.view.html',
+                controller: 'addsouscategorieCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/showsouscategorie/:id', {
+                templateUrl: '/AdminLTE/admin/souscategorie/showsouscategorie.view.html',
+                controller: 'showsouscategorieCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/editsouscategorie/:id', {
+                templateUrl: '/AdminLTE/admin/souscategorie/editsouscategorie.view.html',
+                controller: 'editsouscategorieCtrl',
                 controllerAs: 'vm'
             })
             .when('/ville', {

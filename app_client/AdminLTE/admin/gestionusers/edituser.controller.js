@@ -23,11 +23,10 @@
         });
 
         $scope.updateUser = function () {
-            $scope.messaguser="update success";
-            console.log('ici fonction update user')
+
             $http.put('/gestionusers/' + $scope.user._id, $scope.user)
                 .success(function (response) {
-                    alert(' modifier avec succès');
+                    sweetAlert("félicitation...", "Modifier avec success", "success");
                     $location.url('/accueil')
 
                 })

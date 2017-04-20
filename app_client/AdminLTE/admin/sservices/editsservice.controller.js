@@ -33,11 +33,9 @@
 
 
         $scope.updateSservice = function () {
-            $scope.messaguser="update success";
-            console.log('ici fonction update ');
             $http.put('/gestionusers/sservice/' + $scope.sservice._id, $scope.sservice)
                 .success(function (response) {
-                    alert(response.name +' modifier avec succès');
+                    sweetAlert("félicitation...", "Votre sous service Modifier avec success", "success");
                     $location.url('/sservice')
                 })
         }

@@ -1,0 +1,35 @@
+<navigation></navigation>
+<!-- Main content -->
+<section class="content ">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Les Informations de Sous catégorie  {{souscategorie.name}}  : </h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-bordered">
+
+                        <tr>
+                            <th>Catégorie</th>
+                            <td ng-repeat="catg in catgs" ng-if="catg._id==souscategorie.parent">{{catg.name}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Sous Catégorie</th>
+                            <td>{{souscategorie.name}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Image Catégorie</th>
+                            <td ><img width="13%"  class="img-responsive img-thumbnail "  alt="Cinque Terre" src="./uploads/{{souscategorie.image}}"></td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</section>

@@ -40,31 +40,27 @@
                         <table id="example1" class="table table-bordered table-striped" at-paginated at-list="list" at-config="config">
                             <thead>
                             <tr>
-                                <th ng-click="sort('_id')">_Id
-                                    <span class="glyphicon sort-icon" ng-show="sortKey=='_id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-                                </th>
+
                                 <th ng-click="sort('service')">service
                                     <span class="glyphicon sort-icon" ng-show="sortKey=='service'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                                 </th>
                                 <th ng-click="sort('name')">sous service
                                     <span class="glyphicon sort-icon" ng-show="sortKey=='name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                                 </th>
-                                <th>Modifier</th>
-                                <th>Supprimer</th>
-                                <th>Afficher</th>
+                                <th>Action</th>
+
 
                             </tr>
                             </thead>
                             <tbody>
                             <tr dir-paginate="sservice in sservices|itemsPerPage: 4| filter : search| pagination: curPage * pageSize |orderBy : sortKey:reverse">
-                                <td>{{sservice._id}}</td>
                                 <td>{{sservice.service}}</td>
                                 <td>{{sservice.name}}</td>
                                 <td> <a href="/editsservice/{{sservice._id}}" >
-                                    <span class="fa fa-fw fa-edit"></span></a></td>
-                                <td> <a href="" ng-click="deleteSservice(sservice)" >
-                                    <span class="fa fa-fw fa-remove"></span></a></td>
-                                <td> <a href="/showsservice/{{sservice._id}}" >
+                                    <span class="fa fa-fw fa-edit"></span></a>
+                                <a href="" ng-click="deleteSservice(sservice)" >
+                                    <span class="fa fa-fw fa-remove"></span></a>
+                                 <a href="/showsservice/{{sservice._id}}" >
                                     <span class="fa fa-fw fa-eye"></span></a></td>
                             </tr>
                             </tfoot>
@@ -74,7 +70,9 @@
 
                         <!--Pagination div --->
 
-                        <dir-pagination-controls ></dir-pagination-controls>
+                        <div class="text-center">
+                            <dir-pagination-controls></dir-pagination-controls>
+                        </div>
                         <!-- End Pagination div --->
                     </div>
                     <!-- /.box-body -->
