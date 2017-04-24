@@ -2,18 +2,18 @@
 
     angular
         .module('meanApp')
-        .controller('addsserviceCtrl', addsserviceCtrl);
+        .controller('addserviceCtrl', addserviceCtrl);
 
-    addsserviceCtrl.$inject = ['$scope', '$http', '$location', '$routeParams'];
-    function addsserviceCtrl($scope, $http, $location, $routeParams) {
+    addserviceCtrl.$inject = ['$scope', '$http', '$location', '$routeParams'];
+    function addserviceCtrl($scope, $http, $location, $routeParams) {
         $scope.message = "hello ahmed";
 
 
         $http({
             method: 'GET',
-            url: '/gestionusers/service'
+            url: '/gestionusers/souscategorie'
         }).success(function (data) {
-            $scope.services = data; // response data
+            $scope.scatgs = data; // response data
             console.log(data)
         });
 
@@ -25,15 +25,15 @@
         vm.onSubmit = function () {
             console.log('Submitting registration');
             $scope.messaguser="add success";
-            $http.post('/gestionusers/sservice/', $scope.sservice)
+            $http.post('/gestionusers/service/', $scope.service)
                 .success(function (response) {
-                    $location.url('/sservice')
+                    $location.url('/service')
                 })
                 .error(function(err){
                     alert(err);
                 })
                 .then(function(){
-                    $location.path('/sservice');
+                    $location.path('/service');
                 });
         };
 

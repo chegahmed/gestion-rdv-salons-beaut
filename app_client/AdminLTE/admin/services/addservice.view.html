@@ -4,16 +4,16 @@
 
     <div class="row">
         <div class="col-md-6">
-            <h1>Ajouter Sous service</h1>
+            <h1>Ajouter  service</h1>
             <form ng-submit="vm.onSubmit()">
                 <div class="form-group">
-                    <label for="name">Entre Nom de sous service :</label>
-                    <input type="text" class="form-control" id="name" placeholder="Entrer Nom sous service" ng-model="sservice.name">
+                    <label for="name">Entre Nom de service :</label>
+                    <input type="text" class="form-control" id="name" placeholder="Entrer Nom sous service" ng-model="service.name">
                 </div>
                 <div class="form-group">
-                    <label>Service</label>
-                    <select class="form-control select2" style="width: 100%;"  id="sservice" ng-model="sservice.service">>
-                        <option ng-repeat="service in services">{{service.name}}</option>
+                    <label>Sous Catégorie associée </label>
+                    <select class="form-control select2" style="width: 100%;"  id="parent" ng-model="service.parent">
+                        <option ng-repeat="scatg in scatgs" value="{{scatg._id}}">{{scatg.name}}</option>
                     </select>
                 </div>
                 <div class="pull-right">

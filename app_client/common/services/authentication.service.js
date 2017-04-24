@@ -60,12 +60,12 @@
                 console.log("ici role :" + payload.role)
                 if(payload.role =='Admin'){
                     $location.path('accueil')
-                }else if(payload.role =='Sallon'){
-                    $location.path('sallon')
-                }else if(payload.role =='Utilisateur'){
+                }else if(payload.role =='Responsable-Sallon'){
+                    $location.path('salon')
+                }else if(payload.role =='Client'){
+                    console.log('ici Espace Client')
                     $location.path('/')
                 }
-
             });
         };
 

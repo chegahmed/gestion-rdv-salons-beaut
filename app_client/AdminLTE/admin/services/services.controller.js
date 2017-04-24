@@ -2,10 +2,10 @@
 
     angular
         .module('meanApp')
-        .controller('sservicesCtrl', sservicesCtrl);
+        .controller('servicesCtrl', servicesCtrl);
 
-    sservicesCtrl.$inject = ['$scope', '$http'];
-    function sservicesCtrl($scope, $http) {
+    servicesCtrl.$inject = ['$scope', '$http'];
+    function servicesCtrl($scope, $http) {
 
         $scope.names = ["Emil", "Tobias", "Linus"];
         $scope.message = "hello ahmed";
@@ -13,13 +13,13 @@
 
         $http({
             method: 'GET',
-            url: '/gestionusers/sservice'
+            url: '/gestionusers/service'
         }).success(function (data) {
-            $scope.sservices = data; // response data
+            $scope.services = data; // response data
             console.log(data)
         });
 
-        $scope.deleteSservice = function deletesservice(service) {
+        $scope.deleteService = function deleteservice(service) {
             swal({
                 title: "vous êtes sûr ?",
                 text: "Êtes-vous sûr de vouloir supprimer cette sous catégorie ?",
@@ -30,9 +30,9 @@
                 confirmButtonColor: "#ec6c62"
             }, function() {
 
-                $http.delete("/gestionusers/sservice/" + service._id).success(function (response) {
-                    var index = $scope.sservices.indexOf(service)
-                    $scope.sservices.splice( index ,1);
+                $http.delete("/gestionusers/service/" + service._id).success(function (response) {
+                    var index = $scope.services.indexOf(service)
+                    $scope.services.splice( index ,1);
                     swal("Supprimer!", "sous catégorie a été supprimé avec succès!", "success");
                 }).error(function (response) {
                     swal("Oops", "We couldn't connect to the server!", "error");

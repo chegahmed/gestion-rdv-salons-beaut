@@ -3,22 +3,22 @@
 
     <div class="row form-center">
         <div class="col-md-6">
-            <h1>Modifier Sous Service</h1>
-            <form ng-submit="updateSservice()">
+            <h1>Modifier Service</h1>
+            <form ng-submit="updateService()">
                 <div class="form-group">
                     <label for="name">Nom Sous Service</label>
-                    <input type="text" class="form-control" id="name" placeholder="Entre Nom Sous Service" ng-model="sservice.name">
+                    <input type="text" class="form-control" id="name" placeholder="Entre Nom Sous Service" ng-model="service.name">
                 </div>
                 <div class="form-group">
                     <label>Service</label>
-                    <select class="form-control select2" style="width: 100%;" ng-model="sservice.service">
+                    <select class="form-control select2" style="width: 100%;" ng-model="service.service">
                         <option  ng-repeat="service in services">{{service.name}}</option>
                     </select>
 
                 </div>
                 <div class="pull-right">
                     <button type="submit" class="btn btn-primary">Modifier</button>
-                    <button type="reset" class="btn btn-danger ">Annuler</button>
+                    <button  onclick="history.go(-1)" class="btn btn-danger ">Retour</button>
                 </div>
             </form>
         </div>

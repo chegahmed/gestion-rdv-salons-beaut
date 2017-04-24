@@ -24,12 +24,11 @@ var SalonSchema = new Schema({
         type: String,
         default: '',
         trim: true
-
     },
     description: {
         type: String,
         default: '',
-       // trim: true
+        // trim: true
 
     },
     ville: {
@@ -38,13 +37,12 @@ var SalonSchema = new Schema({
         trim: true
     },
     categorie: {
-        type: String,
-        default: '',
-        trim: true
+        type: [],
+        trim: true,
+
     },
-    service: {
-        type: String,
-        default: '',
+    scategorie: {
+        type: [],
         trim: true
     },
     idresponsable: {

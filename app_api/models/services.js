@@ -18,21 +18,22 @@ function validateLength (v) {
 /**
  * Service Schema
  */
-var SserviceSchema = new Schema({
+var ServiceSchema = new Schema({
     name: {
         type: String
     },
-    service: {
-        type: String
+    parent: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: '_id'
     },
     createdAt :{type : Date , default : Date.now },
     updatedAt :{type : Date , default : Date.now }
 });
 
-SserviceSchema.statics = {
+ServiceSchema.statics = {
     load: function(id,cb){
         this.findOne({_id : id}).exec(cb);
     }}
 
 
-mongoose.model('Sservice', SserviceSchema);
+mongoose.model('Service', ServiceSchema);

@@ -9,11 +9,11 @@ var auth = jwt({
 
 
 
-var gestionuser = require('./gestionuser')
-var villeCtr = require('./villeController')
-var categorieCtr = require('./categoriecontroller')
-var sserviceCtr = require('./sservicecontroller')
-var salonCtr = require('./salonController')
+var gestionuser = require('../controllers/gestionuser')
+var villeCtr = require('../controllers/villeController')
+var categorieCtr = require('../controllers/categoriecontroller')
+var serviceCtr = require('../controllers/servicecontroller')
+var salonCtr = require('../controllers/salonController')
 
 
 
@@ -41,22 +41,22 @@ router.get('/salonsearch/:q',salonCtr.search);
 
 //////////////////////ici Route Sous Service /////////////////
 
-/* POST /sservice  */
-router.post('/sservice',sserviceCtr.post);
+/* POST /service  */
+router.post('/service',serviceCtr.post);
 
-// GET /sousservice
-router.get('/sservice',sserviceCtr.get);
+// GET /souservice
+router.get('/service',serviceCtr.get);
 
 // GET service/fjaslfj478329fsafashf2
-router.get('/sservice/:sserviceId',sserviceCtr.show);
+router.get('/service/:serviceId',serviceCtr.show);
 
-// PUT sousservice/fjaslfj478329fsafashf2
-router.put('/sservice/:sserviceId',sserviceCtr.put);
+// PUT souservice/fjaslfj478329fsafashf2
+router.put('/service/:serviceId',serviceCtr.put);
 
-// DELETE sousservice/fjaslfj478329fsafashf2
-router.delete('/sservice/:sserviceId',sserviceCtr.delete);
+// DELETE souservice/fjaslfj478329fsafashf2
+router.delete('/service/:serviceId',serviceCtr.delete);
 
-router.get('/sservicesearch/:q',sserviceCtr.search);
+router.get('/servicesearch/:q',serviceCtr.search);
 //////////////////////ici Route Categorie /////////////////
 
 /* POST /categorie  */

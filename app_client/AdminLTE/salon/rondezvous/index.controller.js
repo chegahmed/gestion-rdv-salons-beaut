@@ -2,10 +2,10 @@
 
     angular
         .module('meanApp')
-        .controller('rdvsallonCtrl', rdvsallonCtrl);
+        .controller('rdvsalonCtrl', rdvsalonCtrl);
 
-    rdvsallonCtrl.$inject = ['$scope', '$http','$location'];
-    function rdvsallonCtrl($scope, $http ,$location) {
+    rdvsalonCtrl.$inject = ['$scope', '$http','$location'];
+    function rdvsalonCtrl($scope, $http ,$location) {
 
         $scope.names = ["Emil", "Tobias", "Linus"];
         $scope.message = "hello ahmed";
