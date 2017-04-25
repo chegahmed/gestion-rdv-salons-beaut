@@ -26,9 +26,10 @@
 
         $http({
             method: 'GET',
-            url: '/gestionusers/service/'
-        }).success(function (dataa) {
-            $scope.services = dataa; // response data
+            url: '/gestionusers/categandscatg'
+        }).success(function (data) {
+            $scope.catgs = data; // response data
+            console.log(data)
         });
 
 

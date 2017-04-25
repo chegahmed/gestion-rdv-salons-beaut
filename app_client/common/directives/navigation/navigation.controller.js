@@ -14,6 +14,7 @@
     vm.currentUser = authentication.currentUser();
 
 
+
     vm.logout =function logout() {
       authentication.logout()
           .error(function(err){

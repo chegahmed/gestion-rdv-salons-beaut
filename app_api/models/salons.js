@@ -40,6 +40,7 @@ var SalonSchema = new Schema({
         type: [],
         trim: true,
 
+
     },
     scategorie: {
         type: [],

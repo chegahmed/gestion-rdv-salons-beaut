@@ -80,6 +80,12 @@ exports.getSousCategorie = function(req,res){
     });
 };
 
+exports.getAll = function(req,res){
+    Categorie.find().exec(function(err,categorie){
+        res.jsonp(categorie);
+    });
+};
+
 
 
 exports.search = function(req,res){

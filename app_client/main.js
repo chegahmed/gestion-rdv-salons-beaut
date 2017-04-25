@@ -156,6 +156,18 @@
                 controller: 'showsalonCtrl',
                 controllerAs: 'vm'
             })
+            .when('/profilesalon/:id', {
+                templateUrl: '/AdminLTE/salon/profile/profile.view.html',
+                controller: 'profileCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/editprofilesalon/:id', {
+                templateUrl: '/AdminLTE/salon/profile/editprofile.view.html',
+                controller: 'editprofilesalonCtrl',
+                controllerAs: 'vm'
+            })
+
+
 
 
 

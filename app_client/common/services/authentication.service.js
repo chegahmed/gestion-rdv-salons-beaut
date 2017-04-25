@@ -38,7 +38,9 @@
                 payload = JSON.parse(payload);
                 return {
                     email : payload.email,
-                    name : payload.name
+                    name : payload.name,
+                    role : payload.role,
+                    id : payload._id
                 };
             }
         };
@@ -61,7 +63,8 @@
                 if(payload.role =='Admin'){
                     $location.path('accueil')
                 }else if(payload.role =='Responsable-Sallon'){
-                    $location.path('salon')
+                    console.log('id : '+payload._id+'name : '+payload.name+'role : '+payload.role);
+                    $location.path('profilesalon/'+payload._id)
                 }else if(payload.role =='Client'){
                     console.log('ici Espace Client')
                     $location.path('/')
@@ -71,7 +74,9 @@
 
         logout = function() {
             $window.localStorage.removeItem('mean-token');
-            $location.path('/')
+
+            $window.location.reload()
+            $location.path('/');
         };
 
 

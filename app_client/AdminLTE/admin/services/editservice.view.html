@@ -12,13 +12,13 @@
                 <div class="form-group">
                     <label>Service</label>
                     <select class="form-control select2" style="width: 100%;" ng-model="service.service">
-                        <option  ng-repeat="service in services">{{service.name}}</option>
+                        <option  ng-repeat="catg in catgs">{{catg.name}}</option>
                     </select>
 
                 </div>
                 <div class="pull-right">
                     <button type="submit" class="btn btn-primary">Modifier</button>
-                    <button  onclick="history.go(-1)" class="btn btn-danger ">Retour</button>
+
                 </div>
             </form>
         </div>

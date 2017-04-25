@@ -26,7 +26,7 @@
             if(value==""){
                 $http({
                     method: 'GET',
-                    url: '/gestionsalon'
+                    url: '/gestionusers/salon'
                 }).success(function (data) {
                     $scope.salons = data; // response data
                 }).error(function (response) {

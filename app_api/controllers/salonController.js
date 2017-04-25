@@ -5,6 +5,7 @@ var Salon=mongoose.model("Salon");
 
 
 
+
 exports.post = function(req ,res){
     var salon = new Salon(req.body);
     salon.save();
@@ -23,6 +24,10 @@ exports.get = function(req,res){
         res.jsonp(salon);
     });
 };
+
+
+
+
 
 exports.show = function(req,res){
     Salon.load(req.params.salonId, function(err,salon){

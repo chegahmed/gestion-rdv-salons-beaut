@@ -11,9 +11,9 @@
 
         $http({
             method: 'GET',
-            url: '/gestionusers/souscategorie'
+            url: '/gestionusers/categandscatg'
         }).success(function (data) {
-            $scope.scatgs = data; // response data
+            $scope.catgs = data; // response data
             console.log(data)
         });
 

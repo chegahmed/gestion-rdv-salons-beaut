@@ -20,6 +20,8 @@ exports.post = function(req ,res){
     });
 };*/
 
+
+
 exports.search = function(req,res){
     User.find({name : {'$regex': req.params.q}}, function(err,user){
         res.jsonp(user);

@@ -21,19 +21,20 @@ var salonCtr = require('../controllers/salonController')
 
 //////////////////////ici Route Salon /////////////////
 
-/* POST /user  */
+/* POST /salon  */
 router.post('/salon',salonCtr.post);
 
-// GET /user
+// GET /salon
 router.get('/salon',salonCtr.get);
 
-// GET user/fjaslfj478329fsafashf2
+
+// GET salon/fjaslfj478329fsafashf2
 router.get('/salon/:salonId',salonCtr.show);
 
-// PUT user/fjaslfj478329fsafashf2
+// PUT salon/fjaslfj478329fsafashf2
 router.put('/salon/:salonId',salonCtr.put);
 
-// DELETE user/fjaslfj478329fsafashf2
+// DELETE salon/fjaslfj478329fsafashf2
 router.delete('/salon/:salonId',salonCtr.delete);
 
 /// get
@@ -82,6 +83,11 @@ router.put('/categoriepm/:categorieId',categorieCtr.putcatgwithimg);
 router.delete('/categorie/:categorieId',categorieCtr.delete);
 
 
+// GET getAll catg and scatg
+router.get('/categandscatg',categorieCtr.getAll);
+
+
+
 /*******pour sous categorie ******/
 // GET /souscategorie
 router.get('/souscategorie',categorieCtr.getSousCategorie);
@@ -115,6 +121,8 @@ router.post('/',gestionuser.post);
 
 // GET /user
 router.get('/',gestionuser.get);
+
+
 
 // GET user/fjaslfj478329fsafashf2
 router.get('/:userId',gestionuser.show);

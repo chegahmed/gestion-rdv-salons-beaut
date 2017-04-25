@@ -55,7 +55,7 @@
                             <tbody>
                             <tr dir-paginate="service in services|itemsPerPage: 4| filter : search| pagination: curPage * pageSize |orderBy : sortKey:reverse">
                                 <td>{{service.name}}</td>
-                                <td>{{service.name}}</td>
+                                <td ng-repeat="catg in catgs" ng-if="catg._id == service.parent">{{catg.name}}</td>
                                 <td> <a href="/editservice/{{service._id}}" >
                                     <span class="fa fa-fw fa-edit"></span></a>
                                 <a href="" ng-click="deleteService(service)" >
@@ -85,8 +85,6 @@
 
     </div>
 </section>
-
-
 
 
 

@@ -7,9 +7,15 @@
     servicesCtrl.$inject = ['$scope', '$http'];
     function servicesCtrl($scope, $http) {
 
-        $scope.names = ["Emil", "Tobias", "Linus"];
-        $scope.message = "hello ahmed";
 
+
+        $http({
+            method: 'GET',
+            url: '/gestionusers/categandscatg'
+        }).success(function (data) {
+            $scope.catgs = data; // response data
+            console.log(data)
+        });
 
         $http({
             method: 'GET',
@@ -42,15 +48,6 @@
 
         }
 
-
-
-
-
-        //ici pour serche
-        $scope.sort = function (keyname) {
-            $scope.sortKey = keyname;
-            $scope.reverse = !$scope.reverse;
-        }
     }
 })();
 
