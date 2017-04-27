@@ -25,6 +25,13 @@ exports.get = function(req,res){
     });
 };
 
+exports.getAllMySallon = function(req,res){
+    Salon.find({idresponsable : req.params.salonId}).exec(function(err,salon){
+        res.jsonp(salon);
+    });
+};
+
+
 
 
 
@@ -34,6 +41,22 @@ exports.show = function(req,res){
         res.jsonp(salon);
     });
 };
+
+
+/*exports.put = function(req,res){
+
+    Salon.findOne({_id : req.params.salonId},function(err,salon){
+        salon.scategorie.splice(0,salon.scategorie.length)
+        salon = _.extend(salon, req.body);
+
+       // salon.categorie.push(req.body.categorie)
+      //  salon.scategorie.set(req.body.scategorie)
+
+        salon.save(function(err){
+            res.jsonp(salon);
+        });
+    });
+};*/
 
 
 exports.put = function(req,res){

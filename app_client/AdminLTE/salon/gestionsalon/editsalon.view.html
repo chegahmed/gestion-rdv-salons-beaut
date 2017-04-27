@@ -27,7 +27,7 @@
                     <label > Sous Catégorie :</label>
                     <select ng-multiple="true" multiple  ng-selected="salon.scategorie" class="form-control" ng-model="salon.scategorie">
                         <optgroup ng-repeat="catg in catgs" label="{{catg.name}}">
-                            <option ng-repeat="scatg in scatgs">{{scatg.name}}</option>
+                            <option ng-repeat="scatg in scatgs" ng-if="scatg.parent == catg._id">{{scatg.name}}</option>
                         </optgroup>
                     </select>
                 </div>

@@ -51,7 +51,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="ville in villes| filter : search| pagination: curPage * pageSize |orderBy : sortKey:reverse">
+                            <tr dir-paginate="ville in villes| itemsPerPage: 4| filter : search|orderBy : sortKey:reverse">
 
                                 <td>{{ville.name}}</td>
                                 <td> <a href="/editville/{{ville._id}}" >
@@ -67,18 +67,8 @@
 
 
                         <!--Pagination div --->
-
-                        <div class="pager" ng-show="villes.length">
-
-                            <li> <a type="button" ng-disabled="curPage == 0"
-                                    ng-click="curPage=curPage-1">PREV</a></li>
-
-                            <span>Page {{curPage + 1}} of {{ numberOfPages() }}</span>
-
-                            <li> <a type="button"
-                                    ng-disabled="curPage >= villes.length/pageSize - 1"
-                                    ng-click="curPage = curPage+1">NEXT </a></li>
-
+                        <div class="text-center">
+                            <dir-pagination-controls ng-hide="query.length>0"></dir-pagination-controls>
                         </div>
                         <!-- End Pagination div --->
                     </div>

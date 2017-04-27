@@ -14,10 +14,58 @@ var villeCtr = require('../controllers/villeController')
 var categorieCtr = require('../controllers/categoriecontroller')
 var serviceCtr = require('../controllers/servicecontroller')
 var salonCtr = require('../controllers/salonController')
+var serviceproposerCtr = require('../controllers/serviceproposerController')
+var employeCtr = require('../controllers/employeController')
 
 
 
 
+
+
+//////////////////////ici Route proposer  Service /////////////////
+
+/* POST /service  */
+router.post('/employer',employeCtr.post);
+
+// GET /employer
+router.get('/employer',employeCtr.get);
+
+//GET /getAllMyEmploye
+router.get('/allemployer/:responsableId',employeCtr.getAllMyEmploye);
+
+// GET employer/fjaslfj478329fsafashf2
+router.get('/employer/:employerId',employeCtr.show);
+
+// PUT employer/fjaslfj478329fsafashf2
+router.put('/employer/:employerId',employeCtr.put);
+
+// DELETE employer/fjaslfj478329fsafashf2
+router.delete('/employer/:employerId',employeCtr.delete);
+
+router.get('/employersearch/:idr/:q',employeCtr.search);
+
+//////////////////////ici Route proposer  Service /////////////////
+
+/* POST /service  */
+router.post('/servicepropose',serviceproposerCtr.post);
+
+// GET /souservicepropose
+router.get('/servicepropose',serviceproposerCtr.get);
+
+// GET servicepropose/fjaslfj478329fsafashf2
+router.get('/servicepropose/:serviceproposeId',serviceproposerCtr.show);
+
+// PUT souservicepropose/fjaslfj478329fsafashf2
+router.put('/servicepropose/:serviceproposeId',serviceproposerCtr.put);
+
+// DELETE souservicepropose/fjaslfj478329fsafashf2
+router.delete('/servicepropose/:serviceproposeId',serviceproposerCtr.delete);
+
+router.get('/serviceproposesearch/:q',serviceproposerCtr.search);
+
+//////////////ici route profile salon///////////////////
+
+router.get('/getallmysalon/:salonId',salonCtr.getAllMySallon);
 
 //////////////////////ici Route Salon /////////////////
 

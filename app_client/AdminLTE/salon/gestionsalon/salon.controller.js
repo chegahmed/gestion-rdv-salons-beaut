@@ -7,8 +7,7 @@
     salonCtrl.$inject = ['$scope', '$http','$location'];
     function salonCtrl($scope, $http ,$location) {
 
-        $scope.names = ["Emil", "Tobias", "Linus"];
-        $scope.message = "hello ahmed";
+
 
         $scope.salons =[];
         $http({

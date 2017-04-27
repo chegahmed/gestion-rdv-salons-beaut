@@ -26,9 +26,6 @@
 
 
             if ($scope.categorie.img && $scope.categorie.name!=null&&$scope.categorie.parent!=null ) { //check if from is valid
-                console.log("parent "+$scope.categorie.parent)
-                console.log("name "+$scope.categorie.name)
-                console.log("img "+$scope.categorie.img)
 
                 vm.upload($scope.categorie.img,$scope.categorie.name,$scope.categorie.parent); //call upload function
             }else{
@@ -44,7 +41,7 @@
             }).then(function (resp) { //upload function returns a promise
                 if(resp.data.error_code === 0){ //validate success
                     sweetAlert("félicitation...", 'voutre sous catégorie a été ajoute avec succès', "success");
-                    $location.path('/categorie')
+                    $location.path('/souscategorie')
                 } else {
                     sweetAlert("erreur...", "une erreur a été détecté veuillez verifier votre formulaire !", "error");
                 }

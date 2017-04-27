@@ -1,0 +1,36 @@
+<headersalon></headersalon>
+
+<div class="container">
+
+    <div class="row form-center">
+        <div class="col-md-6">
+            <h1>Modifier votre profile </h1>
+            <form ng-submit="updateProfile()">
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name" ng-model="user.name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="user.email">
+                </div>
+                <div class="form-group">
+                    <label for="name">Téléphone</label>
+                    <input type="text"  class="form-control" id="phoneNumber" placeholder="Enter your phoneNumber" ng-model="user.phoneNumber">
+                </div>
+
+
+
+                <div class="pull-right">
+                    <button type="submit" class="btn btn-primary">Modifier</button>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+

@@ -1,13 +1,11 @@
 <headersalon></headersalon>
 
 
-
-
 <div class="container">
 
     <div class="row">
         <div class="col-md-6">
-            <h1>Ajouter Salon </h1>
+            <h1>Ajouter Salon</h1>
             <form ng-submit="vm.onSubmit()">
 
                 <div class="form-group">
@@ -25,7 +23,7 @@
                 <div class="form-group">
                     <label for="name"> Ville :</label>
                     <select class="form-control" ng-model="salon.ville" >
-                            <option ng-repeat="ville in villes"  value="{{ville.name}}">{{ville.name}}</option>
+                        <option ng-repeat="ville in villes"  value="{{ville.name}}">{{ville.name}}</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -39,8 +37,12 @@
                 <div class="form-group">
                     <label for="name"> Catégorie :</label>
                     <select multiple  class="form-control" ng-model="salon.categorie">
-                            <option ng-repeat="catg in catgs" >{{catg.name}}</option>
+                        <option ng-repeat="catg in catgs" value="{{catg._id}}" >{{catg.name}}</option>
                     </select>
+                </div>
+                <div class="form-group" ng-hide="true">
+                    <label for="name"> id responsable:</label>
+                        <input type="text"  value="{{idresponsable}}" ng-model="salon.idresponsable">
                 </div>
 
 

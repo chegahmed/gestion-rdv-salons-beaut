@@ -45,7 +45,7 @@
                                 <th ng-click="sort('name')">Nom Sous Catégorie
                                     <span class="glyphicon sort-icon" ng-show="sortKey=='name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                                 </th>
-                                <th>Image Catégorie</th>
+                                <th>Image Sous Catégorie</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -67,8 +67,9 @@
                         <img alt="" ng-src="{{myimg}}" class="col-lg-1 "/>
 
                         <!--Pagination div --->
-                        <dir-pagination-controls ng-hide="query.length>0"></dir-pagination-controls>
-
+                        <div class="text-center">
+                            <dir-pagination-controls></dir-pagination-controls>
+                        </div>
                         <!-- End Pagination div --->
                     </div>
                     <!-- /.box-body -->

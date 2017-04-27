@@ -8,55 +8,48 @@ var mongoose = require('mongoose'),
 
 
 
+
 /**
- * SalonSchema
+ * Service Schema
  */
-var SalonSchema = new Schema({
+var ServiceproposerSchema = new Schema({
     name: {
-        type: String,
-        default: '',
-        trim: true,
-        // make this a required field
-        required: 'name cannot be blank',
-
-    },
-    address: {
-        type: String,
-        default: '',
-        trim: true
-    },
-    description: {
-        type: String,
-        default: '',
-        // trim: true
-
-    },
-    ville: {
         type: String,
         default: '',
         trim: true
     },
     categorie: {
-        type: [{ type: Schema.Types.ObjectId, ref: 'Categorie' }],
-        trim: true,
-    },
-    scategorie: {
-        type: [],
+        type: String,
+        default: '',
         trim: true
     },
-    idresponsable: {
+    time: {
+        type: Number,
+        default: '',
+        trim: true
+    },
+    price: {
+        type: Number,
+        default: '',
+        trim: true
+    },
+    employe: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    idsalon: {
         type: mongoose.Schema.Types.ObjectId,
         ref: '_id'
     },
     createdAt :{type : Date , default : Date.now },
-    updatedAt :{type : Date , default : Date.now },
+    updatedAt :{type : Date , default : Date.now }
 });
 
-
-SalonSchema.statics = {
+ServiceproposerSchema.statics = {
     load: function(id,cb){
         this.findOne({_id : id}).exec(cb);
     }}
 
 
-mongoose.model('Salon', SalonSchema);
+mongoose.model('Serviceproposer', ServiceproposerSchema);

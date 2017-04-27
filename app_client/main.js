@@ -134,6 +134,20 @@
                 controller: 'rdvsalonCtrl',
                 controllerAs: 'vm'
             })
+
+                /// gestion salon admin ///
+            .when('/salonadmin', {
+                templateUrl: '/AdminLTE/admin/gestionsalon/salon.view.html',  //home/home.view.html
+                controller: 'salonadminCtrl',
+                controllerAs: 'vm',
+
+            })
+            .when('/showsalonadmin/:id', {
+                templateUrl: '/AdminLTE/admin/gestionsalon/showsalon.view.html',  //home/home.view.html
+                controller: 'showsalonadminCtrl',
+                controllerAs: 'vm',
+
+            })
             /////gestion salon/////
             .when('/salon', {
                 templateUrl: '/AdminLTE/salon/gestionsalon/salon.view.html',  //home/home.view.html
@@ -166,7 +180,44 @@
                 controller: 'editprofilesalonCtrl',
                 controllerAs: 'vm'
             })
-
+            .when('/addsalonprofile/:id', {
+                templateUrl: '/AdminLTE/salon/profile/addsalon.view.html',
+                controller: 'addsalonprofileCtrl',
+                controllerAs: 'vm'
+            })
+            /// proposerservice
+            .when('/proposerservice', {
+                templateUrl: '/AdminLTE/salon/proposerservice/addserice.view.html',
+                controller: 'addserviceproposerCtrl',
+                controllerAs: 'vm'
+            })
+            ////////////////////////////// Gestion des employes //////////////////
+            .when('/addemploye/:id', {
+                templateUrl: '/AdminLTE/salon/employe/addemploye.view.html',
+                controller: 'addemployeCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/employe/:id', {
+                templateUrl: '/AdminLTE/salon/employe/employe.view.html',
+                controller: 'employeCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/editemploye/:id/:employeId', {
+                templateUrl: '/AdminLTE/salon/employe/editemploye.view.html',
+                controller: 'editemployeCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/showemploye/:id', {
+                templateUrl: '/AdminLTE/salon/employe/showemploye.view.html',
+                controller: 'showemployeCtrl',
+                controllerAs: 'vm'
+            })
+                ///////////////////salonservice////////////////////
+            .when('/addsalonservice/:id', {
+                templateUrl: '/AdminLTE/salon/services/addservice.view.html',
+                controller: 'addsalonserviceCtrl',
+                controllerAs: 'vm'
+            })
 
 
 

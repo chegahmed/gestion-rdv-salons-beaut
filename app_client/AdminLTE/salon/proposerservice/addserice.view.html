@@ -1,0 +1,34 @@
+<headersalon></headersalon>
+
+
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Proposé un  service </h1>
+            <form ng-submit="vm.onSubmit()">
+
+
+                <div class="form-group">
+                    <label for="name">Service :</label>
+                    <input type="text" class="form-control" id="name" placeholder="Entrer Nom Description" ng-model="service.name">
+                </div>
+
+                <div class="form-group">
+                    <label for="name"> Sous Catégorie :</label>
+                    <select  class="form-control"  ng-model="service.parent">
+                        <optgroup ng-repeat="catg in catgs" label="{{catg.name}}">
+                            <option ng-repeat="scatg in scatgs"  value="{{scatg.parent}}">{{scatg.name}}</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Ajouter</button>
+                <button type="reset" class="btn btn-danger">Annuler</button>
+            </form>
+        </div>
+    </div>
+
+</div>

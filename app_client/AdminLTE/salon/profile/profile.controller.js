@@ -2,46 +2,36 @@
 
     angular
         .module('meanApp')
-        .controller('salonadminCtrl', salonadminCtrl);
+        .controller('profileCtrl', profileCtrl);
 
-    salonadminCtrl.$inject = ['$scope', '$http','$location'];
-    function salonadminCtrl($scope, $http ,$location) {
+    profileCtrl.$inject = ['$scope', '$http','$location','$routeParams'];
+    function profileCtrl($scope, $http ,$location, $routeParams) {
 
 
 
-        $scope.salons =[];
+        var id = $routeParams.id;
+
+
         $http({
             method: 'GET',
-            url: '/gestionusers/salon'
+            url: '/gestionusers/'+id
         }).success(function (data) {
-            $scope.salons = data; // response data
+            $scope.profile = data; // response data
+            console.log('profile name: '+$scope.profile.name +'profile email : '+$scope.profile.email  )
         }).error(function (response) {
             console.log('error message :',response);
         });
 
 
 
-        $scope.showSearch =function showSearch(value) {
-            if(value==""){
-                $http({
-                    method: 'GET',
-                    url: '/gestionusers/salon'
-                }).success(function (data) {
-                    $scope.salons = data; // response data
-                }).error(function (response) {
-                    console.log('error message :',response);
-                });
-            }else{
-                $http({
-                    method: 'GET',
-                    url: 'gestionusers/salonsearch/'+value
-                }).success(function (data) {
-                    $scope.salons = data; // response data
-                }).error(function (response) {
-                    console.log('error message :',response);
-                });
-            }
-        }
+        $http({
+            method: 'GET',
+            url: '/gestionusers/getallmysalon/'+id
+        }).success(function (data) {
+            $scope.salons = data; // response data
+        }).error(function (response) {
+            console.log('error message :',response);
+        });
 
 
 
@@ -74,7 +64,8 @@
 
 
 
-
     }
 
 })();
+
+
