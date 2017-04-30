@@ -1,9 +1,11 @@
+//  Inject modules
 require('../models/services');
 var mongoose =require('mongoose');
 var _ = require('underscore');
 var Service =mongoose.model("Service");
 
 
+// save service
 exports.post = function(req ,res){
     console.log('ici post service');
     var service = new Service(req.body);
@@ -12,13 +14,15 @@ exports.post = function(req ,res){
 };
 
 
-
+// get service
 exports.get = function(req,res){
     Service.find().exec(function(err,service){
         res.jsonp(service);
     });
 };
 
+
+// search service
 exports.search = function(req,res){
     Service.find({name : {'$regex': req.params.q}}, function(err,service){
         res.jsonp(service);
@@ -26,14 +30,15 @@ exports.search = function(req,res){
 };
 
 
+// get service by id
 exports.show = function(req,res){
-    console.log("iciiiiiiii show service")
     Service.load(req.params.serviceId, function(err,service){
         res.jsonp(service);
     });
 };
 
 
+// edit service
 exports.put = function(req,res){
     Service.load(req.params.serviceId, function(err,service){
 
@@ -45,7 +50,7 @@ exports.put = function(req,res){
     });
 };
 
-
+// delete service
 exports.delete = function(req,res){
     Service.load(req.params.serviceId, function(err,service){
         service.remove(function(err){

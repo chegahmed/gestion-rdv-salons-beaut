@@ -1,3 +1,4 @@
+//  Inject modules
 var passport = require('passport');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
@@ -7,14 +8,9 @@ var sendJSONresponse = function(res, status, content) {
     res.json(content);
 };
 
-module.exports.register = function(req, res) {
 
-    // if(!req.body.name || !req.body.email || !req.body.password) {
-    //   sendJSONresponse(res, 400, {
-    //     "message": "All fields required"
-    //   });
-    //   return;
-    // }
+  /// register new user
+module.exports.register = function(req, res) {
 
     var user = new User();
 
@@ -37,15 +33,9 @@ module.exports.register = function(req, res) {
 
 };
 
+
+// login  existing user
 module.exports.login = function(req, res) {
-
-    // if(!req.body.email || !req.body.password) {
-    //   sendJSONresponse(res, 400, {
-    //     "message": "All fields required"
-    //   });
-    //   return;
-    // }
-
     passport.authenticate('local', function(err, user, info){
         var token;
 

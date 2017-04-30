@@ -20,8 +20,7 @@ var ServiceproposerSchema = new Schema({
     },
     categorie: {
         type: String,
-        default: '',
-        trim: true
+
     },
     time: {
         type: Number,
@@ -34,9 +33,8 @@ var ServiceproposerSchema = new Schema({
         trim: true
     },
     employe: {
-        type: String,
-        default: '',
-        trim: true
+        type: []
+
     },
     idsalon: {
         type: mongoose.Schema.Types.ObjectId,

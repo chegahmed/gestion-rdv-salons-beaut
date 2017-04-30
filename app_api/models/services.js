@@ -6,13 +6,7 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-/**
- * Validation
- */
-function validateLength (v) {
-    // a custom validation function for checking string length to be used by the model
-    return v.length <= 150;
-}
+
 
 
 /**

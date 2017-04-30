@@ -12,7 +12,7 @@ var auth = jwt({
 var gestionuser = require('../controllers/gestionuser')
 var villeCtr = require('../controllers/villeController')
 var categorieCtr = require('../controllers/categoriecontroller')
-var serviceCtr = require('../controllers/servicecontroller')
+var serviceCtr = require('../controllers/serviceController')
 var salonCtr = require('../controllers/salonController')
 var serviceproposerCtr = require('../controllers/serviceproposerController')
 var employeCtr = require('../controllers/employeController')
@@ -24,7 +24,7 @@ var employeCtr = require('../controllers/employeController')
 
 //////////////////////ici Route proposer  Service /////////////////
 
-/* POST /service  */
+/* POST /employe  */
 router.post('/employer',employeCtr.post);
 
 // GET /employer

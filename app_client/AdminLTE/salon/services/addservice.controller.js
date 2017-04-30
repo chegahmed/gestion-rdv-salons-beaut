@@ -9,26 +9,6 @@
 
         var id = $routeParams.id;
 
-        $http({
-            method: 'GET',
-            url: '/gestionusers/souscategorie'
-        }).success(function (data) {
-            $scope.scatgss = data; // response data
-
-            console.log('iciiiiiiiii out');
-            angular.forEach( $scope.scatgss , function(value, key){
-
-
-                console.log('iciiiiiiiii');
-
-
-            });
-
-
-
-
-        });
-
 
 
 
@@ -123,6 +103,10 @@ $scope.init= function (val){
 
         });*/
 
+$scope.initIndex = function (index){
+
+           index ++;
+        }
 
 
         var vm = this;
@@ -130,7 +114,9 @@ $scope.init= function (val){
 
 
         vm.onSubmit = function () {
-            if( $scope.service.name==null){
+
+            console.log('ici methode post  '+ $scope.service.name)
+         /*   if( $scope.service.name==null){
                 sweetAlert("erreur...", "l'un des  champs de votre formulaire est vide!", "error");
 
             }else {
@@ -146,8 +132,73 @@ $scope.init= function (val){
                         $location.path('/service');
                     });
 
-            };
+            };*/
         }
+
+
+
+
+
+        $scope.formData = {};
+
+        $scope.save = function (da) {
+
+            angular.forEach(da, function(value, key) {
+                angular.forEach(value, function(valu, ke) {
+
+                    $scope.serviceproposer =valu;
+                    if(valu.time!=null && valu.price!=null && valu.employe!=null){
+                        $http.post('/gestionusers/servicepropose/', $scope.serviceproposer)
+                            .success(function (response) {
+                                //  sweetAlert("félicitation...", "Votre service à été Ajouté avec success", "success");
+                             // $location.url('/service')
+                                $scope.valuecheckbox[valu.name] =  "valider"
+                                console.log('bieeeeeeeeeen')
+                            })
+
+                    }else {
+                        console.log('error')
+                    }
+                });
+
+            });
+
+           // sweetAlert("félicitation...", "Votre service à été Ajouté avec success", "success");
+            /*angular.forEach(da, function(value, key) {
+               $scope.serviceproposer =value;
+                if(value.time!=null && value.price!=null && value.employe!=null){
+                    $http.post('/gestionusers/servicepropose/', $scope.serviceproposer)
+                        .success(function (response) {
+                             //  sweetAlert("félicitation...", "Votre service à été Ajouté avec success", "success");
+                           /!*  $location.url('/service')*!/
+                        })
+                        .error(function(err){
+                            alert(err);
+                        })
+                }else {
+                    console.log('error')
+                }
+            })*/
+        };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

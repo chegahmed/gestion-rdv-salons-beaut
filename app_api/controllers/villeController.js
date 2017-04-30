@@ -1,9 +1,11 @@
+//  Inject modules
 require('../models/villes');
 var mongoose =require('mongoose');
 var _ = require('underscore');
 var Ville =mongoose.model("Ville");
 
 
+// save  City
 exports.post = function(req ,res){
     console.log('ici post ville');
     var ville = new Ville(req.body);
@@ -12,6 +14,7 @@ exports.post = function(req ,res){
 };
 
 
+// search  City
 exports.search = function(req,res){
     Ville.find({name : {'$regex': req.params.q}}, function(err,ville){
         res.jsonp(ville);
@@ -20,7 +23,7 @@ exports.search = function(req,res){
 
 
 
-
+// get all  Cities
 exports.get = function(req,res){
     Ville.find()
         .exec(function(err,ville){
@@ -29,6 +32,7 @@ exports.get = function(req,res){
 };
 
 
+// get  City by id
 exports.show = function(req,res){
     Ville.load(req.params.villeId, function(err,ville){
         res.jsonp(ville);
@@ -36,6 +40,7 @@ exports.show = function(req,res){
 };
 
 
+// Edit  City By id
 exports.put = function(req,res){
     Ville.load(req.params.villeId, function(err,ville){
 
@@ -48,6 +53,7 @@ exports.put = function(req,res){
 };
 
 
+// Delete City
 exports.delete = function(req,res){
     Ville.load(req.params.villeId, function(err,ville){
         ville.remove(function(err){

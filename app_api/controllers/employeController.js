@@ -1,9 +1,11 @@
+//  Inject modules
 require('../models/employers');
 var mongoose =require('mongoose');
 var _ = require('underscore');
 var Employer =mongoose.model("Employer");
 
 
+// save employee
 exports.post = function(req ,res){
     console.log('ici post employer');
     var employer = new Employer(req.body);
@@ -12,6 +14,7 @@ exports.post = function(req ,res){
 };
 
 
+// search employee
 exports.search = function(req,res){
     Employer.find({idresponsable : req.params.idr},{name : {'$regex': req.params.q}}, function(err,employer){
         res.jsonp(employer);
@@ -20,7 +23,7 @@ exports.search = function(req,res){
 
 
 
-
+// get all employees
 exports.get = function(req,res){
     Employer.find()
         .exec(function(err,employer){
@@ -28,6 +31,8 @@ exports.get = function(req,res){
         });
 };
 
+
+// get all  employee for specific user
 exports.getAllMyEmploye = function(req,res){
     Employer.find({idresponsable : req.params.responsableId}).exec(function(err,employer){
         res.jsonp(employer);
@@ -35,6 +40,7 @@ exports.getAllMyEmploye = function(req,res){
 };
 
 
+// get employee by id
 exports.show = function(req,res){
     Employer.load(req.params.employerId, function(err,employer){
         res.jsonp(employer);
@@ -42,6 +48,7 @@ exports.show = function(req,res){
 };
 
 
+// edit employee
 exports.put = function(req,res){
     Employer.load(req.params.employerId, function(err,employer){
 
@@ -54,6 +61,7 @@ exports.put = function(req,res){
 };
 
 
+// delete employee
 exports.delete = function(req,res){
     Employer.load(req.params.employerId, function(err,employer){
         employer.remove(function(err){
