@@ -16,7 +16,7 @@ var serviceCtr = require('../controllers/serviceController')
 var salonCtr = require('../controllers/salonController')
 var serviceproposerCtr = require('../controllers/serviceproposerController')
 var employeCtr = require('../controllers/employeController')
-
+var servicesalonCtr = require('../controllers/servicesalonController')
 
 
 
@@ -63,6 +63,24 @@ router.delete('/servicepropose/:serviceproposeId',serviceproposerCtr.delete);
 
 router.get('/serviceproposesearch/:q',serviceproposerCtr.search);
 
+//////////////////////ici Route salon Service /////////////////
+
+/* POST /service  */
+router.post('/servicesalon',servicesalonCtr.post);
+
+// GET /servicesalon
+router.get('/servicesalon',servicesalonCtr.get);
+
+// GET servicesalon/fjaslfj478329fsafashf2
+router.get('/servicesalon/:servicesalonId',servicesalonCtr.show);
+
+// PUT servicesalon/fjaslfj478329fsafashf2
+router.put('/servicesalon/:servicesalonId',servicesalonCtr.put);
+
+// DELETE servicesalon/fjaslfj478329fsafashf2
+router.delete('/servicesalon/:servicesalonId',servicesalonCtr.delete);
+
+router.get('/servicesalonsearch/:q',servicesalonCtr.search);
 //////////////ici route profile salon///////////////////
 
 router.get('/getallmysalon/:salonId',salonCtr.getAllMySallon);

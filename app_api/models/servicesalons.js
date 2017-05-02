@@ -12,13 +12,31 @@ var mongoose = require('mongoose'),
 /**
  * Service Schema
  */
-var ServiceproposerSchema = new Schema({
+var ServicesalonSchema = new Schema({
     name: {
         type: String,
         default: '',
         trim: true
     },
-    parent: {
+    categorie: {
+        type: String,
+
+    },
+    time: {
+        type: Number,
+        default: '',
+        trim: true
+    },
+    price: {
+        type: Number,
+        default: '',
+        trim: true
+    },
+    employe: {
+        type: []
+
+    },
+    idsalon: {
         type: mongoose.Schema.Types.ObjectId,
         ref: '_id'
     },
@@ -26,10 +44,10 @@ var ServiceproposerSchema = new Schema({
     updatedAt :{type : Date , default : Date.now }
 });
 
-ServiceproposerSchema.statics = {
+ServicesalonSchema.statics = {
     load: function(id,cb){
         this.findOne({_id : id}).exec(cb);
     }}
 
 
-mongoose.model('Serviceproposer', ServiceproposerSchema);
+mongoose.model('Servicesalon', ServicesalonSchema);

@@ -185,12 +185,29 @@
                 controller: 'addsalonprofileCtrl',
                 controllerAs: 'vm'
             })
-            /// proposerservice
+            ///  service proposer
             .when('/proposerservice', {
                 templateUrl: '/AdminLTE/salon/proposerservice/addServicepro.view.html',
                 controller: 'addserviceproposerCtrl',
                 controllerAs: 'vm'
             })
+
+            //////////////////////propre service /////////////////////////
+
+            .when('/selfserv/:id', {
+                templateUrl: '/AdminLTE/salon/salonservice/propserv.view.html',
+                controller: 'propservCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/listsalonservice/:id', {
+                templateUrl: '/AdminLTE/salon/salonservice/listservice.view.html',
+                controller: 'listserviceCtrl',
+                controllerAs: 'vm'
+            })
+
+
+
+
             ////////////////////////////// Gestion des employes //////////////////
             .when('/addemploye/:id', {
                 templateUrl: '/AdminLTE/salon/employe/addEmploye.view.html',

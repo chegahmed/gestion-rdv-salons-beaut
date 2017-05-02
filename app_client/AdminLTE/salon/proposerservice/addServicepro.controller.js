@@ -37,13 +37,13 @@
             $http.post('/gestionusers/servicepropose', $scope.service)
                 .success(function (response) {
                     sweetAlert("félicitation...", "Votre proposition de service à été Envoyer à l'administration avec success", "success");
-                    $location.url('/proposerservice')
+                    $location.url('/listsalonservice')
                 })
                 .error(function(err){
                     alert(err);
                 })
                 .then(function(){
-                    $location.path('/proposerservice');
+                    $location.path('/listsalonservice');
                 });
         };
 

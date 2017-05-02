@@ -67,7 +67,7 @@
             console.log('error message :',response);
         });
 
-
+/*
 $scope.init= function (val){
     $http({
         method: 'GET',
@@ -83,59 +83,8 @@ $scope.init= function (val){
             }
 
         });
-
-
     });
-
-
-        }
-
-       // $scope.initt('5900a05c81126113201f358d');
-
-      /*  $http({
-            method: 'GET',
-            url: '/gestionusers/categorie'
-        }).success(function (data) {
-            $scope.catgs = data; // response data
-            angular.forEach($scope.catgs, function(value, key){
-                console.log('inci my data'+value.name)
-            });
-
-        });*/
-
-$scope.initIndex = function (index){
-
-           index ++;
-        }
-
-
-        var vm = this;
-
-
-
-        vm.onSubmit = function () {
-
-            console.log('ici methode post  '+ $scope.service.name)
-         /*   if( $scope.service.name==null){
-                sweetAlert("erreur...", "l'un des  champs de votre formulaire est vide!", "error");
-
-            }else {
-                $http.post('/gestionusers/service/', $scope.service)
-                    .success(function (response) {
-                        sweetAlert("félicitation...", "Votre service à été Ajouté avec success", "success");
-                        $location.url('/service')
-                    })
-                    .error(function(err){
-                        alert(err);
-                    })
-                    .then(function(){
-                        $location.path('/service');
-                    });
-
-            };*/
-        }
-
-
+}*/
 
 
 
@@ -146,9 +95,9 @@ $scope.initIndex = function (index){
             angular.forEach(da, function(value, key) {
                 angular.forEach(value, function(valu, ke) {
 
-                    $scope.serviceproposer =valu;
+                    $scope.servicesalon =valu;
                     if(valu.time!=null && valu.price!=null && valu.employe!=null){
-                        $http.post('/gestionusers/servicepropose/', $scope.serviceproposer)
+                        $http.post('/gestionusers/servicesalon/', $scope.servicesalon)
                             .success(function (response) {
                                 //  sweetAlert("félicitation...", "Votre service à été Ajouté avec success", "success");
                              // $location.url('/service')
@@ -163,22 +112,8 @@ $scope.initIndex = function (index){
 
             });
 
-           // sweetAlert("félicitation...", "Votre service à été Ajouté avec success", "success");
-            /*angular.forEach(da, function(value, key) {
-               $scope.serviceproposer =value;
-                if(value.time!=null && value.price!=null && value.employe!=null){
-                    $http.post('/gestionusers/servicepropose/', $scope.serviceproposer)
-                        .success(function (response) {
-                             //  sweetAlert("félicitation...", "Votre service à été Ajouté avec success", "success");
-                           /!*  $location.url('/service')*!/
-                        })
-                        .error(function(err){
-                            alert(err);
-                        })
-                }else {
-                    console.log('error')
-                }
-            })*/
+            sweetAlert("félicitation...", "Votre service à été Ajouté avec success", "success");
+            $location.url('/listsalonservice/'+id)
         };
 
 
