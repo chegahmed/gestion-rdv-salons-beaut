@@ -12,7 +12,14 @@
         $scope.employe = {};
         var id = $routeParams.id;
 
-
+        $http({
+            method: 'GET',
+            url: '/gestionusers/salon/'
+        }).success(function (data) {
+            $scope.salons = data; // response data
+        }).error(function (response) {
+            console.log('error message :',response);
+        });
 
         $http({
             method: 'GET',

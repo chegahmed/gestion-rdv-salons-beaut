@@ -1,0 +1,78 @@
+<headersalon></headersalon>
+
+<div dir-paginate="salon in salons| itemsPerPage: 1" >
+    <div class="box-header with-border">
+        <h3 class="box-title">Agenda pour salon : <b style="color: brown ">{{salon.name}}</b>   : </h3>
+    </div>
+    <!-- Main content -->
+    <section class="content " ng-repeat="employe in employes" ng-if="employe.idsalon ==salon._id">  <!-- dir-paginate="salon in salons| itemsPerPage: 1"-->
+        <div class="row" >
+            <div class="col-md-12">
+                <div class="box">
+
+                    <!-- /.box-header -->
+                    <div class="box-body">
+
+
+                            <p>
+                                Ajouter un calendrier pour Employée <b style="color: #00A000">{{employe.name}}</b>
+                            </p>
+                            <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/addagendasalon/{{employe._id}}/{{iduser}}">Ajouter Agenda</a>
+                        <hr>
+
+
+
+                        <table class="table table-bordered">
+                            <tr style="color: blue">
+                                <th>Lundi</th>
+                                <th>Mardi</th>
+                                <th>Mercredi</th>
+                                <th>Jeudi</th>
+                                <th>Vendredi</th>
+                                <th>Samedi</th>
+                                <th>Dimanche</th>
+
+                            </tr>
+                            <tbody>
+
+                            <tr>
+
+                                <td ng-repeat="agenda in agendas" ng-if="agenda.day == 'lundi' && agenda.idemploye == employe._id "><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true" >{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in agendas" ng-if="agenda.day == 'mardi' && agenda.idemploye == employe._id"><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true">{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in agendas" ng-if="agenda.day == 'mercredi' && agenda.idemploye == employe._id"><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true">{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in agendas"  ng-if="agenda.day == 'jeudi' && agenda.idemploye == employe._id"><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true">{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in agendas" ng-if="agenda.day == 'vendredi' && agenda.idemploye == employe._id"><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true">{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in agendas" ng-if="agenda.day == 'samedi' && agenda.idemploye == employe._id"><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true">{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in agendas" ng-if="agenda.day == 'dimanche' && agenda.idemploye == employe._id"><p ng-repeat="marge in agenda.margetime "  ng-if="marge.value ==true">{{marge.content}} </p></td>
+
+
+                            </tr>
+
+
+                            </tbody>
+
+                        </table>
+
+
+
+                        
+
+
+
+
+
+
+
+                    </div>
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </section>
+
+</div>
+
+
+<div class="text-center">
+    <dir-pagination-controls ></dir-pagination-controls>
+</div>

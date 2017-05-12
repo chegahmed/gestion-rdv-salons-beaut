@@ -22,6 +22,15 @@
             $scope.employe = data; // response data
         });
 
+        $http({
+            method: 'GET',
+            url: '/gestionusers/getallmysalon/'+employeId
+        }).success(function (data) {
+            $scope.salons = data; // response data
+        }).error(function (response) {
+            console.log('error message :',response);
+        });
+
         $scope.updateEmploye = function () {
 
             $http.put('/gestionusers/employer/' + $scope.employe._id, $scope.employe)

@@ -21,18 +21,17 @@
                         </form>
 
 
-
                         <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/addemploye/{{profile._id}}">Ajouter</a>
                         <table id="example1" class="table table-bordered table-striped " at-paginated at-list="list" at-config="config">
                             <thead>
                             <tr>
-                                <th ng-click="sort('name')">Nom
+                                <th ng-click="sort('name')">Nom et prénom
                                     <span class="glyphicon sort-icon" ng-show="sortKey=='name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                                 </th>
-                                <th ng-click="sort('address')">Adresse
+                                <th ng-click="sort('address')">Téléphone
                                     <span class="glyphicon sort-icon" ng-show="sortKey=='email'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                                 </th>
-                                <th ng-click="sort('ville')">Ville
+                                <th ng-click="sort('ville')">Email
                                     <span class="glyphicon sort-icon" ng-show="sortKey=='role'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                                 </th>
                                 <th>Action</th>

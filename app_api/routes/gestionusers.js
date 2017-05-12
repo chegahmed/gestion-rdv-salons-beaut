@@ -17,12 +17,52 @@ var salonCtr = require('../controllers/salonController')
 var serviceproposerCtr = require('../controllers/serviceproposerController')
 var employeCtr = require('../controllers/employeController')
 var servicesalonCtr = require('../controllers/servicesalonController')
+var agendaCtr = require('../controllers/agendaController')
 
 
 
 
 
-//////////////////////ici Route proposer  Service /////////////////
+
+//////////////////////ici Route  Agenda/////////////////
+
+/* POST /agenda  */
+router.post('/agenda',agendaCtr.post);
+
+/* POST /agenda /day */
+router.post('/agenda/:day',agendaCtr.postByDay);
+
+// GET /agenda
+router.get('/agenda',agendaCtr.get);
+
+// GET agenda/fjaslfj478329fsafashf2
+router.get('/agenda/:agendaId',agendaCtr.show);
+
+router.get('/agenda/:agendaId/:subid',agendaCtr.showsub);
+
+router.put('/agendaa/:idagenda',agendaCtr.putByIdemployeand);
+
+// PUT agenda/fjaslfj478329fsafashf2
+router.put('/agenda/:agendaId',agendaCtr.put);
+
+
+router.put('/agenda/:agendaId/:subid',agendaCtr.putsub);
+
+// PUT agenda/fjaslfj478329fsafashf2
+router.put('/updateagendabyemploye/:q',agendaCtr.putByIdEmploye);
+
+// DELETE agenda/fjaslfj478329fsafashf2
+router.delete('/agenda/:agendaId',agendaCtr.delete);
+
+
+
+router.get('/agendasearch/:q',agendaCtr.search);
+
+//get agenda by id employe      agendabyemploye/59006181fa528b0bb8874878
+
+router.get('/agendabyemploye/:q',agendaCtr.getAgendaByIdEmploye);
+
+//////////////////////ici Route employe /////////////////
 
 /* POST /employe  */
 router.post('/employer',employeCtr.post);
@@ -74,6 +114,11 @@ router.get('/servicesalon',servicesalonCtr.get);
 // GET servicesalon/fjaslfj478329fsafashf2
 router.get('/servicesalon/:servicesalonId',servicesalonCtr.show);
 
+
+//get by name service and id salon
+router.get('/servicesalonbyidsalon/:q/:p',servicesalonCtr.VerifierExistanceSalon);
+
+
 // PUT servicesalon/fjaslfj478329fsafashf2
 router.put('/servicesalon/:servicesalonId',servicesalonCtr.put);
 
@@ -82,7 +127,7 @@ router.delete('/servicesalon/:servicesalonId',servicesalonCtr.delete);
 
 router.get('/servicesalonsearch/:q',servicesalonCtr.search);
 //////////////ici route profile salon///////////////////
-
+//salonid ==id responsable
 router.get('/getallmysalon/:salonId',salonCtr.getAllMySallon);
 
 //////////////////////ici Route Salon /////////////////

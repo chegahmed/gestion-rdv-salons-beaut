@@ -23,6 +23,10 @@
                             <th>Télephone</th>
                             <td >{{employe.phoneNumber}}</td>
                         </tr>
+                        <tr>
+                            <th>Salon</th>
+                            <td ><p ng-repeat="salon in salons" ng-if="salon._id == employe.idsalon">{{salon.name}}</p></td>
+                        </tr>
                  
                     </table>
                    

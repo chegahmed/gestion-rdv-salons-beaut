@@ -204,10 +204,6 @@
                 controller: 'listserviceCtrl',
                 controllerAs: 'vm'
             })
-
-
-
-
             ////////////////////////////// Gestion des employes //////////////////
             .when('/addemploye/:id', {
                 templateUrl: '/AdminLTE/salon/employe/addEmploye.view.html',
@@ -235,7 +231,22 @@
                 controller: 'addsalonserviceCtrl',
                 controllerAs: 'vm'
             })
-
+            ////////////////////////////// Gestion des Agenda /////////////////////
+            .when('/agendasalon/:idsalon', {
+                templateUrl: '/AdminLTE/salon/agenda/agenda.view.html',
+                controller: 'agendaCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/addagendasalon/:idemploye/:iduser', {
+                templateUrl: '/AdminLTE/salon/agenda/addagenda.view.html',
+                controller: 'addagendaCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/bloquecreneauxagenda/:idemploye', {
+                templateUrl: '/AdminLTE/salon/agenda/bloquecrenaux.view.html',
+                controller: 'bloquecreneauagendaCtrl',
+                controllerAs: 'vm'
+            })
 
 
 

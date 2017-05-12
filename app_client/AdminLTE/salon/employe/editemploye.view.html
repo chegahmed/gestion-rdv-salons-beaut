@@ -11,9 +11,10 @@
                 <div class="container">
 
                     <div class="row">
-                        <div class="col-md-6">
-                            <h1>Ajouter un Employe</h1>
+                        <div class="col-md-12">
+                            <h1>Modifier un Employe</h1>
                             <form ng-submit="updateEmploye()">
+                                <div class="col-md-5">
                                 <div class="form-group">
                                     <label for="name">Nom et prénom</label>
                                     <input type="text" class="form-control" id="name" placeholder="Enter your name" ng-model="employe.name">
@@ -26,7 +27,42 @@
                                     <label for="name">Téléphone</label>
                                     <input type="text" class="form-control" id="phoneNumber" placeholder="Enter your phoneNumber" ng-model="employe.phoneNumber">
                                 </div>
-                                <div class="pull-right">
+                                <div class="form-group">
+                                    <label for="name"> Salon :</label>
+                                    <select  class="form-control"  ng-model="employe.idsalon">
+                                        <option ng-repeat="salon in salons"   value="{{salon._id}}">{{salon.name}}</option>
+                                    </select>
+                                </div>
+                                    </div>
+                                <div class="col-md-5" >
+                                    <fieldset>
+                                        <legend> Modifier un calendrier:</legend>
+                                        <div class="form-group">
+                                            <label >Commence la journée à :</label>
+                                            <input type="time" class="form-control"  ng-model="employe.startTime">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label >Terminer la journée à :</label>
+                                            <input type="time" class="form-control"  ng-model="employe.endTime">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="rate"> Durée de créneaux horaires en minutes :</label>
+                                            <select  class="form-control"  id="rate" ng-model="employe.rate">
+                                                <option   value="15">15 min</option>
+                                                <option   value="20">20 min</option>
+                                                <option   value="30">30 min</option>
+                                                <option   value="44">44 min</option>
+                                            </select>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+
+
+
+                                <div class="pull-right col-md-12">
                                     <button type="submit" class="btn btn-primary">Modifier</button>
                                 </div>
                             </form>

@@ -30,6 +30,19 @@ var EmployerSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: '_id'
     },
+    idsalon: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: '_id'
+    },
+    rate: {
+        type: Number
+    },
+    startTime: {
+        type: String
+    },
+    endTime: {
+        type: String
+    },
     createdAt :{type : Date , default : Date.now },
     updatedAt :{type : Date , default : Date.now }
 });

@@ -1,0 +1,109 @@
+
+
+
+
+
+
+
+<navigation></navigation>
+
+
+<!-- Content Header (Page header) -->
+<section class="content-header" >
+    <h1>
+        Bloquer le créneaux horaires
+    </h1>
+
+</section>
+
+<!-- Main content -->
+<section class="content" >
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+
+                <!-- /.box -->
+
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title col-md-12"> liste des crénaux horaire à bloques  </h3>
+                        <h5 class="alert-success col-md-4 col-md-offset-4 text-center">{{message}}</h5>
+
+
+
+                        <table class="table table-bordered">
+                            <tr style="color: brown">
+                                <th>Lundi</th>
+                                <th>Mardi</th>
+                                <th>Mercredi</th>
+                                <th>Jeudi</th>
+                                <th>Vendredi</th>
+                                <th>Samedi</th>
+                                <th>Dimanche</th>
+
+                            </tr>
+                            <tbody  >
+
+                            <tr>
+
+                                <td ng-repeat="agenda in agendas" ng-if="agenda.day == 'lundi'  "><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true" ><input name="value" type="checkbox" ng-click="UpdateElement(agenda._id,marge.content,marge._id,marge.value)" />{{item.content}}{{marge.content}}</p></td>
+                                <td ng-repeat="agenda in agendas" ng-if="agenda.day == 'mardi' "><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true"><input name="value" type="checkbox" ng-click="UpdateElement(agenda._id,marge.content,marge._id,marge.value)" />{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in agendas" ng-if="agenda.day == 'mercredi' "><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true"><input name="value" type="checkbox" ng-click="UpdateElement(agenda._id,marge.content,marge._id,marge.value)" />{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in agendas"  ng-if="agenda.day == 'jeudi' "><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true"><input name="value" type="checkbox" ng-click="UpdateElement(agenda._id,marge.content,marge._id,marge.value)" />{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in agendas" ng-if="agenda.day == 'vendredi' "><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true"><input name="value" type="checkbox" ng-click="UpdateElement(agenda._id,marge.content,marge._id,marge.value)" />{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in agendas" ng-if="agenda.day == 'samedi' "><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true"><input name="value" type="checkbox" ng-click="UpdateElement(agenda._id,marge.content,marge._id,marge.value)" />{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in agendas" ng-if="agenda.day == 'dimanche' "><p ng-repeat="marge in agenda.margetime "  ng-if="marge.value ==true"><input name="value" type="checkbox" ng-click="UpdateElement(agenda._id,marge.content,marge._id,marge.value)" />{{marge.content}} </p></td>
+
+
+                            </tr>
+
+
+                            </tbody>
+
+                        </table>
+
+
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-primary">Bloquer</button>
+                            </div>
+                        <div class="pull-right">
+                                <button type="button" id="selectAll">allcheck</button>
+                            </div>
+
+                        <script>
+
+
+                            $('#selectAll').click(function(e){
+                                console.log('selectAll')
+                                $(this).toggleClass('clicked');
+                                $(this).closest('table').find('input[type="checkbox"]').prop('checked', $(this).hasClass('clicked'))
+                            });
+                        </script>
+
+
+
+
+
+                    </div>
+
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
