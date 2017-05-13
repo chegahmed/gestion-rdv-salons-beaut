@@ -40,6 +40,14 @@ var ServicesalonSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: '_id'
     },
+    idservice: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: '_id'
+    },
+    isChecked :{
+        type:Boolean,
+        default:false,
+    },
     createdAt :{type : Date , default : Date.now },
     updatedAt :{type : Date , default : Date.now }
 });

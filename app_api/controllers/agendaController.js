@@ -66,8 +66,18 @@ exports.getAgendaByIdEmploye = function(req,res){
 
 // edit agenda by idemploye
 exports.putByIdEmploye = function(req,res){
-    Agenda.findOne({idemploye : req.params.q}, function(err,agenda){
-
+    Agenda.find({idemploye : req.params.q}, function(err,agenda){
+        res.jsonp(agenda);
+     /*  weeks=['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'];
+        for(var i=0;i<weeks.length;i++){
+            console.log('ici N° :'+i +' '+weeks[i])
+            Agenda.update({
+                "day" : weeks[i],
+            },{"$set": {"margetime.$": req.body}}, function (err,data) {
+                res.jsonp(data);
+                //res.jsonp(req.body);
+            });
+        }*/
         agenda = _.extend(agenda, req.body);
 
         agenda.save(function(err){

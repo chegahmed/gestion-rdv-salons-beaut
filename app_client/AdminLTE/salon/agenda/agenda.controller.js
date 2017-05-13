@@ -25,7 +25,7 @@
 
         $http({
             method: 'GET',
-            url: '/gestionusers/getallmysalon/'+id
+            url: '/gestionusers/getallsalonbyuser/'+id
         }).success(function (data) {
             $scope.salons = data; // response data
         }).error(function (response) {

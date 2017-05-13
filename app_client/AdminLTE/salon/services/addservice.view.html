@@ -4,7 +4,7 @@ message : {{message}}
 
 
 <!-- Main content -->
-<section class="content " dir-paginate="salon in salons| itemsPerPage: 1" >  <!-- dir-paginate="salon in salons| itemsPerPage: 1"-->
+<section class="content " dir-paginate="salon in salons| itemsPerPage: 1">  <!-- dir-paginate="salon in salons| itemsPerPage: 1"-->
     <div class="row" >
         <div class="col-md-12">
             <div class="box">
@@ -32,18 +32,18 @@ message : {{message}}
                               <tr ng-repeat="scatg in scatgs"  ng-if="scatg._id == service.parent" >
 
                                   <td class="col-md-1">
-                                      <input name="chkweek" type="checkbox" ng-model="formData[service._id][salon._id].chkweek" class="btn btn-primary">
+                                      <input name="isChecked" type="checkbox" ng-model="formData[salon._id][service._id].isChecked"   class="btn btn-primary">
                                   </td>
-                                  <td class="col-md-2" ><input type="text"  ng-disabled="true"  ng-model="formData[service._id][salon._id].name = service.name" class="form-control" ></td>
-                                  <td class="col-md-3" > <input type="text" disabled ng-repeat="catg in catgs" ng-if="catg._id ==scatg.parent" ng-model="formData[service._id][salon._id].categorie=catg.name+ ' --> '+scatg.name" class="form-control"></td>
-                                  <td class="col-md-2" >   <input type="number"  ng-disabled="!formData[service._id][salon._id].chkweek" class="form-control" placeholder="Enter your time" ng-model="formData[service._id][salon._id].time"></td>
-                                  <td class="col-md-2" ><input type="number" ng-disabled="!formData[service._id][salon._id].chkweek" class="form-control" id="phoneNumber" placeholder="Enter your price" ng-model="formData[service._id][salon._id].price"></td>
+                                  <td class="col-md-2" ><input type="text"  ng-disabled="true"  ng-model="formData[salon._id][service._id].name = service.name" class="form-control" ></td>
+                                  <td class="col-md-3" > <input type="text" disabled ng-repeat="catg in catgs" ng-if="catg._id ==scatg.parent" ng-model="formData[salon._id][service._id].categorie=catg.name+ ' --> '+scatg.name" class="form-control"></td>
+                                  <td class="col-md-2" >   <input type="number"  ng-disabled="!formData[salon._id][service._id].isChecked" class="form-control" placeholder="Enter your time" ng-model="formData[salon._id][service._id].time"></td>
+                                  <td class="col-md-2" ><input type="number" ng-disabled="!formData[salon._id][service._id].isChecked" class="form-control" id="phoneNumber" placeholder="Enter your price" ng-model="formData[salon._id][service._id].price"></td>
                                   <td class="col-md-2" >
-                                      <select multiple style="height : 45px"  ng-model="formData[service._id][salon._id].employe" class="form-control"  ng-disabled="!formData[service._id][salon._id].chkweek">
+                                      <select multiple style="height : 45px"  ng-model="formData[salon._id][service._id].employe" class="form-control"  ng-disabled="!formData[salon._id][service._id].isChecked">
                                           <option ng-repeat="employe in employes" ng-if="employe.idsalon == salon._id" value="{{employe.name}}">{{employe.name}}</option>
                                       </select>
                                   </td>
-                                  <td class="col-md-0" ><input type="text" ng-hide="true" ng-disabled="true"  ng-model="formData[service._id][salon._id].idsalon = salon._id" class="form-control" ></td>
+                                  <td class="col-md-0" ><input type="text" ng-hide="true" ng-disabled="true"  ng-model="formData[salon._id][service._id].idsalon = salon._id" class="form-control" ></td>
                               </tr>
 
                          </tbody>
@@ -101,7 +101,7 @@ message : {{message}}
 
 
              <div  class="col-md-2" >
-                 <input name="chkweek"  type="checkbox"  ng-model="formData[service._id].chkweek  " class="btn btn-primary">
+                 <input name="isChecked"  type="checkbox"  ng-model="formData[service._id].isChecked  " class="btn btn-primary">
              </div>
 
 
@@ -115,15 +115,15 @@ message : {{message}}
              </div>
 
              <div  class="col-md-2" >
-                 <input type="text"  ng-disabled="!formData[service._id].chkweek" class="form-control" placeholder="Enter your time" ng-model="formData[service._id].time">
+                 <input type="text"  ng-disabled="!formData[service._id].isChecked" class="form-control" placeholder="Enter your time" ng-model="formData[service._id].time">
              </div>
 
              <div class="col-md-2" >
-                 <input type="text" ng-disabled="!formData[service._id].chkweek" class="form-control" id="phoneNumber" placeholder="Enter your price" ng-model="formData[service._id].price">
+                 <input type="text" ng-disabled="!formData[service._id].isChecked" class="form-control" id="phoneNumber" placeholder="Enter your price" ng-model="formData[service._id].price">
              </div>
 
              <div class="col-md-2" >
-                 <select  ng-model="formData[service._id].employe"  ng-disabled="!formData[service._id].chkweek">
+                 <select  ng-model="formData[service._id].employe"  ng-disabled="!formData[service._id].isChecked">
                      <option ng-repeat="employe in employes" value="{{employe.name}}">{{employe.name}}</option>
                  </select>
              </div>

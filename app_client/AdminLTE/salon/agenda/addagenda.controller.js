@@ -102,15 +102,15 @@
 
         vm.onSubmit = function () {
             $scope.saveAgenda();
-          /* if($scope.myagendas == null){
+     /*     if($scope.myagendas == null){
                $scope.saveAgenda();
            }else {
                    $scope.updateAgenda();
            }*/
-
         };
 
         $scope.updateAgenda =function updateAgenda(){
+            console.log('ici update agenda')
 
             $http.put('/gestionusers/updateagendabyemploye/' + $scope.employe._id, $scope.agenda)
                 .success(function (response) {
@@ -121,6 +121,7 @@
 
 
         $scope.saveAgenda = function saveAgenda() {
+            console.log('ici save agenda')
             $scope.agenda.idemploye = $scope.employe._id;
             $scope.showcrenaux($scope.agenda.startTime,$scope.agenda.endTime,parseInt($scope.agenda.rate));
 

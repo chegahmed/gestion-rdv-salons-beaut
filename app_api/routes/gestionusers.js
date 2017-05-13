@@ -127,8 +127,11 @@ router.delete('/servicesalon/:servicesalonId',servicesalonCtr.delete);
 
 router.get('/servicesalonsearch/:q',servicesalonCtr.search);
 //////////////ici route profile salon///////////////////
-//salonid ==id responsable
-router.get('/getallmysalon/:salonId',salonCtr.getAllMySallon);
+
+router.get('/getallmysalon/:userId',salonCtr.getAllMySallon);
+
+//GET all salons by user
+router.get('/getallsalonbyuser/:userId',salonCtr.getAllSallonByUser);
 
 //////////////////////ici Route Salon /////////////////
 

@@ -12,21 +12,22 @@
 
         $http({
             method: 'GET',
-            url: '/gestionusers/'+id
+            url: '/gestionusers/' + id
         }).success(function (data) {
             $scope.profile = data; // response data
         }).error(function (response) {
-            console.log('error message :',response);
+            console.log('error message :', response);
         });
 
 
         $http({
             method: 'GET',
-            url: '/gestionusers/getallmysalon/'+id
+            url: '/gestionusers/getallmysalon/' + id
         }).success(function (data) {
-            $scope.salons = data; // response data
+            $scope.formData = data.servicesalons; // response data
+            $scope.salons = data.salons; // response data
         }).error(function (response) {
-            console.log('error message :',response);
+            console.log('error message :', response);
         });
 
 
@@ -43,7 +44,7 @@
             url: '/gestionusers/souscategorie'
         }).success(function (data) {
             $scope.scatgs = data; // response data
-          ///  console.log(data)
+            ///  console.log(data)
         });
 
         $http({
@@ -51,108 +52,108 @@
             url: '/gestionusers/service'
         }).success(function (data) {
             $scope.services = data; // response data
-          ///  console.log(data)
+            ///  console.log(data)
         });
-
 
 
         $http({
             method: 'GET',
-            url: '/gestionusers/allemployer/'+id
+            url: '/gestionusers/allemployer/' + id
         }).success(function (data) {
             $scope.employes = data; // response data
         }).error(function (response) {
-            console.log('error message :',response);
+            console.log('error message :', response);
         });
 
-        $scope.existing = function(name){
+        $scope.existing = function (name) {
             $http({
                 method: 'GET',
-                url: '/gestionusers/servicesalonbyidsalon/'+id+'/'+name
+                url: '/gestionusers/servicesalonbyidsalon/' + id + '/' + name
             }).success(function (data) {
                 $scope.servicesalonbyidsalon = data; // response data
             }).error(function (response) {
-                console.log('error message :',response);
+                console.log('error message :', response);
             });
         }
 
 
+        $http({
+            method: 'GET',
+            url: '/gestionusers/servicesalon'
+        }).success(function (data) {
+            $scope.service_salon = data; // response data
+            console.log('ici tableaux services')
+            console.log(data)
 
-
-
-
+        });
 
         $scope.formData = {};
+        /*$scope.formData = {
+            "5900bd96a3d5fa05d4dc5b26": {//salon
+                "5900b3ab81126113201f35bb": {//service
+                    isChecked: true,
+                    name: "teinture sourcils",
+                    categorie: "Maquillage --> Maquillage Soir",
+                    time: 2,
+                    price: 2,
+                    employe: [
+                        "aicha",
+                    ]
+                },
+            },
+        };*/
+
 
         $scope.save = function (da) {
 
-          /*  if($scope.myagendas == null){
-                $scope.saveService();
-            }else {
-                $scope.updateService();
-            }*/
+            /*  if($scope.myagendas == null){
+             $scope.saveService();
+             }else {
+             $scope.updateService();
+             }*/
 
-            angular.forEach(da, function(value, key) {
-                angular.forEach(value, function(valu, ke) {
-
-                    $scope.servicesalon =valu;
-                    if(valu.time!=null && valu.price!=null && valu.employe!=null){
-
-                      //  console.log(valu.idsalon);
-                        console.log('name  '+valu.name)
+            angular.forEach(da, function (value, key) {
+                angular.forEach(value, function (valu, ke) {
+                    valu.idservice = ke;
+                    console.log(ke);
+                    $scope.servicesalon = valu;
+                    if (valu.time != null && valu.price != null && valu.employe != null) {
+                        $scope.saveService();
+                        //  console.log(valu.idsalon);
+                        console.log('name  ' + valu.name)
                         $scope.existing(valu.name);
 
-                        console.log($scope.servicesalonbyidsalon)
-                        if($scope.servicesalonbyidsalon == null)
-                        {
-                           /**/
+                        //console.log($scope.servicesalonbyidsalon)
+                        if ($scope.servicesalonbyidsalon == null) {
+                            /**/
                             console.log("dosen't  exist in data base")
-                        }else{
+                        } else {
                             console.log('already exist in data base')
                         }
 
 
-                    }else {
+                    } else {
                         console.log('error')
                     }
                 });
 
             });
 
-          //  sweetAlert("félicitation...", "Votre service à été Ajouté avec success", "success");
-          //  $location.url('/listsalonservice/'+id)
+            sweetAlert("félicitation...", "Votre service à été Ajouté avec success", "success");
+            //  $location.url('/listsalonservice/'+id)
         };
 
 
-
-        $scope.saveService=function(){
+        $scope.saveService = function () {
 
             $http.post('/gestionusers/servicesalon/', $scope.servicesalon)
                 .success(function (response) {
                     //  sweetAlert("félicitation...", "Votre service à été Ajouté avec success", "success");
                     // $location.url('/service')
-                    $scope.valuecheckbox[valu.name] =  "valider"
+                    $scope.valuecheckbox[valu.name] = "valider"
                     console.log('bieeeeeeeeeen')
                 })
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }
