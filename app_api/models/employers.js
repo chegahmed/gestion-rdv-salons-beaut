@@ -6,8 +6,16 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
+var subsubagendaSchema = new Schema({
+    value:Boolean,
+    content :String,
+    cause :String
+})
 
-
+var subagendaSchema = new Schema({
+    day :String,
+    margetime:[subsubagendaSchema]
+})
 /**
  * Employer Schema
  */
@@ -43,6 +51,7 @@ var EmployerSchema = new Schema({
     endTime: {
         type: String
     },
+    agenda : [subagendaSchema],
     createdAt :{type : Date , default : Date.now },
     updatedAt :{type : Date , default : Date.now }
 });

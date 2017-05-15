@@ -42,13 +42,15 @@
             console.log('error message :',response);
         });
 
+/*
 
         $http({
             method: 'GET',
-            url: '/gestionusers/agenda'
+            url: '/gestionusers/employer'
         }).success(function (data) {
             $scope.agendas = data; // response data
         });
+*/
 
 
        $scope.iduser=id;

@@ -105,8 +105,8 @@ exports.putsub = function(req,res){
         "_id" : req.params.agendaId,
         "margetime._id" :req.params.subid
     },{"$set": {"margetime.$": req.body}}, function (err,data) {
-        res.jsonp(data);
-        //res.jsonp(req.body);
+       // res.jsonp(data);
+        res.jsonp(req.body);
     });
 };
 /*    Agenda.findOne({ _id: req.params.agendaId }).populate('margetime').exec(function (err, data) {

@@ -38,7 +38,6 @@ router.get('/agenda',agendaCtr.get);
 // GET agenda/fjaslfj478329fsafashf2
 router.get('/agenda/:agendaId',agendaCtr.show);
 
-router.get('/agenda/:agendaId/:subid',agendaCtr.showsub);
 
 router.put('/agendaa/:idagenda',agendaCtr.putByIdemployeand);
 
@@ -83,6 +82,14 @@ router.put('/employer/:employerId',employeCtr.put);
 router.delete('/employer/:employerId',employeCtr.delete);
 
 router.get('/employersearch/:idr/:q',employeCtr.search);
+
+////////////agenda exist in model employe//////
+
+router.get('/agendaemploye/:employerId/:subid/:subsubid',employeCtr.showsub);
+
+router.put('/agendaemploye/:employerId/:subid/:subsubid',employeCtr.putsub);
+
+
 
 //////////////////////ici Route proposer  Service /////////////////
 

@@ -17,7 +17,14 @@
                             <p>
                                 Ajouter un calendrier pour Employée <b style="color: #00A000">{{employe.name}}</b>
                             </p>
-                            <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/addagendasalon/{{employe._id}}/{{iduser}}">Ajouter Agenda</a>
+
+                        <div class="col-md-6 text-center">
+                            <p class="col-md-2" style="background-color:Gainsboro ">repos</p>
+                            <p class="col-md-2" style="background-color:RosyBrown ">congé</p>
+                            <p class="col-md-2" style="background-color:red ">malade</p>
+                            <p class="col-md-2" style="background-color:Blue ">réserve</p>
+                        </div>
+
                             <a class="btn btn-info pull-right" style="margin-bottom: 2%" href="/bloquecreneauxagenda/{{employe._id}}">Bloque crénaux</a>
                         <hr>
 
@@ -38,13 +45,13 @@
 
                             <tr>
 
-                                <td ng-repeat="agenda in agendas" ng-if="agenda.day == 'lundi' && agenda.idemploye == employe._id "><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true" >{{marge.content}} </p></td>
-                                <td ng-repeat="agenda in agendas" ng-if="agenda.day == 'mardi' && agenda.idemploye == employe._id"><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true">{{marge.content}} </p></td>
-                                <td ng-repeat="agenda in agendas" ng-if="agenda.day == 'mercredi' && agenda.idemploye == employe._id"><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true">{{marge.content}} </p></td>
-                                <td ng-repeat="agenda in agendas"  ng-if="agenda.day == 'jeudi' && agenda.idemploye == employe._id"><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true">{{marge.content}} </p></td>
-                                <td ng-repeat="agenda in agendas" ng-if="agenda.day == 'vendredi' && agenda.idemploye == employe._id"><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true">{{marge.content}} </p></td>
-                                <td ng-repeat="agenda in agendas" ng-if="agenda.day == 'samedi' && agenda.idemploye == employe._id"><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true">{{marge.content}} </p></td>
-                                <td ng-repeat="agenda in agendas" ng-if="agenda.day == 'dimanche' && agenda.idemploye == employe._id"><p ng-repeat="marge in agenda.margetime "  ng-if="marge.value ==true">{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in employe.agenda" ng-if="agenda.day == 'lundi' "><p ng-repeat="marge in agenda.margetime " ng-style="{'malade':{background:'red'}, 'repos':{background: 'Gainsboro'},'congé':{background:'RosyBrown'}, 'réserve':{background: 'Blue'}}[marge.cause]">{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in employe.agenda" ng-if="agenda.day == 'mardi' "><p ng-repeat="marge in agenda.margetime " ng-style="{'malade':{background:'red'}, 'repos':{background: 'Gainsboro'},'congé':{background:'RosyBrown'}, 'réserve':{background: 'Blue'}}[marge.cause]">{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in employe.agenda" ng-if="agenda.day == 'mercredi' "><p ng-repeat="marge in agenda.margetime " ng-style="{'malade':{background:'red'}, 'repos':{background: 'Gainsboro'},'congé':{background:'RosyBrown'}, 'réserve':{background: 'Blue'}}[marge.cause]">{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in employe.agenda"  ng-if="agenda.day == 'jeudi' "><p ng-repeat="marge in agenda.margetime " ng-style="{'malade':{background:'red'}, 'repos':{background: 'Gainsboro'},'congé':{background:'RosyBrown'}, 'réserve':{background: 'Blue'}}[marge.cause]">{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in employe.agenda" ng-if="agenda.day == 'vendredi' "><p ng-repeat="marge in agenda.margetime " ng-style="{'malade':{background:'red'}, 'repos':{background: 'Gainsboro'},'congé':{background:'RosyBrown'}, 'réserve':{background: 'Blue'}}[marge.cause]">{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in employe.agenda" ng-if="agenda.day == 'samedi' "><p ng-repeat="marge in agenda.margetime " ng-style="{'malade':{background:'red'}, 'repos':{background: 'Gainsboro'},'congé':{background:'RosyBrown'}, 'réserve':{background: 'Blue'}}[marge.cause]">{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in employe.agenda" ng-if="agenda.day == 'dimanche' "><p ng-repeat="marge in agenda.margetime "  ng-style="{'malade':{background:'red'}, 'repos':{background: 'Gainsboro'},'congé':{background:'RosyBrown'}, 'réserve':{background: 'Blue'}}[marge.cause]">{{marge.content}} </p></td>
 
 
                             </tr>
