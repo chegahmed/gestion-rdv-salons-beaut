@@ -6,7 +6,7 @@
 
     editcategorieCtrl.$inject = ['$scope', '$http', '$location','Upload', '$routeParams','$window'];
     function editcategorieCtrl($scope, $http, $location,Upload, $routeParams,$window) {
-        $scope.message = "hello ahmed";
+
 
 
 
@@ -47,7 +47,7 @@
                 data:{file:file,name: name} //pass file as data, should be user ng-model
             }).then(function (resp) { //upload function returns a promise
                     sweetAlert("félicitation...", 'votre catégorie à été Modifier avec succès', "success");
-                   $location.path('/categorie')
+                   $location.path('/admin/categorie')
 
             }, function (resp) { //catch error
                 sweetAlert("erreur...", "une erreur a été détecté veuillez verifier votre formulaire !", "error");
@@ -65,7 +65,7 @@
             $http.put('/gestionusers/categorie/' + $scope.categorie._id, $scope.categorie)
                 .success(function (response) {
                     sweetAlert("félicitation...", "votre catégorie à été Modifier avec succès", "success");
-                    $location.url('/categorie')
+                    $location.url('/admin/categorie')
                 })
                 .error(function (err) {
                 sweetAlert("erreur...", "une erreur a été détecté veuillez verifier votre formulaire !", "error");

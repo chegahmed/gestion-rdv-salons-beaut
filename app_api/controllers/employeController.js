@@ -7,7 +7,7 @@ var Employer =mongoose.model("Employer");
 
 // save employee
 exports.post = function(req ,res){
-    weeks=['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'];
+  var  weeks=['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'];
 agenda =[];
     _.each(weeks, function (d) {
         req.body.day=d;
@@ -44,6 +44,14 @@ exports.get = function(req,res){
 
 
 // get all  employee for specific user
+exports.getAllMyEmploye = function(req,res){
+    Employer.find({idresponsable : req.params.responsableId}).exec(function(err,employer){
+        res.jsonp(employer);
+    });
+};
+
+
+// get all marge for specific user
 exports.getAllMyEmploye = function(req,res){
     Employer.find({idresponsable : req.params.responsableId}).exec(function(err,employer){
         res.jsonp(employer);
@@ -88,7 +96,7 @@ exports.putsub = function(req,res){
 // edit employee
 exports.put = function(req,res){
     Employer.load(req.params.employerId, function(err,employer){
-        weeks=['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'];
+    var    weeks=['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'];
         agenda =[];
         _.each(weeks, function (d) {
             req.body.day=d;

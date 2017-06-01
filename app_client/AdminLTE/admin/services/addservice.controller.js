@@ -6,7 +6,7 @@
 
     addserviceCtrl.$inject = ['$scope', '$http', '$location', '$routeParams'];
     function addserviceCtrl($scope, $http, $location, $routeParams) {
-        $scope.message = "hello ahmed";
+
 
 
         $http({
@@ -38,13 +38,13 @@
                 $http.post('/gestionusers/service/', $scope.service)
                     .success(function (response) {
                         sweetAlert("félicitation...", "Votre service à été Ajouté avec success", "success");
-                        $location.url('/service')
+                        $location.url('/admin/service')
                     })
                     .error(function(err){
                         alert(err);
                     })
                     .then(function(){
-                        $location.path('/service');
+                        $location.path('/admin/service');
                     });
 
             };

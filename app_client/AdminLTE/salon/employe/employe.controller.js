@@ -12,7 +12,7 @@
         var id = $routeParams.id;
 
 
-
+//this for get profile user
         $http({
             method: 'GET',
             url: '/gestionusers/'+id
@@ -23,7 +23,7 @@
         });
 
 
-
+//this for get all employe by id user 'responsable salon'
         $http({
             method: 'GET',
             url: '/gestionusers/allemployer/'+id
@@ -34,8 +34,7 @@
         });
 
 
-
-
+//this methods for delete employe
         $scope.deleteEmploye = function deleteEmploye(employe) {
             swal({
                 title : '',
@@ -54,17 +53,14 @@
                     }).error(function (response) {
                         swal("Oops", "We couldn't connect to the server!", "error");
                     });
-
             });
         }
 
 
-
+//this method for display search  employes
         $scope.showSearch =function showSearch(value) {
-            console.log('here is ouuuuuuut')
             console.log(value)
             if(value==""){
-                console.log('ici out searh')
                 $http({
                     method: 'GET',
                     url: '/gestionusers/allemployer/'+id
@@ -74,8 +70,6 @@
                     console.log('error message :',response);
                 });
             }else{
-                console.log('ici in searh' )
-                console.log(value)
                 $http({
                     method: 'GET',//+id+'/'+
                     url: '/gestionusers/employersearch/'+id+'/'+value

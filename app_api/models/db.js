@@ -9,7 +9,7 @@ mongoose.connect(dbURI);
 
 // CONNECTION EVENTS
 mongoose.connection.on('connected', function() {
-  console.log('Mongoose connected to ' + dbURI);
+  console.log('Mongoose connected to ' + dbURI+' in port '+3000);
 });
 mongoose.connection.on('error', function(err) {
   console.log('Mongoose connection error: ' + err);

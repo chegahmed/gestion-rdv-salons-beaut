@@ -17,7 +17,6 @@
             url: '/gestionusers/'+id
         }).success(function (data) {
             $scope.profile = data; // response data
-            console.log('profile name: '+$scope.profile.name +'profile email : '+$scope.profile.email  )
         }).error(function (response) {
             console.log('error message :',response);
         });
@@ -26,7 +25,7 @@
 
         $http({
             method: 'GET',
-            url: '/gestionusers/getallmysalon/'+id
+            url: '/gestionusers/getallsalonbyuser/'+id
         }).success(function (data) {
             $scope.salons = data; // response data
         }).error(function (response) {

@@ -6,11 +6,6 @@
 
     editvilleCtrl.$inject = ['$scope', '$http', '$location', '$routeParams'];
     function editvilleCtrl($scope, $http, $location, $routeParams) {
-        $scope.message = "hello ahmed";
-
-
-
-
 
 
         $scope.ville = {};
@@ -25,12 +20,10 @@
         });
 
         $scope.updateVille = function () {
-            $scope.messaguser="update success";
-            console.log('ici fonction update user');
             $http.put('/gestionusers/ville/' + $scope.ville._id, $scope.ville)
                 .success(function (response) {
                     sweetAlert("félicitation...", "la ville est Modifier avec success", "success");
-                    $location.url('/ville')
+                    $location.url('/admin/ville')
                 })
         }
     }

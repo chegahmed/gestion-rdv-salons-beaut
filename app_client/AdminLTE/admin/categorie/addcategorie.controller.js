@@ -26,7 +26,7 @@
             }).then(function (resp) { //upload function returns a promise
                 if(resp.data.error_code === 0){ //validate success
                     sweetAlert("félicitation...", resp.config.data.file.name+' a été ajoute avec succès', "success");
-                    $location.path('/categorie')
+                    $location.path('admin/categorie')
                 } else {
                     sweetAlert("erreur...", "une erreur a été détecté veuillez verifier votre formulaire !", "error");
                 }

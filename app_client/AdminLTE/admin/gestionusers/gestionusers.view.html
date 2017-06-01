@@ -30,7 +30,7 @@
 
 
 
-                            <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/adduser">Ajouter</a>
+                            <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/admin/adduser">Ajouter</a>
                             <table id="example1" class="table table-bordered table-striped" at-paginated at-list="list" at-config="config">
                                 <thead>
                                 <tr>
@@ -51,16 +51,16 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr  dir-paginate="user in users| itemsPerPage: 4| orderBy : sortKey:reverse " >
+                                <tr  dir-paginate="user in users| itemsPerPage: 4 " >
                                     <td>{{user.name}}</td>
                                     <td>{{user.email}}</td>
                                     <td>{{user.phoneNumber}}</td>
                                     <td>{{user.role}}</td>
-                                    <td> <a href="/edituser/{{user._id}}" >
+                                    <td> <a href="/admin/edituser/{{user._id}}" >
                                         <span class="fa fa-fw fa-edit"></span></a>
                                    <a href="" ng-click="deleteUser(user)">
                                         <span class="fa fa-fw fa-remove"></span></a>
-                                    <a href="/showuser/{{user._id}}" >
+                                    <a href="/admin/showuser/{{user._id}}" >
                                         <span class="fa fa-fw fa-eye"></span></a></td>
                                 </tr>
                                 </tfoot>

@@ -29,7 +29,7 @@
                         </tr>
                     </table>
                     <hr>
-                    <a href="/editprofilesalon/{{profile._id}}" class="btn btn-primary pull-right">Modifier</a>
+                    <a href="/admin/editprofilesalon/{{profile._id}}" class="btn btn-primary pull-right">Modifier</a>
                 </div>
             </div>
             <!-- /.box -->
@@ -57,7 +57,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                       <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/addsalonprofile/{{profile._id}}">Ajouter</a>
+                       <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/admin/addsalonprofile/{{profile._id}}">Ajouter</a>
                         <table id="example1" class="table table-bordered table-striped " at-paginated at-list="list" at-config="config">
                             <thead>
                             <tr>
@@ -74,17 +74,20 @@
 
                             </tr>
                             </thead>
+
+                            <p ng-repeat="sal in salons">name {{sal.name}}</p>
+
                             <tbody>
-                            <tr  dir-paginate="salon in salons| itemsPerPage: 4| orderBy : sortKey:reverse " >
+                            <tr  dir-paginate="salon in salons| itemsPerPage: 4 " >
                                 <td>{{salon.name}}</td>
                                 <td>{{salon.address}}</td>
                                 <td>{{salon.ville}}</td>
                                 <td>
-                                    <a href="/editsalon/{{salon._id}}" >
+                                    <a href="/admin/editsalon/{{salon._id}}/{{profile._id}}" >
                                         <span class="fa fa-fw fa-edit"></span></a>
                                     <a href="" ng-click="deleteSalon(salon)">
                                         <span class="fa fa-fw fa-remove"></span></a>
-                                    <a href="/showsalon/{{salon._id}}" >
+                                    <a href="/admin/showsalon/{{salon._id}}" >
                                         <span class="fa fa-fw fa-eye"></span></a>
                                 </td>
                             </tr>

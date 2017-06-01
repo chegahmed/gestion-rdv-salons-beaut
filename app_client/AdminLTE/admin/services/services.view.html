@@ -36,7 +36,7 @@
                         </form>
 
 
-                        <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/addservice">Ajouter</a>
+                        <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/admin/addservice">Ajouter</a>
                         <table id="example1" class="table table-bordered table-striped" at-paginated at-list="list" at-config="config">
                             <thead>
                             <tr>
@@ -56,11 +56,11 @@
                             <tr dir-paginate="service in services|itemsPerPage: 5| filter : search| pagination: curPage * pageSize |orderBy : sortKey:reverse">
                                 <td>{{service.name}}</td>
                                 <td ng-repeat="catg in catgs" ng-if="catg._id == service.parent">{{catg.name}}</td>
-                                <td> <a href="/editservice/{{service._id}}" >
+                                <td> <a href="/admin/editservice/{{service._id}}" >
                                     <span class="fa fa-fw fa-edit"></span></a>
                                 <a href="" ng-click="deleteService(service)" >
                                     <span class="fa fa-fw fa-remove"></span></a>
-                                 <a href="/showservice/{{service._id}}" >
+                                 <a href="/admin/showservice/{{service._id}}" >
                                     <span class="fa fa-fw fa-eye"></span></a></td>
                             </tr>
                             </tfoot>

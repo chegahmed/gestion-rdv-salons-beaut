@@ -4,7 +4,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header" >
     <h1>
-        Bloquer le créneaux horaires pou employe {{employe.name}}
+        Bloquer le créneaux horaires pour l'employe {{employe.name}}
     </h1>
 
 </section>
@@ -19,14 +19,14 @@
 
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title col-md-12"> liste des crénaux horaire à bloques  </h3>
+                        <h3 class="box-title col-md-12"> Liste des crénaux horaire à bloques  </h3>
                  <!--       <h5 class="alert-success col-md-4 col-md-offset-4 text-center">{{message}}</h5>-->
 
-                     <!--  tableaux : {{tab}}-->
-                        <form ng-submit="UpdateElement()">
-                            <div class="col-md-2 col-lg-offset-4 form-group" >
-
-                                    <select  ng-model="cause" class="form-control">
+                      <!-- tableaux : {{tab}}-->
+                        <form ng-submit="UpdateElement()" class="form-inline">
+                            <div class="col-md-3 col-lg-offset-4 form-group" >
+                                <label for="cause" class="control-label"  style="display: inline-block;">Raison:</label>
+                                    <select  ng-model="cause" class="form-control" id="cause" style="width: 80%">
                                         <option>repos</option>
                                         <option>congé</option>
                                         <option>malade</option>
@@ -34,35 +34,34 @@
                                     </select>
                             </div>
 
-                                <input type="submit" class="btn btn-primary col-md-1">
+                                <input type="submit" value="Valider" class="btn btn-primary">
 
 
                         </form>
-
+<hr/>
 
 
                         <table class="table table-bordered">
                             <tr style="color: brown">
-                                <th>Lundi</th>
-                                <th>Mardi</th>
-                                <th>Mercredi</th>
-                                <th>Jeudi</th>
-                                <th>Vendredi</th>
-                                <th>Samedi</th>
-                                <th>Dimanche</th>
-
+                                <th>Lundi <input type="checkbox" ng-click="toggleAll('lundi')"  ng-model="isAllvaluelundi"></th>
+                                <th>Mardi <input type="checkbox" ng-click="toggleAll('mardi')" ng-model="isAllvaluemardi"></th>
+                                <th>Mercredi <input type="checkbox" ng-click="toggleAll('mercredi')" ng-model="isAllvaluemercredi"></th>
+                                <th>Jeudi <input type="checkbox" ng-click="toggleAll('jeudi')" ng-model="isAllvaluejeudi"></th>
+                                <th>Vendredi <input type="checkbox" ng-click="toggleAll('vendredi')" ng-model="isAllvaluevendredi"></th>
+                                <th>Samedi <input type="checkbox" ng-click="toggleAll('samedi')" ng-model="isAllvaluesamedi"></th>
+                                <th>Dimanche <input type="checkbox" ng-click="toggleAll('dimanche')" ng-model="isAllvaluedimanche"></th>
                             </tr>
                             <tbody  >
 
                             <tr>
 
-                                <td ng-repeat="agenda in employe.agenda" ng-if="agenda.day == 'lundi' "><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true" ><input name="value" type="checkbox" ng-model="isChecked" ng-click="FillingArray(agenda._id,marge.content,marge._id,marge.value,isChecked)" />{{marge.content}} </p></td>
-                                <td ng-repeat="agenda in employe.agenda" ng-if="agenda.day == 'mardi' "><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true"><input name="value" type="checkbox" ng-model="isChecked" ng-click="FillingArray(agenda._id,marge.content,marge._id,marge.value,isChecked)" />{{marge.content}} </p></td>
-                                <td ng-repeat="agenda in employe.agenda" ng-if="agenda.day == 'mercredi' "><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true"><input name="value" type="checkbox" ng-model="isChecked" ng-click="FillingArray(agenda._id,marge.content,marge._id,marge.value,isChecked)" />{{marge.content}} </p></td>
-                                <td ng-repeat="agenda in employe.agenda"  ng-if="agenda.day == 'jeudi' "><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true"><input name="value" type="checkbox" ng-model="isChecked" ng-click="FillingArray(agenda._id,marge.content,marge._id,marge.value,isChecked)" />{{marge.content}} </p></td>
-                                <td ng-repeat="agenda in employe.agenda" ng-if="agenda.day == 'vendredi' "><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true"><input name="value" type="checkbox" ng-model="isChecked" ng-click="FillingArray(agenda._id,marge.content,marge._id,marge.value,isChecked)" />{{marge.content}} </p></td>
-                                <td ng-repeat="agenda in employe.agenda" ng-if="agenda.day == 'samedi' "><p ng-repeat="marge in agenda.margetime " ng-if="marge.value ==true"><input name="value" type="checkbox" ng-model="isChecked" ng-click="FillingArray(agenda._id,marge.content,marge._id,marge.value,isChecked)" />{{marge.content}} </p></td>
-                                <td ng-repeat="agenda in employe.agenda" ng-if="agenda.day == 'dimanche' "><p ng-repeat="marge in agenda.margetime "  ng-if="marge.value ==true"><input name="value" type="checkbox" ng-model="isChecked" ng-click="FillingArray(agenda._id,marge.content,marge._id,marge.value,isChecked)" />{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in agendaemploye" ng-if="agenda.day == 'lundi' "><p ng-repeat="marge in agenda.margetime"><input name="value" type="checkbox" ng-model="marge.value" ng-change="optionToggled('lundi')" ng-click="FillingArray(agenda._id,marge.content,marge._id,marge.value,marge.value)" />{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in agendaemploye" ng-if="agenda.day == 'mardi' "><p ng-repeat="marge in agenda.margetime"> <input name="value" type="checkbox" ng-model="marge.value" ng-change="optionToggled('mardi')" ng-click="FillingArray(agenda._id,marge.content,marge._id,marge.value,marge.value)" />{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in agendaemploye" ng-if="agenda.day == 'mercredi' "><p ng-repeat="marge in agenda.margetime"><input type="checkbox" ng-model="marge.value" ng-change="optionToggled('mercredi')" ng-click="FillingArray(agenda._id,marge.content,marge._id,marge.value,marge.value)" />{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in agendaemploye" ng-if="agenda.day == 'jeudi' "><p ng-repeat="marge in agenda.margetime"><input name="value" type="checkbox" ng-model="marge.value" ng-change="optionToggled('jeudi')" ng-click="FillingArray(agenda._id,marge.content,marge._id,marge.value,marge.value)" />{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in agendaemploye" ng-if="agenda.day == 'vendredi' "><p ng-repeat="marge in agenda.margetime"><input name="value" type="checkbox" ng-model="marge.value" ng-change="optionToggled('vendredi')" ng-click="FillingArray(agenda._id,marge.content,marge._id,marge.value,marge.value)" />{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in agendaemploye" ng-if="agenda.day == 'samedi' "><p ng-repeat="marge in agenda.margetime"><input name="value" type="checkbox" ng-model="marge.value" ng-change="optionToggled('samedi')" ng-click="FillingArray(agenda._id,marge.content,marge._id,marge.value,marge.value)" />{{marge.content}} </p></td>
+                                <td ng-repeat="agenda in agendaemploye" ng-if="agenda.day == 'dimanche' "><p ng-repeat="marge in agenda.margetime"><input name="value" type="checkbox" ng-model="marge.value" ng-change="optionToggled('dimanche')" ng-click="FillingArray(agenda._id,marge.content,marge._id,marge.value,marge.value)" />{{marge.content}} </p></td>
 
                             </tr>
 
@@ -75,23 +74,6 @@
                             <div class="pull-right">
                                 <button type="submit" class="btn btn-primary">Bloquer</button>
                             </div>
-                        <div class="pull-right">
-                                <button type="button" id="selectAll">allcheck</button>
-                            </div>
-
-                        <script>
-
-
-                            $('#selectAll').click(function(e){
-                                console.log('selectAll')
-                                $(this).toggleClass('clicked');
-                                $(this).closest('table').find('input[type="checkbox"]').prop('checked', $(this).hasClass('clicked'))
-                            });
-                        </script>
-
-
-
-
 
                     </div>
 

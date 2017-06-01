@@ -6,8 +6,7 @@
 
     edituserCtrl.$inject = ['$scope', '$http', '$location', '$routeParams'];
     function edituserCtrl($scope, $http, $location, $routeParams) {
-        $scope.message = "hello ahmed";
- 
+
 
 
 
@@ -27,7 +26,7 @@
             $http.put('/gestionusers/' + $scope.user._id, $scope.user)
                 .success(function (response) {
                     sweetAlert("félicitation...", "Modifier avec success", "success");
-                    $location.url('/accueil')
+                    $location.url('/admin/accueil')
 
                 })
         }

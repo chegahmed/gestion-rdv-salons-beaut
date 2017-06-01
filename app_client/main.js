@@ -4,189 +4,188 @@
 
     function config($routeProvider, $locationProvider) {
         $routeProvider
-            .when('/', {
+            .when('/admin', {
                 templateUrl:'/auth/login/login.view.html',
                 controller: 'loginCtrl',
                 controllerAs: 'vm'
             })
-            .when('/accueil', {
+            .when('/admin/accueil', {
                 templateUrl: '/AdminLTE/admin/gestionusers/gestionusers.view.html',
                 controller: 'gestionusersCtrl',
-                controllerAs: 'vm',
-
+                controllerAs: 'vm'
             })
-            .when('/edituser/:id', {
+            .when('/admin/edituser/:id', {
                 templateUrl: '/AdminLTE/admin/gestionusers/edituser.view.html',
                 controller: 'edituserCtrl',
                 controllerAs: 'vm'
             })
-            .when('/showuser/:id', {
+            .when('/admin/showuser/:id', {
                 templateUrl: '/AdminLTE/admin/gestionusers/showUser.view.html',
                 controller: 'showuserCtrl',
                 controllerAs: 'vm'
             })
-            .when('/adduser', {
+            .when('/admin/adduser', {
                 templateUrl: '/AdminLTE/admin/gestionusers/adduser.view.html',
                 controller: 'adduserCtrl',
                 controllerAs: 'vm'
             })
             ////gestion catégorie////
-            .when('/categorie', {
+            .when('/admin/categorie', {
                 templateUrl: '/AdminLTE/admin/categorie/categorie.view.html',
                 controller: 'categorieCtrl',
                 controllerAs: 'up'
             })
-            .when('/addcategorie', {
+            .when('/admin/addcategorie', {
                 templateUrl: '/AdminLTE/admin/categorie/addCategorie.view.html',
                 controller: 'addcategorieCtrl',
                 controllerAs: 'vm'
             })
-            .when('/editcategorie/:id', {
+            .when('/admin/editcategorie/:id', {
                 templateUrl: '/AdminLTE/admin/categorie/editCategorie.view.html',
                 controller: 'editcategorieCtrl',
                 controllerAs: 'vm'
             })
-            .when('/showcategorie/:id', {
+            .when('/admin/showcategorie/:id', {
                 templateUrl: '/AdminLTE/admin/categorie/showCategorie.view.html',
                 controller: 'showcategorieCtrl',
                 controllerAs: 'vm'
             })
-            .when('/souscategorie', {
+            .when('/admin/souscategorie', {
                 templateUrl: '/AdminLTE/admin/souscategorie/souscategorie.view.html',
                 controller: 'souscategorieCtrl',
                 controllerAs: 'vm'
             })
             ////gestion sous catégorie////
-            .when('/addsouscategorie', {
+            .when('/admin/addsouscategorie', {
                 templateUrl: '/AdminLTE/admin/souscategorie/addSouscategorie.view.html',
                 controller: 'addsouscategorieCtrl',
                 controllerAs: 'vm'
             })
-            .when('/showsouscategorie/:id', {
+            .when('/admin/showsouscategorie/:id', {
                 templateUrl: '/AdminLTE/admin/souscategorie/showSouscategorie.view.html',
                 controller: 'showsouscategorieCtrl',
                 controllerAs: 'vm'
             })
-            .when('/editsouscategorie/:id', {
+            .when('/admin/editsouscategorie/:id', {
                 templateUrl: '/AdminLTE/admin/souscategorie/editSouscategorie.view.html',
                 controller: 'editsouscategorieCtrl',
                 controllerAs: 'vm'
             })
-            .when('/ville', {
+            .when('/admin/ville', {
                 templateUrl: '/AdminLTE/admin/ville/ville.view.html',
                 controller: 'villeCtrl',
                 controllerAs: 'vm'
             })
-            .when('/editville/:id', {
+            .when('/admin/editville/:id', {
                 templateUrl: '/AdminLTE/admin/ville/editVille.view.html',
                 controller: 'editvilleCtrl',
                 controllerAs: 'vm'
             })
-            .when('/addville', {
+            .when('/admin/addville', {
                 templateUrl: '/AdminLTE/admin/ville/addVille.view.html',
                 controller: 'addvilleCtrl',
                 controllerAs: 'vm'
             })
-            .when('/showville/:id', {
+            .when('/admin/showville/:id', {
                 templateUrl: '/AdminLTE/admin/ville/showVille.view.html',
                 controller: 'showvilleCtrl',
                 controllerAs: 'vm'
             })
-            .when('/service', {
+            .when('/admin/service', {
                 templateUrl: '/AdminLTE/admin/services/services.view.html',
                 controller: 'servicesCtrl',
                 controllerAs: 'vm'
             })
-            .when('/editservice/:id', {
+            .when('/admin/editservice/:id', {
                 templateUrl: '/AdminLTE/admin/services/editService.view.html',
                 controller: 'editserviceCtrl',
                 controllerAs: 'vm'
             })
-            .when('/addservice', {
+            .when('/admin/addservice', {
                 templateUrl: '/AdminLTE/admin/services/addService.view.html',
                 controller: 'addserviceCtrl',
                 controllerAs: 'vm'
             })
-            .when('/showservice/:id', {
+            .when('/admin/showservice/:id', {
                 templateUrl: '/AdminLTE/admin/services/showService.view.html',
                 controller: 'showserviceCtrl',
                 controllerAs: 'vm'
             })
-            .when('/register', {
+            .when('/admin/register', {
                 templateUrl: '/auth/register/register.view.html',
                 controller: 'registerCtrl',
                 controllerAs: 'vm'
             })
-            .when('/profileuser', {
+            .when('/admin/profileuser', {
                 templateUrl: '/utilisateur/user.view.html',
                 controller: 'registerCtrl',
                 controllerAs: 'vm'
             })
-            .when('/header', {
+            .when('/admin/header', {
                 templateUrl: '/AdminLTE/admin/header.html',  //home/home.view.html
                 controller: 'headerAdminCtrl',
                 controllerAs: 'vm',
 
             })
             ////////////////////////////////////////here start for salone///////////////////////////////////
-            .when('/sallon', {
+            .when('/admin/sallon', {
                 templateUrl: '/AdminLTE/salon/rondezvous/index.view.html',
                 controller: 'rdvsalonCtrl',
                 controllerAs: 'vm'
             })
 
                 /// gestion salon admin ///
-            .when('/salonadmin', {
+            .when('/admin/salonadmin', {
                 templateUrl: '/AdminLTE/admin/gestionsalon/salon.view.html',
                 controller: 'salonadminCtrl',
                 controllerAs: 'vm',
 
             })
-            .when('/showsalonadmin/:id', {
+            .when('/admin/showsalonadmin/:id', {
                 templateUrl: '/AdminLTE/admin/gestionsalon/showSalon.view.html',
                 controller: 'showsalonadminCtrl',
                 controllerAs: 'vm',
 
             })
             /////gestion salon/////
-            .when('/salon', {
+            .when('/admin/salon', {
                 templateUrl: '/AdminLTE/salon/gestionsalon/salon.view.html',
                 controller: 'salonCtrl',
                 controllerAs: 'vm',
 
             })
-            .when('/addsalon', {
+            .when('/admin/addsalon', {
                 templateUrl: '/AdminLTE/salon/gestionsalon/addSalon.view.html',
                 controller: 'addsalonCtrl',
                 controllerAs: 'vm'
             })
-            .when('/editsalon/:id', {
+            .when('/admin/editsalon/:id/:userid', {
                 templateUrl: '/AdminLTE/salon/gestionsalon/editsalon.view.html',
                 controller: 'editsalonCtrl',
                 controllerAs: 'vm'
             })
-            .when('/showsalon/:id', {
+            .when('/admin/showsalon/:id', {
                 templateUrl: '/AdminLTE/salon/gestionsalon/showSalon.view.html',
                 controller: 'showsalonCtrl',
                 controllerAs: 'vm'
             })
-            .when('/profilesalon/:id', {
+            .when('/admin/profilesalon/:id', {
                 templateUrl: '/AdminLTE/salon/profile/profile.view.html',
                 controller: 'profileCtrl',
                 controllerAs: 'vm'
             })
-            .when('/editprofilesalon/:id', {
+            .when('/admin/editprofilesalon/:id', {
                 templateUrl: '/AdminLTE/salon/profile/editProfile.view.html',
                 controller: 'editprofilesalonCtrl',
                 controllerAs: 'vm'
             })
-            .when('/addsalonprofile/:id', {
+            .when('/admin/addsalonprofile/:id', {
                 templateUrl: '/AdminLTE/salon/profile/addSalon.view.html',
                 controller: 'addsalonprofileCtrl',
                 controllerAs: 'vm'
             })
             ///  service proposer
-            .when('/proposerservice', {
+            .when('/admin/proposerservice', {
                 templateUrl: '/AdminLTE/salon/proposerservice/addServicepro.view.html',
                 controller: 'addserviceproposerCtrl',
                 controllerAs: 'vm'
@@ -194,55 +193,50 @@
 
             //////////////////////propre service /////////////////////////
 
-            .when('/selfserv/:id', {
+            .when('/admin/selfserv/:id', {
                 templateUrl: '/AdminLTE/salon/salonservice/propserv.view.html',
                 controller: 'propservCtrl',
                 controllerAs: 'vm'
             })
-            .when('/listsalonservice/:id', {
+            .when('/admin/listsalonservice/:id', {
                 templateUrl: '/AdminLTE/salon/salonservice/listservice.view.html',
                 controller: 'listserviceCtrl',
                 controllerAs: 'vm'
             })
             ////////////////////////////// Gestion des employes //////////////////
-            .when('/addemploye/:id', {
+            .when('/admin/addemploye/:id', {
                 templateUrl: '/AdminLTE/salon/employe/addEmploye.view.html',
                 controller: 'addemployeCtrl',
                 controllerAs: 'vm'
             })
-            .when('/employe/:id', {
+            .when('/admin/employe/:id', {
                 templateUrl: '/AdminLTE/salon/employe/employe.view.html',
                 controller: 'employeCtrl',
                 controllerAs: 'vm'
             })
-            .when('/editemploye/:id/:employeId', {
+            .when('/admin/editemploye/:id/:employeId', {
                 templateUrl: '/AdminLTE/salon/employe/editEmploye.view.html',
                 controller: 'editemployeCtrl',
                 controllerAs: 'vm'
             })
-            .when('/showemploye/:id', {
+            .when('/admin/showemploye/:id', {
                 templateUrl: '/AdminLTE/salon/employe/showEmploye.view.html',
                 controller: 'showemployeCtrl',
                 controllerAs: 'vm'
             })
                 ///////////////////salonservice////////////////////
-            .when('/addsalonservice/:id', {
+            .when('/admin/addsalonservice/:id', {
                 templateUrl: '/AdminLTE/salon/services/addService.view.html',
                 controller: 'addsalonserviceCtrl',
                 controllerAs: 'vm'
             })
             ////////////////////////////// Gestion des Agenda /////////////////////
-            .when('/agendasalon/:idsalon', {
+            .when('/admin/agendasalon/:idsalon', {
                 templateUrl: '/AdminLTE/salon/agenda/agenda.view.html',
                 controller: 'agendaCtrl',
                 controllerAs: 'vm'
             })
-            .when('/addagendasalon/:idemploye/:iduser', {
-                templateUrl: '/AdminLTE/salon/agenda/addagenda.view.html',
-                controller: 'addagendaCtrl',
-                controllerAs: 'vm'
-            })
-            .when('/bloquecreneauxagenda/:idemploye', {
+            .when('/admin/bloquecreneauxagenda/:idemploye', {
                 templateUrl: '/AdminLTE/salon/agenda/bloquecrenaux.view.html',
                 controller: 'bloquecreneauagendaCtrl',
                 controllerAs: 'vm'
@@ -260,9 +254,9 @@
 
     function run($rootScope, $location, authentication) {
         $rootScope.$on('$routeChangeStart', function (event, nextRoute, currentRoute) {
-            if ($location.path() != '/register'&& !authentication.isLoggedIn()) {
-                $location.path('/');
-            }
+         /*   if ($location.path() != '/register'&& !authentication.isLoggedIn()) {
+                $location.path('/admin');
+            }*/
         });
     }
 

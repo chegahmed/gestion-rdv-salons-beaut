@@ -1,5 +1,3 @@
-
-
 /**
  * Module dependencies.
  */
@@ -7,14 +5,15 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var subsubagendaSchema = new Schema({
-    value:Boolean,
-    content :String,
-    cause :String
+    value: Boolean,
+    content: String,
+    time: Number,
+    cause: String
 })
 
 var subagendaSchema = new Schema({
-    day :String,
-    margetime:[subsubagendaSchema]
+    day: String,
+    margetime: [subsubagendaSchema]
 })
 /**
  * Employer Schema
@@ -27,8 +26,8 @@ var EmployerSchema = new Schema({
     email: {
         type: String,
         //unique: true,
-       // required: true
-        default :''
+        // required: true
+        default: ''
     },
     name: {
         type: String,
@@ -51,15 +50,22 @@ var EmployerSchema = new Schema({
     endTime: {
         type: String
     },
-    agenda : [subagendaSchema],
-    createdAt :{type : Date , default : Date.now },
-    updatedAt :{type : Date , default : Date.now }
+    startRepos: {
+        type: String
+    },
+    endRepos: {
+        type: String
+    },
+    agenda: [subagendaSchema],
+    createdAt: {type: Date, default: Date.now},
+    updatedAt: {type: Date, default: Date.now}
 });
 
 EmployerSchema.statics = {
-    load: function(id,cb){
-        this.findOne({_id : id}).exec(cb);
-    }}
+    load: function (id, cb) {
+        this.findOne({_id: id}).exec(cb);
+    }
+}
 
 
 mongoose.model('Employer', EmployerSchema);

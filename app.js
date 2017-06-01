@@ -2,7 +2,6 @@
 
 var express = require('express');
 var path = require('path');
-/*var favicon = require('serve-favicon');*/
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -24,6 +23,7 @@ var routesApi = require('./app_api/routes/index');
 var app = express();
 
 var gestionusers= require('./app_api/routes/gestionusers');
+var routefrontoffice= require('./app_api/routes/routefrontoffice');
 
 
 // uncomment after placing your favicon in /public
@@ -42,13 +42,22 @@ app.use(passport.initialize());
 app.use('/api', routesApi);
 
 app.use('/gestionusers',gestionusers);
+app.use('/routefrontoffice',routefrontoffice);
 
-// Otherwise render the index.html page for the Angular SPA
-// This means we don't have to map all of the SPA routes in Express
-app.use(function(req, res) {
-  res.sendFile(path.join(__dirname, 'app_client', 'index.html'));
+
+
+/*app.use(function(req, res) {
+  res.sendFile(path.join(__dirname, 'app_client', 'admin.html'));
+});*/
+
+
+app.get('*', function(req, res){
+    if (req.url.match('^\/admin/*')) {
+        res.sendFile(__dirname + '/app_client/admin.html');
+    } else {
+        res.sendFile(__dirname + '/app_client/index.html');
+    }
 });
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

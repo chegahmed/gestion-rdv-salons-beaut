@@ -8,7 +8,7 @@
     function addsalonserviceCtrl($scope, $http, $location, $routeParams) {
 
         var id = $routeParams.id;
-
+console.log('idsalon '+id)
 
         $http({
             method: 'GET',
@@ -82,26 +82,26 @@
             url: '/gestionusers/servicesalon'
         }).success(function (data) {
             $scope.service_salon = data; // response data
-            console.log('ici tableaux services')
-            console.log(data)
+         /*   console.log('ici tableaux services')
+            console.log(data)*/
 
         });
 
         $scope.formData = {};
         /*$scope.formData = {
-            "5900bd96a3d5fa05d4dc5b26": {//salon
-                "5900b3ab81126113201f35bb": {//service
-                    isChecked: true,
-                    name: "teinture sourcils",
-                    categorie: "Maquillage --> Maquillage Soir",
-                    time: 2,
-                    price: 2,
-                    employe: [
-                        "aicha",
-                    ]
-                },
-            },
-        };*/
+         "5900bd96a3d5fa05d4dc5b26": {//salon
+         "5900b3ab81126113201f35bb": {//service
+         isChecked: true,
+         name: "teinture sourcils",
+         categorie: "Maquillage --> Maquillage Soir",
+         time: 2,
+         price: 2,
+         employe: [
+         "aicha",
+         ]
+         },
+         },
+         };*/
 
 
         $scope.save = function (da) {
@@ -115,21 +115,29 @@
             angular.forEach(da, function (value, key) {
                 angular.forEach(value, function (valu, ke) {
                     valu.idservice = ke;
-                    console.log(ke);
+            //        console.log(ke);
                     $scope.servicesalon = valu;
                     if (valu.time != null && valu.price != null && valu.employe != null) {
-                        $scope.saveService();
-                        //  console.log(valu.idsalon);
-                        console.log('name  ' + valu.name)
-                        $scope.existing(valu.name);
+                        $http({
+                            method: 'GET',
+                            url: '/gestionusers/servicesalonbyidsalon/' + valu.idsalon + '/' + valu.idservice
+                        }).success(function (data) {
+                            if(JSON.stringify(data)=='[]'){
+                                console.log('save here')
+                                $scope.saveService(valu);
+                            }else{
+                               // console.log(JSON.stringify(valu))
+                               // console.log(JSON.stringify(data))
+                               //console.log(data._id)
+                               $scope.updateService(valu,data._id)
+                             //   console.log(JSON.stringify(data))
+                            }
+                        }).error(function (response) {
+                            console.log('error message :', response);
+                        });
 
-                        //console.log($scope.servicesalonbyidsalon)
-                        if ($scope.servicesalonbyidsalon == null) {
-                            /**/
-                            console.log("dosen't  exist in data base")
-                        } else {
-                            console.log('already exist in data base')
-                        }
+
+
 
 
                     } else {
@@ -144,14 +152,26 @@
         };
 
 
-        $scope.saveService = function () {
-
-            $http.post('/gestionusers/servicesalon/', $scope.servicesalon)
+        $scope.saveService = function saveService(value,idserv) {
+          //  console.log('bieeeeeeeeeen')
+            $http.post('/gestionusers/servicesalon/', value)
                 .success(function (response) {
                     //  sweetAlert("félicitation...", "Votre service à été Ajouté avec success", "success");
                     // $location.url('/service')
                     $scope.valuecheckbox[valu.name] = "valider"
-                    console.log('bieeeeeeeeeen')
+
+                })
+        }
+
+
+        $scope.updateService = function updateService(value,idserv) {
+            //  console.log('bieeeeeeeeeen')
+            $http.put('/gestionusers/servicesalon/'+idserv, value)
+                .success(function (response) {
+                    //  sweetAlert("félicitation...", "Votre service à été Ajouté avec success", "success");
+                    // $location.url('/service')
+                    $scope.valuecheckbox[valu.name] = "valider"
+
                 })
         }
 

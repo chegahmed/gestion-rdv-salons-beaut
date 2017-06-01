@@ -101,3 +101,34 @@ exports.delete = function (req, res) {
         });
     });
 };
+
+
+/////////////////here for front office//////
+
+// get all salons by ville
+exports.getSalonByVille = function (req, res) {
+    Salon.find({ville:req.params.ville}).exec(function (err, salons) {
+        res.jsonp(salons);
+    });
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -24,6 +24,8 @@
             $scope.souscategorie = data; // response data
         });
 
+
+
         $http({
             method: 'GET',
             url: '/gestionusers/categorie'

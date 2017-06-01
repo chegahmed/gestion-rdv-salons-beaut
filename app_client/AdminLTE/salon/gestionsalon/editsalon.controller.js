@@ -10,6 +10,7 @@
 
 
         var id = $routeParams.id;
+        var userid = $routeParams.userid;
 
 
         $http({
@@ -54,7 +55,7 @@
             $http.put('/gestionusers/salon/' + $scope.salon._id, $scope.salon)
                 .success(function (response) {
                     sweetAlert("félicitation...", "le salon est Modifier avec success", "success");
-                    $location.url('/salon')
+                    $location.url('/admin/profilesalon/'+userid)
                 })
         }
     }

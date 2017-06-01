@@ -35,7 +35,7 @@
                         </form>
 
 
-                        <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/addcategorie">Ajouter</a>
+                        <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/admin/addcategorie">Ajouter</a>
                         <table id="example1"  class="table table-bordered table-striped" at-paginated at-list="list" at-config="config">
                             <thead>
                             <tr>
@@ -52,11 +52,11 @@
                             <tr dir-paginate="categorie in categories|itemsPerPage: 4| filter : searchc| orderBy : sortKey:reverse" >
                                 <td>{{categorie.name}}</td>
                                 <td width="30%"><img width="30%"  class="img-responsive img-circle "  alt="Cinque Terre" src="./uploads/{{categorie.image}}"></td>
-                                <td><a href="/editcategorie/{{categorie._id}}" >
+                                <td><a href="/admin/editcategorie/{{categorie._id}}" >
                                     <span class="fa fa-fw fa-edit"></span></a>
                                 <a href="" ng-click="deleteCategorie(categorie)" >
                                     <span class="fa fa-fw fa-remove"></span></a>
-                                <a href="/showcategorie/{{categorie._id}}" >
+                                <a href="/admin/showcategorie/{{categorie._id}}" >
                                     <span class="fa fa-fw fa-eye"></span></a></td>
                             </tr>
                             </tfoot>

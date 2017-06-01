@@ -37,7 +37,7 @@
             $http.put('/gestionusers/service/' + $scope.service._id, $scope.service)
                 .success(function (response) {
                     sweetAlert("félicitation...", "Votre service à été Modifier avec success", "success");
-                    $location.url('/service')
+                    $location.url('/admin/service')
                 })
         }
     }

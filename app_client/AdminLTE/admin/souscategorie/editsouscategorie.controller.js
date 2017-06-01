@@ -46,7 +46,7 @@
                 data:{file:file,name: name} //pass file as data, should be user ng-model
             }).then(function (resp) { //upload function returns a promise
                 sweetAlert("félicitation...", 'votre Sous catégorie à été Modifier avec succès', "success");
-                $location.path('/souscategorie')
+                $location.path('/admin/souscategorie')
 
             }, function (resp) { //catch error
                 sweetAlert("erreur...", "une erreur a été détecté veuillez verifier votre formulaire !", "error");
@@ -64,7 +64,7 @@
             $http.put('/gestionusers/categorie/' + $scope.categorie._id, $scope.categorie)
                 .success(function (response) {
                     sweetAlert("félicitation...", "votre Sous  catégorie à été Modifier avec succès", "success");
-                    $location.url('/souscategorie')
+                    $location.url('/admin/souscategorie')
                 })
                 .error(function (err) {
                     sweetAlert("erreur...", "une erreur a été détecté veuillez verifier votre formulaire !", "error");

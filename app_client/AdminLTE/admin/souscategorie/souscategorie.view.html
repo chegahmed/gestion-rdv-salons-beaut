@@ -35,7 +35,7 @@
                         </form>
 
 
-                        <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/addsouscategorie">Ajouter</a>
+                        <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/admin/addsouscategorie">Ajouter</a>
                         <table id="example1"  class="table table-bordered table-striped" at-paginated at-list="list" at-config="config">
                             <thead>
                             <tr>
@@ -54,11 +54,11 @@
                                 <td ng-repeat="catg in catgs" ng-if="catg._id==souscategorie.parent">  {{catg.name}} </td>
                                 <td>{{souscategorie.name}} </td>
                                 <td width="30%"><img width="30%"  class="img-responsive img-circle "  alt="Cinque Terre" src="./uploads/{{souscategorie.image}}"></td>
-                                <td><a href="/editsouscategorie/{{souscategorie._id}}" >
+                                <td><a href="/admin/editsouscategorie/{{souscategorie._id}}" >
                                     <span class="fa fa-fw fa-edit"></span></a>
                                     <a href="" ng-click="deleteSousCategorie(souscategorie)" >
                                         <span class="fa fa-fw fa-remove"></span></a>
-                                    <a href="/showsouscategorie/{{souscategorie._id}}" >
+                                    <a href="/admin/showsouscategorie/{{souscategorie._id}}" >
                                         <span class="fa fa-fw fa-eye"></span></a></td>
                             </tr>
                             </tfoot>

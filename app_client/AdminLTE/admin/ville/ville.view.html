@@ -36,7 +36,7 @@
                     </form>
 
 
-                        <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/addville">Ajouter</a>
+                        <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/admin/addville">Ajouter</a>
                         <table id="example1" class="table table-bordered table-striped" at-paginated at-list="list" at-config="config">
                             <thead>
                             <tr>
@@ -53,11 +53,11 @@
                             <tr dir-paginate="ville in villes| itemsPerPage: 4| filter : search|orderBy : sortKey:reverse">
 
                                 <td>{{ville.name}}</td>
-                                <td> <a href="/editville/{{ville._id}}" >
+                                <td> <a href="/admin/editville/{{ville._id}}" >
                                     <span class="fa fa-fw fa-edit"></span></a>
                                  <a href="" ng-click="deleteVille(ville)" >
                                     <span class="fa fa-fw fa-remove"></span></a>
-                                 <a href="/showville/{{ville._id}}" >
+                                 <a href="/admin/showville/{{ville._id}}" >
                                     <span class="fa fa-fw fa-eye"></span></a></td>
                             </tr>
                             </tfoot>

@@ -25,7 +25,7 @@
                 })
                 .success(function(){
                     sweetAlert("félicitation...", vm.credentials.name+' a été ajoute avec succès', "success");
-                    $location.path('/accueil');
+                    $location.path('/admin/accueil');
                     /*      if( angular.equals(vm.credentials.role,"Admin")){
                      $location.path('/accueil');  //profileuser
                      } if( angular.equals(vm.credentials.role,"Utilisateur")){

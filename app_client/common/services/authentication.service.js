@@ -61,12 +61,12 @@
                 payload = JSON.parse(payload);
                 console.log("ici role :" + payload.role)
                 if(payload.role =='Admin'){
-                    $location.path('accueil')
+                    $location.path('admin/accueil')
                 }else if(payload.role =='Responsable-Sallon'){
-                    console.log('id : '+payload._id+'name : '+payload.name+'role : '+payload.role);
-                    $location.path('profilesalon/'+payload._id)
+
+                    $location.path('admin/profilesalon/'+payload._id)
                 }else if(payload.role =='Client'){
-                    console.log('ici Espace Client')
+
                     $location.path('/')
                 }
             });
@@ -76,7 +76,7 @@
             $window.localStorage.removeItem('mean-token');
 
             $window.location.reload()
-            $location.path('/');
+            $location.path('/admin');
         };
 
 

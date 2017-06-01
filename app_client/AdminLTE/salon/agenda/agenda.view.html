@@ -1,6 +1,6 @@
 <headersalon></headersalon>
 
-<div ng-repeat="salon in salons" >
+<div dir-paginate="salon in salons| itemsPerPage: 1" >
     <div class="box-header with-border">
         <h3 class="box-title">Agenda pour salon : <b style="color: brown ">{{salon.name}}</b></h3>
     </div>
@@ -25,7 +25,7 @@
                             <p class="col-md-2" style="background-color:Blue ">réserve</p>
                         </div>
 
-                            <a class="btn btn-info pull-right" style="margin-bottom: 2%" href="/bloquecreneauxagenda/{{employe._id}}">Bloque crénaux</a>
+                            <a class="btn btn-info pull-right" style="margin-bottom: 2%" href="/admin/bloquecreneauxagenda/{{employe._id}}">Bloque crénaux</a>
                         <hr>
 
 

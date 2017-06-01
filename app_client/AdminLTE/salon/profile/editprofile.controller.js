@@ -6,7 +6,7 @@
 
     editprofilesalonCtrl.$inject = ['$scope', '$http', '$location', '$routeParams'];
     function editprofilesalonCtrl($scope, $http, $location, $routeParams) {
-        $scope.message = "hello ahmed";
+        $scope.message = "hello ahmedddd";
 
 
 
@@ -26,8 +26,8 @@
 
             $http.put('/gestionusers/' + $scope.user._id, $scope.user)
                 .success(function (response) {
-                    sweetAlert("félicitation...", "Votre profile et modifier avec success Modifier avec success", "success");
-                    $location.url('/profilesalon/'+id)
+                    sweetAlert("félicitation...", "Votre profilee et modifier avec success Modifier avec success", "success");
+                    $location.url('/admin/profilesalon/'+id)
                 })
         }
     }

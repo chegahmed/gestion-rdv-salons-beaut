@@ -21,7 +21,7 @@
                         </form>
 
 
-                        <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/addemploye/{{profile._id}}">Ajouter</a>
+                        <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/admin/addemploye/{{profile._id}}">Ajouter</a>
                         <table id="example1" class="table table-bordered table-striped " at-paginated at-list="list" at-config="config">
                             <thead>
                             <tr>
@@ -44,11 +44,11 @@
                                 <td>{{employe.phoneNumber}}</td>
                                 <td>{{employe.email}}</td>
                                 <td>
-                                    <a href="/editemploye/{{employe._id}}/{{profile._id}}" >
+                                    <a href="/admin/editemploye/{{employe._id}}/{{profile._id}}" >
                                         <span class="fa fa-fw fa-edit"></span></a>
                                     <a href="" ng-click="deleteEmploye(employe)">
                                         <span class="fa fa-fw fa-remove"></span></a>
-                                    <a href="/showemploye/{{employe._id}}" >
+                                    <a href="/admin/showemploye/{{employe._id}}" >
                                         <span class="fa fa-fw fa-eye"></span></a>
                                 </td>
                             </tr>

@@ -7,7 +7,7 @@
     villeCtrl.$inject = ['$scope', '$http'];
     function villeCtrl($scope, $http) {
 
-      ;
+
 
 
         $http({

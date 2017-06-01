@@ -50,13 +50,13 @@
             $http.post('/gestionusers/salon/', $scope.salon)
                 .success(function (response) {
                     sweetAlert("félicitation...", response.name +' a été ajoute avec succès', "success")
-                    $location.url('/salon')
+                    $location.url('/admin/salon')
                 })
                 .error(function(err){
                     alert(err);
                 })
                 .then(function(){
-                    $location.path('/salon');
+                    $location.path('/admin/salon');
                 });
         };
 
