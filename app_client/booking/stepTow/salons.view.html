@@ -1,0 +1,192 @@
+<!--
+&lt;!&ndash; Preloader &ndash;&gt;
+<div class="preloader">
+    <div id="followingBallsG">
+        <div id="followingBallsG_1" class="followingBallsG"></div>
+        <div id="followingBallsG_2" class="followingBallsG"></div>
+        <div id="followingBallsG_3" class="followingBallsG"></div>
+        <div id="followingBallsG_4" class="followingBallsG"></div>
+    </div>
+</div>
+&lt;!&ndash; //Preloader &ndash;&gt;
+
+&lt;!&ndash; Header &ndash;&gt;
+<header class="header" role="banner">
+    <div class="wrap">
+        &lt;!&ndash; Logo &ndash;&gt;
+        <div class="logo">
+            <a href="admin.html" title="Transfers"><img src="designeFrontoffice/images/transfers.jpg" alt="Transfers" /></a>
+        </div>
+        &lt;!&ndash; //Logo &ndash;&gt;
+
+        &lt;!&ndash; Main Nav &ndash;&gt;
+        <nav role="navigation" class="main-nav">
+            <ul>
+                <li><a href="admin.html" title="">Home</a></li>
+                <li class="active"><a href="destinations.html" title="Destinations">Destinations</a>
+                    <ul>
+                        <li><a href="destination-single.html" title="Single destination">Single destination</a></li>
+                        <li><a href="destination-micro.html" title="Micro destination">Micro destination</a></li>
+                    </ul>
+                </li>
+                <li><a href="tailor-made.html" title="Tailor made">Tailor made</a></li>
+                <li><a href="blog.html" title="Blog">Blog</a>
+                    <ul>
+                        <li><a href="blog.html" title="Post">Blog list</a></li>
+                        <li><a href="blog2.html" title="Post">Blog grid</a></li>
+                        <li><a href="blog-single.html" title="Post">Post</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html" title="Contact">Contact</a></li>
+                <li><a href="#" title="Pages">Pages</a>
+                    <div>
+                        <div class="one-fourth">
+                            <h2>Common</h2>
+                            <ul>
+                                <li><a href="left-sidebar-page.html" title="Left sidebar page">Left sidebar page</a></li>
+                                <li><a href="right-sidebar-page.html" title="Right sidebar page">Right sidebar page</a></li>
+                                <li><a href="both-sidebar-page.html" title="Both sidebars page">Both sidebars page</a></li>
+                                <li><a href="full-width-page.html" title="Full width page">Full width page</a></li>
+                            </ul>
+                        </div>
+                        <div class="one-fourth">
+                            <h2>Booking</h2>
+                            <ul>
+                                <li><a href="search-results.html" title="Search results page">Search results page</a></li>
+                                <li><a href="booking-step1.html" title="Booking step 1">Booking step 1</a></li>
+                                <li><a href="booking-step2.html" title="Booking step 2">Booking step 2</a></li>
+                                <li><a href="booking-step3.html" title="Booking step 3">Booking step 3</a></li>
+                            </ul>
+                        </div>
+                        <div class="one-fourth">
+                            <h2>Corporate</h2>
+                            <ul>
+                                <li><a href="about.html" title="About u">About us</a></li>
+                                <li><a href="services.html" title="Services">Services</a></li>
+                                <li><a href="faq.html" title="Faq">Faq</a></li>
+                                <li><a href="contact.html" title="Contact">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="one-fourth">
+                            <h2>Special</h2>
+                            <ul>
+                                <li><a href="login.html" title="Login">Login</a></li>
+                                <li><a href="register.html" title="Register">Register</a></li>
+                                <li><a href="account.html" title="My account">My account</a></li>
+                                <li><a href="error.html" title="404 error">404 error</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="http://themeforest.net/item/transfers-transport-and-car-hire-html-template/9366018?ref=themeenergy" title="Purchase">Purchase</a></li>
+            </ul>
+        </nav>
+        &lt;!&ndash; //Main Nav &ndash;&gt;
+    </div>
+</header>
+&lt;!&ndash; //Header &ndash;&gt;
+
+&lt;!&ndash; Main &ndash;&gt;
+<main class="main" role="main">-->
+
+
+
+
+    <div class="wrap">
+        <div class="row">
+
+
+            <div class=" content offset">
+                <table class="tab table-hover" style="margin-top: 7%">
+                    <tr>
+                        <th> Logo</th>
+                        <th>Nom de salon</th>
+                        <th>Selectionée</th>
+                    </tr>
+                    <tr ng-repeat="salon in salons">
+                        <td>Berlin city centre</td>
+                        <td>{{salon.name}}</td>
+                        <td> <a href="/rdvlistservices/{{salon._id}}" class="btn btn-primary">Selectionée</a></td>
+                    </tr>
+                </table>
+            </div>
+            <!--- //Content -->
+        </div>
+    </div>
+<!--
+</main>
+&lt;!&ndash; //Main &ndash;&gt;
+
+&lt;!&ndash; Testimonials &ndash;&gt;
+<div class="testimonials center white">
+    <div class="wrap">
+        <h6>Service was spot on</h6>
+        <p>Courteous, efficient and hardly dearer than a taxi. The return journey was especially good, the taxi driver was very friendly and even pointed out a few historic sites just outside of Berlin. <br />A great start to our stay in Berlin!</p>
+        <p class="meta">-John Doe, themeforest</p>
+    </div>
+</div>
+&lt;!&ndash; //Testimonials &ndash;&gt;
+
+&lt;!&ndash; Call to action &ndash;&gt;
+<div class="color cta">
+    <div class="wrap">
+        <p class="wow fadeInLeft">Like what you see? Are you ready to stand out? You know what to do.</p>
+        <a href="#" class="btn huge black right wow fadeInRight">Purchase theme</a>
+    </div>
+</div>
+&lt;!&ndash; //Call to action &ndash;&gt;
+
+&lt;!&ndash; Footer &ndash;&gt;
+<footer class="footer black" role="contentinfo">
+    <div class="wrap">
+        <div class="row">
+            &lt;!&ndash; Column &ndash;&gt;
+            <article class="one-half">
+                <h6>About us</h6>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</p>
+            </article>
+            &lt;!&ndash; //Column &ndash;&gt;
+
+            &lt;!&ndash; Column &ndash;&gt;
+            <article class="one-fourth">
+                <h6>Need help?</h6>
+                <p>Contact us via phone or email:</p>
+                <p class="contact-data"><span class="icon icon-themeenergy_call"></span> +1 555 555 555</p>
+                <p class="contact-data"><span class="icon icon-themeenergy_mail-2"></span> <a href="mailto:help@transfers.com">help@transfers.com</a></p>
+            </article>
+            &lt;!&ndash; //Column &ndash;&gt;
+
+            &lt;!&ndash; Column &ndash;&gt;
+            <article class="one-fourth">
+                <h6>Follow us</h6>
+                <ul class="social">
+                    <li><a href="#" title="facebook"><i class="fa fa-fw fa-facebook"></i></a></li>
+                    <li><a href="#" title="twitter"><i class="fa fa-fw fa-twitter"></i></a></li>
+                    <li><a href="#" title="gplus"><i class="fa fa-fw fa-google-plus"></i></a></li>
+                    <li><a href="#" title="linkedin"><i class="fa fa-fw fa-linkedin"></i></a></li>
+                    <li><a href="#" title="pinterest"><i class="fa fa-fw fa-pinterest-p"></i></a></li>
+                    <li><a href="#" title="vimeo"><i class="fa fa-fw fa-vimeo"></i></a></li>
+                </ul>
+            </article>
+            &lt;!&ndash; //Column &ndash;&gt;
+        </div>
+
+        <div class="copy">
+            <p>Copyright 2016, Themeenergy. All rights reserved. </p>
+
+            <nav role="navigation" class="foot-nav">
+                <ul>
+                    <li><a href="#" title="Home">Home</a></li>
+                    <li><a href="#" title="Blog">Blog</a></li>
+                    <li><a href="#" title="About us">About us</a></li>
+                    <li><a href="#" title="Contact us">Contact us</a></li>
+                    <li><a href="#" title="Terms of use">Terms of use</a></li>
+                    <li><a href="#" title="Help">Help</a></li>
+                    <li><a href="#" title="For partners">For partners</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</footer>
+&lt;!&ndash; //Footer &ndash;&gt;
+-->

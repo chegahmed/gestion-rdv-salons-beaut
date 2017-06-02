@@ -41,7 +41,7 @@
             }).then(function (resp) { //upload function returns a promise
                 if(resp.data.error_code === 0){ //validate success
                     sweetAlert("félicitation...", 'voutre sous catégorie a été ajoute avec succès', "success");
-                    $location.path('/souscategorie')
+                    $location.path('/admin/souscategorie')
                 } else {
                     sweetAlert("erreur...", "une erreur a été détecté veuillez verifier votre formulaire !", "error");
                 }

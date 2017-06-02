@@ -3,12 +3,20 @@
 
     <div class="row form-center">
         <div class="col-md-6">
-            <h1>Modifier catégorie</h1>
+            <h1>Modifier sous catégorie</h1>
             <form ng-submit="updateCategorie()">
                 <div class="form-group">
-                    <label for="name">Nom catégorie</label>
+                    <label>catégorie</label>
+                    <select class="form-control select2"   ng-model="categorie.parent">>
+                        <option ng-repeat="catg in catgs" value="{{catg._id}}">{{catg.name}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Nom sous catégorie</label>
                     <input type="text" class="form-control" id="name" placeholder="Entre Nom Service" ng-model="categorie.name">
                 </div>
+
                 <div class="form-group">
                     <label>Télécharger image:</label>
                     <table>

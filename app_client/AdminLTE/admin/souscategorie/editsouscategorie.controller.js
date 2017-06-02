@@ -20,6 +20,14 @@
             $scope.categorie = data; // response data
         });
 
+        $http({
+            method: 'GET',
+            url: '/gestionusers/categorie'
+        }).success(function (data) {
+            $scope.catgs = data; // response data
+            //   console.log(data)
+        });
+
 
 
 
