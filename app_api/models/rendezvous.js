@@ -29,10 +29,17 @@ var RendezvouSchema = new Schema({
     date: {
         type: Date
     },
+    datetime: {
+        type: Number
+    },
     time: {
         type: Number
     },
     idemploye: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: '_id'
+    },
+    idresponsable: {
         type: mongoose.Schema.Types.ObjectId,
         ref: '_id'
     },

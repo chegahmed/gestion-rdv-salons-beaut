@@ -1,5 +1,6 @@
-
 <!--
+
+&lt;!&ndash;
 &lt;!&ndash; Preloader &ndash;&gt;
 <div class="preloader">
     <div id="followingBallsG">
@@ -90,7 +91,7 @@
 &lt;!&ndash; Main &ndash;&gt;
 <main class="main" role="main">
 
--->
+&ndash;&gt;
 
 <div ng-show="page1">
 
@@ -128,7 +129,7 @@
                     <td ng-model="service.price">{{service.price}}</td>
                     <td>
                         <select ng-model="service.employe">
-                          <option ng-repeat="employe in service.employe">{{employe}}</option>
+                          <option ng-repeat="employe in service.employe" value="{{employe}}">{{employe.name}}</option>
                         </select>
                     </td>
                     <td>{{service.categorie}}</td>
@@ -137,14 +138,14 @@
             </table>
 
 
-            <!--Pagination div --->
+            &lt;!&ndash;Pagination div -&ndash;&gt;
             <div class="text-center">
                 <dir-pagination-controls ng-hide="query.length>0"></dir-pagination-controls>
             </div>
-            <!-- End Pagination div --->
+            &lt;!&ndash; End Pagination div -&ndash;&gt;
             <a ng-click="NextPage()" class="btn btn-primary pull-right">Suivant</a>
         </div>
-        <!--- //Content -->
+        &lt;!&ndash;- //Content &ndash;&gt;
     </div>
 </div>
 
@@ -152,7 +153,7 @@
 </div>
 
 
-<!--  Here Next Page  -->
+&lt;!&ndash;  Here Next Page  &ndash;&gt;
 <div ng-show="page1">
 
 <div class="col-md-12">
@@ -165,37 +166,47 @@
                 <th>Service</th>
                 <th>Prix</th>
                 <th>Employée</th>
+                <th>choisi RDV</th>
             </tr>
             <tr ng-repeat="service in tab">
                 <td>{{service.name}}</td>
                 <td>{{service.price}}</td>
                 <td>{{service.employe[0]}}</td>
+                <td>
+                    <button class="btn btn-primary" ng-click="dateForRDV(service)" >Vérifier la Dispo</button>
+                </td>
             </tr>
+
         </table>
     </div>
     <div class="col-md-4 form-group select one-third">
 
 
 
-        <!-- Item -->
+        &lt;!&ndash; Item &ndash;&gt;
         <div class="box history ">
-            <h6>Disponibilité la plus proche <br>
+            <h6 ng-hide="disprdv">Disponibilité la plus proche <br>
 
-                 Aujourd'huit <small>à</small> 15h<br>
-                <a href="#">confirmer</a><br>
+                {{resSearch.rdv.from.day}} {{resSearch.rdv.from.date}} <small>à</small>{{resSearch.rdv.from.hour}} h {{resSearch.rdv.from.minute}}<br>
+                <a ng-click="ConfirmRDV()" ng-hide="btnrdvsuiv"  href="">confirmer</a>
+                <button class="btn btn-info" ng-hide="btnrdvsuiv" ng-click="ChercherRDVSuivant(resSearch.rdv.from.datetime)" >RDV Suivant</button>
+                <span class="alert-success">{{msg}}</span>
+                <br>
+
             </h6>
 
             <div class="control-group" style="display:inline-block">
                 <label>changer la Date</label>
                 <div class="controls form-control " style="display:inline-block;width: 55%">
-                    <input type="datetime-local" ng-model="rdv.date">
+                    <input type="datetime-local" ng-model="rdv.date" >
                 </div>
             </div>
+
 <hr>
 
-            <button class="btn btn-primary" ng-click="ChercherRDV(rdv.date)" >Vérifier la Dispo</button>
+            <button  class="btn btn-primary" ng-click="ChercherRDV(rdv.date)" >Vérifier la Dispo</button>
         </div>
-        <!-- //Item -->
+        &lt;!&ndash; //Item &ndash;&gt;
 
     </div>
 
@@ -204,9 +215,9 @@
 
     <div class="col-md-12">
 
-        <!--- Content -->
+        &lt;!&ndash;- Content &ndash;&gt;
         <div class=" col-md-12">
-            <!-- Tab -->
+            &lt;!&ndash; Tab &ndash;&gt;
             <article class="single" id="tab1">
                 <div class="box">
                     <h2>General settings</h2>
@@ -238,10 +249,10 @@
                     </fieldset>
                 </div>
             </article>
-            <!-- //Tab -->
+            &lt;!&ndash; //Tab &ndash;&gt;
             <div class="col-md-12"><a ng-click="BackPage()" class="btn btn-primary pull-left">précédent</a></div>
         </div>
-        <!--- //Content -->
+        &lt;!&ndash;- //Content &ndash;&gt;
 
     </div>
 
@@ -253,7 +264,7 @@
 </div>
 
 
-<!--
+&lt;!&ndash;
 </main>
 &lt;!&ndash; //Main &ndash;&gt;
 
@@ -329,4 +340,5 @@
     </div>
 </footer>
 &lt;!&ndash; //Footer &ndash;&gt;
+&ndash;&gt;
 -->

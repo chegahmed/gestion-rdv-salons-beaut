@@ -140,7 +140,7 @@ h6 {font-size:17px;text-transform:uppercase;padding:0 0 23px;}
 .main-nav ul > li					{float:left;display:block;padding:30px 0 30px 30px;position:static;}
 .main-nav ul > li > a 				{color:#858585;border-radius:0;position:relative;}
 .main-nav ul > li.active > a, 
-.main-nav ul > li.active > a:hover, 
+.main-nav ul > li.active > a:hover,
 .main-nav ul > li.active > a:focus,
 .main-nav ul > li:hover > a,
 .main-nav ul > li:focus > a				{color:#191F26;}

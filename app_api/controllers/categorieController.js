@@ -40,9 +40,8 @@ exports.post= function(req, res) {
 
         res.json({error_code:0,err_desc:null});
     });
-
-
 };
+
 // edit a category  with an image
 exports.putcatgwithimg = function(req, res) {
     Categorie.load(req.params.categorieId, function(err,categorie){

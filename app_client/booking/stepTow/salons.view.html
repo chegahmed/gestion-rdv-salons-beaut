@@ -1,5 +1,4 @@
-<!--
-&lt;!&ndash; Preloader &ndash;&gt;
+<!-- Preloader -->
 <div class="preloader">
     <div id="followingBallsG">
         <div id="followingBallsG_1" class="followingBallsG"></div>
@@ -8,22 +7,22 @@
         <div id="followingBallsG_4" class="followingBallsG"></div>
     </div>
 </div>
-&lt;!&ndash; //Preloader &ndash;&gt;
+<!-- //Preloader -->
 
-&lt;!&ndash; Header &ndash;&gt;
+<!-- Header -->
 <header class="header" role="banner">
     <div class="wrap">
-        &lt;!&ndash; Logo &ndash;&gt;
+        <!-- Logo -->
         <div class="logo">
-            <a href="admin.html" title="Transfers"><img src="designeFrontoffice/images/transfers.jpg" alt="Transfers" /></a>
+            <a href="index.html" title="Transfers"><img src="designeFrontoffice/images/transfers.jpg" alt="Transfers" /></a>
         </div>
-        &lt;!&ndash; //Logo &ndash;&gt;
+        <!-- //Logo -->
 
-        &lt;!&ndash; Main Nav &ndash;&gt;
+        <!-- Main Nav -->
         <nav role="navigation" class="main-nav">
             <ul>
-                <li><a href="admin.html" title="">Home</a></li>
-                <li class="active"><a href="destinations.html" title="Destinations">Destinations</a>
+                <li><a href="index.html" title="">Home</a></li>
+                <li><a href="destinations.html" title="Destinations">Destinations</a>
                     <ul>
                         <li><a href="destination-single.html" title="Single destination">Single destination</a></li>
                         <li><a href="destination-micro.html" title="Micro destination">Micro destination</a></li>
@@ -81,82 +80,140 @@
                 <li><a href="http://themeforest.net/item/transfers-transport-and-car-hire-html-template/9366018?ref=themeenergy" title="Purchase">Purchase</a></li>
             </ul>
         </nav>
-        &lt;!&ndash; //Main Nav &ndash;&gt;
+        <!-- //Main Nav -->
     </div>
 </header>
-&lt;!&ndash; //Header &ndash;&gt;
+<!-- //Header -->
 
-&lt;!&ndash; Main &ndash;&gt;
-<main class="main" role="main">-->
+<!-- Main -->
+<main class="main" role="main">
+    <br><br/><br><br/>
 
+                <!-- Search -->
+                <div class="advanced-search color" id="booking">
+                    <form role="form">
+                    <div class="wrap">
 
+                        <!-- Row -->
+                        <div class="f-row">
+                            <div class="form-group one-third">
+                                <label>Nom salon</label>
+                                <input type="text" />
+
+                            </div>
+
+                            <div class="form-group select one-third">
+                                <label>Ville</label>
+                                <select ng-model="salon.ville">
+                                    <option selected>&nbsp;</option>
+                                    <option ng-repeat="ville in villes" >{{ville.name}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group select one-third">
+                                <label>Type de Salon</label>
+                                <select>
+                                    <option selected>&nbsp;</option>
+                                    <optgroup ng-repeat="catg in catgs" label="{{catg.name}}">
+                                        <option ng-repeat="scatg in souscategories" ng-if="scatg.parent==catg._id" >{{scatg.name}}</option>
+                                    </optgroup>
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group right">
+                            <a href="/rdvlistsalons/{{salon.ville}}" class="btn large black">Find a transfer</a>
+                        </div>
+
+                        <!--// Row -->
+
+                    </div>
+                        </form>
+                </div>
+                <!-- //Search -->
 
 
     <div class="wrap">
         <div class="row">
+            <!--- Content -->
+            <div class="full-width content">
 
 
-            <div class=" content offset">
-                <table class="tab table-hover" style="margin-top: 7%">
-                    <tr>
-                        <th> Logo</th>
-                        <th>Nom de salon</th>
-                        <th>Selectionée</th>
-                    </tr>
-                    <tr ng-repeat="salon in salons">
-                        <td>Berlin city centre</td>
-                        <td>{{salon.name}}</td>
-                        <td> <a href="/rdvlistservices/{{salon._id}}" class="btn btn-primary">Selectionée</a></td>
-                    </tr>
-                </table>
+                <div class="results">
+                    <!-- Item -->
+                    <article class="result" ng-repeat="salon in salons">
+                        <div class="one-fourth heightfix"><img src="./uploads/{{salon.image}}" alt="" /></div>
+                        <div class="one-half heightfix">
+                            <h3>{{salon.name}} <a href="javascript:void(0)"  ng-click="OpenDescription()" class="trigger color" title="Read more">?</a></h3>
+                            <ul>
+                                <li>
+                                    <span class="icon icon-themeenergy_user-3"></span>
+                                    <p> <strong >{{NombreEmpl(salon._id)}}</strong> <br />Employe (s)</p>
+                                </li>
+                                <li>
+                                    <span class="icon icon-themeenergy_travel-bag"></span>
+                                   <p>
+                                       <span class="glyphicon glyphicon-star" ng-repeat="n in range(1,salon.rating)"></span>
+                                       <span class="glyphicon glyphicon-star-empty" ng-repeat="n in range(1,5-salon.rating)"></span>
+                                       <br>Evaluation
+                                   </p>
+
+                                    <!-- <span class="icon icon-themeenergy_travel-bag"></span>
+                                     <p>Max <strong>3 suitcases</strong> <br />per vehicle</p>-->
+                                </li>
+                                <li>
+
+                                    <span class="icon icon-themeenergy_clock"></span>
+                                 <!--   <p> <strong >{{salon.categorie.length}}</strong> <br />spécialité (s)</p>-->
+                                    <p>Estimated time <br /><strong>50 mins</strong></p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="one-fourth heightfix">
+                            <div>
+                                <div class="price">{{salon.categorie.length}} <small>spécialité (s)</small></div>
+                                <span class="meta">{{salon.ville}}</span>
+                                <a href="/rdvlistservices/{{salon._id}}" class="btn grey large">select</a>
+                            </div>
+                        </div>
+                        <div class="full-width information" ng-hide="descsalon">
+                            <a href="javascript:void(0)" ng-click="CloseDescription()" class="close color" title="Close">x</a>
+                            <p>{{salon.description}}</p>
+                        </div>
+                    </article>
+                    <!-- //Item -->
+
+                </div>
+
+
             </div>
             <!--- //Content -->
         </div>
     </div>
-<!--
 </main>
-&lt;!&ndash; //Main &ndash;&gt;
+<!-- //Main -->
 
-&lt;!&ndash; Testimonials &ndash;&gt;
-<div class="testimonials center white">
-    <div class="wrap">
-        <h6>Service was spot on</h6>
-        <p>Courteous, efficient and hardly dearer than a taxi. The return journey was especially good, the taxi driver was very friendly and even pointed out a few historic sites just outside of Berlin. <br />A great start to our stay in Berlin!</p>
-        <p class="meta">-John Doe, themeforest</p>
-    </div>
-</div>
-&lt;!&ndash; //Testimonials &ndash;&gt;
-
-&lt;!&ndash; Call to action &ndash;&gt;
-<div class="color cta">
-    <div class="wrap">
-        <p class="wow fadeInLeft">Like what you see? Are you ready to stand out? You know what to do.</p>
-        <a href="#" class="btn huge black right wow fadeInRight">Purchase theme</a>
-    </div>
-</div>
-&lt;!&ndash; //Call to action &ndash;&gt;
-
-&lt;!&ndash; Footer &ndash;&gt;
+<!-- Footer -->
 <footer class="footer black" role="contentinfo">
     <div class="wrap">
         <div class="row">
-            &lt;!&ndash; Column &ndash;&gt;
+            <!-- Column -->
             <article class="one-half">
                 <h6>About us</h6>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</p>
             </article>
-            &lt;!&ndash; //Column &ndash;&gt;
+            <!-- //Column -->
 
-            &lt;!&ndash; Column &ndash;&gt;
+            <!-- Column -->
             <article class="one-fourth">
                 <h6>Need help?</h6>
                 <p>Contact us via phone or email:</p>
                 <p class="contact-data"><span class="icon icon-themeenergy_call"></span> +1 555 555 555</p>
                 <p class="contact-data"><span class="icon icon-themeenergy_mail-2"></span> <a href="mailto:help@transfers.com">help@transfers.com</a></p>
             </article>
-            &lt;!&ndash; //Column &ndash;&gt;
+            <!-- //Column -->
 
-            &lt;!&ndash; Column &ndash;&gt;
+            <!-- Column -->
             <article class="one-fourth">
                 <h6>Follow us</h6>
                 <ul class="social">
@@ -168,7 +225,7 @@
                     <li><a href="#" title="vimeo"><i class="fa fa-fw fa-vimeo"></i></a></li>
                 </ul>
             </article>
-            &lt;!&ndash; //Column &ndash;&gt;
+            <!-- //Column -->
         </div>
 
         <div class="copy">
@@ -188,5 +245,4 @@
         </div>
     </div>
 </footer>
-&lt;!&ndash; //Footer &ndash;&gt;
--->
+<!-- //Footer -->

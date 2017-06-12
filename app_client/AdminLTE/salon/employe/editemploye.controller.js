@@ -84,12 +84,14 @@
                     $scope.tab.push({
                         value:false,
                         content : hours+' : '+k,
+                        time:rate,
                         cause :'repos'
                     })
                 }else{
                     $scope.tab.push({
                         value:true,
                         content : hours+' : '+k,
+                        time:rate,
                         cause :'nothing'
                     })
                 }

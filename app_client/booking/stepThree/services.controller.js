@@ -1,3 +1,4 @@
+/*
 
 (function () {
 
@@ -20,8 +21,16 @@
         }).success(function (data) {
             $scope.salonservices = data; // response data
             $scope.valueselected=$scope.salonservices
+
+            console.log(JSON.stringify(data))
         });
 
+
+        $scope.dateForRDV  = function (service) {
+            /!*$scope.dateChoisi =date
+            console.log($scope.dateChoisi)*!/
+            console.log(service)
+        };
 
         ///this methode return category and sub-category by id salon
         $http({
@@ -32,6 +41,15 @@
               // console.log(data)
         });
 
+
+        ///get employe by id
+        $http({
+            method: 'GET',
+            url: '/gestionusers/employer/'
+        }).success(function (data) {
+            $scope.empl = data; // response data
+            // console.log(data)
+        });
 
 
        ///this methode for To filling table with the objects specified by the service name
@@ -92,31 +110,52 @@
         }
 
 
-
+        $scope.disprdv=true;
         $scope.ChercherRDV = function(date) {
-
+            $scope.disprdv=false;
 //console.log(date)
-//console.log(JSON.stringify($scope.tab))
-            //   angular.forEach( $scope.tab,function (item,key) {
+/!*console.log(JSON.stringify($scope.tab))
+              angular.forEach( $scope.tab,function (item,key) {*!/
 
 
             $http({
                 method: 'GET',
                 url: 'routefrontoffice/chercherrdv/' + date                     // item.idemploye/...
             }).success(function (data) {
-                $scope.rescherche = data;
-              //  console.log(JSON.stringify(data))
+                $scope.resSearch = data.data.rdvs[0];
+                console.log(JSON.stringify($scope.resSearch))
             });
 
 
-             // })
+           //  })
 
         }
 
 
+        $scope.ChercherRDVSuivant = function(date) {
 
+            console.log("ici date" +date)
+            var date2 = (date+5*60)*1000;
+            $scope.ChercherRDV(new Date(date2),);
+        }
+
+
+
+        $scope.ConfirmRDV = function() {
+            $scope.btnrdvsuiv=true;
+            $scope.ArrayConfirmRDV.push({
+              /!*  "service" :,
+                "price" :,
+                "date" : ,
+                "time" : ,
+                "idemploye" :,
+                "idresponsable" :*!/
+            })
+
+            $scope.msg="votre RDV et Bien Confirmé"
+        }
 
 
 
     }
-})();
+})();*/

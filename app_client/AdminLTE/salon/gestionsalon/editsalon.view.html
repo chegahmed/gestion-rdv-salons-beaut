@@ -1,6 +1,5 @@
 <headersalon></headersalon>
 <div class="container">
-
     <div class="row form-center">
         <div class="col-md-6">
             <h1>Modifier Salon</h1>
@@ -37,7 +36,20 @@
                         <option ng-repeat="catg in catgs" >{{catg.name}}</option>
                     </select>
                 </div>
-                
+                <div class="form-group">
+                    <label>Télécharger image Logo:</label>
+                    <input
+                            type="file"
+                            ngf-select
+                            ng-model="salon.img"
+                            name="file"
+                            ngf-pattern="'image/*'"
+                            accept="image/*"
+                            ngf-max-size="20MB"
+                    />
+                    Image thumbnail: <img style="width:100px;" ng-show="!!vm.file" ngf-thumbnail="salon.img || './uploads/salon.jpg'"/>
+                </div>
+
                 <div class="pull-right">
                     <button type="submit" class="btn btn-primary">Modifier</button>
                     <button  onclick="history.go(-1)" class="btn btn-danger ">Retour</button>

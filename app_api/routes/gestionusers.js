@@ -17,10 +17,23 @@ var salonCtr = require('../controllers/salonController')
 var serviceproposerCtr = require('../controllers/serviceproposerController')
 var employeCtr = require('../controllers/employeController')
 var servicesalonCtr = require('../controllers/servicesalonController')
+var rdvCtr = require('../controllers/rendezvousController')
 
 
 
+//////////////////////ici Route GESTION RDV /////////////////
 
+// GET /rdv
+router.get('/rendezvous/:iduser',rdvCtr.get);
+
+// DELETE rdv/fjaslfj478329fsafashf2
+router.delete('/rendezvous/:rdvId',rdvCtr.delete);
+
+///dsearch RDV BY name client
+router.get('/rendezvoussearch/:idr/:q',rdvCtr.search);
+
+// GET rdv/fjaslfj478329fsafashf2
+router.get('/rendezvousbyid/:rendezvousId',rdvCtr.show);
 
 
 
@@ -34,6 +47,10 @@ router.get('/employer',employeCtr.get);
 
 //GET /getAllMyEmploye
 router.get('/allemployer/:responsableId',employeCtr.getAllMyEmploye);
+
+//GET /getAllMyEmployebysalon
+router.get('/allemployerbysalon/:salonId',employeCtr.getAllMyEmployebysalon);
+
 
 // GET employer/fjaslfj478329fsafashf2
 router.get('/employer/:employerId',employeCtr.show);
@@ -117,6 +134,8 @@ router.get('/salon/:salonId',salonCtr.show);
 
 // PUT salon/fjaslfj478329fsafashf2
 router.put('/salon/:salonId',salonCtr.put);
+
+router.put('/salonwittimg/:salonId',salonCtr.putsalonwithimg);
 
 // DELETE salon/fjaslfj478329fsafashf2
 router.delete('/salon/:salonId',salonCtr.delete);

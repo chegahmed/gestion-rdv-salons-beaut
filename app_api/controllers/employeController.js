@@ -51,6 +51,14 @@ exports.getAllMyEmploye = function(req,res){
 };
 
 
+// get all  employee for specific user
+exports.getAllMyEmployebysalon = function(req,res){
+    Employer.find({idsalon : req.params.salonId}).exec(function(err,employer){
+        res.jsonp(employer);
+    });
+};
+
+
 // get all marge for specific user
 exports.getAllMyEmploye = function(req,res){
     Employer.find({idresponsable : req.params.responsableId}).exec(function(err,employer){

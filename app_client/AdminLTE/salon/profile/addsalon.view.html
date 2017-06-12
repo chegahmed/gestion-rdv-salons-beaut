@@ -40,9 +40,22 @@
                         <option ng-repeat="catg in catgs" value="{{catg._id}}" >{{catg.name}}</option>
                     </select>
                 </div>
-                <div class="form-group" ng-hide="true">
+                <div class="form-group" ng-hide="false">
                     <label for="name"> id responsable:</label>
-                        <input type="text"  value="{{idresponsable}}" ng-model="salon.idresponsable">
+                    <input type="text"  value="{{idresponsable}}" ng-model="salon.idresponsable=idresponsable">
+                </div>
+                <div class="form-group">
+                    <label>Télécharger image Logo:</label>
+                    <input
+                            type="file"
+                            ngf-select
+                            ng-model="salon.img"
+                            name="file"
+                            ngf-pattern="'image/*'"
+                            accept="image/*"
+                            ngf-max-size="20MB"
+                    />
+                    Image thumbnail: <img style="width:100px;" ng-show="!!vm.file" ngf-thumbnail="salon.img || './uploads/salon.jpg'"/>
                 </div>
 
 

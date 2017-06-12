@@ -50,7 +50,7 @@ router.get('/indisponiblesearch/:q',indispCtr.search);
 /* POST /rdv  */
 router.post('/rdv',rdvCtr.post);
 
-router.get('/chercherrdv/:date',rdvCtr.ChercherRDV);
+router.get('/chercherrdv/:date',rdvCtr.findRdv);
 
 router.get('/findrdv/:date',rdvCtr.findRdv);
 

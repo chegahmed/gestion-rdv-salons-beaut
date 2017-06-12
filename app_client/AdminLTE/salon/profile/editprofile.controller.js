@@ -6,7 +6,6 @@
 
     editprofilesalonCtrl.$inject = ['$scope', '$http', '$location', '$routeParams'];
     function editprofilesalonCtrl($scope, $http, $location, $routeParams) {
-        $scope.message = "hello ahmedddd";
 
 
 

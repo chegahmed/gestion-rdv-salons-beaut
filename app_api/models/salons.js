@@ -18,7 +18,12 @@ var SalonSchema = new Schema({
         trim: true,
         // make this a required field
         required: 'name cannot be blank',
-
+    },
+    image: {
+        type: String,
+        default:'',
+        // make this a required field
+        required: 'image cannot be blank',
     },
     address: {
         type: String,
@@ -28,13 +33,14 @@ var SalonSchema = new Schema({
     description: {
         type: String,
         default: '',
-        // trim: true
-
     },
     ville: {
         type: String,
         default: '',
         trim: true
+    },
+    rating: {
+        type: Number,
     },
     categorie: {
         type: [{ type: Schema.Types.ObjectId, ref: 'Categorie' }],

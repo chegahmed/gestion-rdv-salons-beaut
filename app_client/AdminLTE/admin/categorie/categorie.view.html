@@ -49,7 +49,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr dir-paginate="categorie in categories|itemsPerPage: 4| filter : searchc| orderBy : sortKey:reverse" >
+                            <tr dir-paginate="categorie in categories|itemsPerPage: 4|orderBy : sortKey:reverse" >
                                 <td>{{categorie.name}}</td>
                                 <td width="30%"><img width="30%"  class="img-responsive img-circle "  alt="Cinque Terre" src="./uploads/{{categorie.image}}"></td>
                                 <td><a href="/admin/editcategorie/{{categorie._id}}" >

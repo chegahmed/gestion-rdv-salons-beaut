@@ -1,6 +1,6 @@
 (function () {
 
-    angular.module('userApp', ['ngRoute','angularUtils.directives.dirPagination','ngFileUpload']);
+    angular.module('userApp', ['ngRoute','angularUtils.directives.dirPagination','ngFileUpload','ngStorage']);
 
     function config($routeProvider, $locationProvider) {
         $routeProvider
@@ -16,9 +16,14 @@
                 controller: 'rdvsalonCtrl',
                 controllerAs: 'vm'
             })
-            .when('/rdvlistservices/:idsalon', {
+            .when('/rdvlistservice/:idsalon', {
                 templateUrl:'/booking/stepThree/services.view.html',
                 controller: 'rdvserviceCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/rdvlistservices/:idsalon', {
+                templateUrl:'/booking/stepThree/listservices.view.html',
+                controller: 'rdvservicesCtrl',
                 controllerAs: 'vm'
             })
             .when('/rdvconfirmer', {

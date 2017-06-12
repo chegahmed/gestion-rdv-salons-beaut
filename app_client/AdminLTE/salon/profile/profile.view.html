@@ -75,8 +75,6 @@
                             </tr>
                             </thead>
 
-                            <p ng-repeat="sal in salons">name {{sal.name}}</p>
-
                             <tbody>
                             <tr  dir-paginate="salon in salons| itemsPerPage: 4 " >
                                 <td>{{salon.name}}</td>

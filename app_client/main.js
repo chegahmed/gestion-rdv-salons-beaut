@@ -199,7 +199,7 @@
                 controllerAs: 'vm'
             })
             .when('/admin/listsalonservice/:id', {
-                templateUrl: '/AdminLTE/salon/salonservice/listservice.view.html',
+                templateUrl: '/AdminLTE/salon/salonservice/listservices.view.html',
                 controller: 'listserviceCtrl',
                 controllerAs: 'vm'
             })
@@ -239,6 +239,18 @@
             .when('/admin/bloquecreneauxagenda/:idemploye', {
                 templateUrl: '/AdminLTE/salon/agenda/bloquecrenaux.view.html',
                 controller: 'bloquecreneauagendaCtrl',
+                controllerAs: 'vm'
+            })
+
+            ///////////////////////////GESTION DES RDV//////////////////
+            .when('/admin/listrdv/:userid', {
+                templateUrl: '/AdminLTE/salon/gestionRDV/listrdv.view.html',
+                controller: 'listrdvCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/admin/showrdv/:id', {
+                templateUrl: '/AdminLTE/salon/gestionRDV/showRDV.view.html',
+                controller: 'showrdvCtrl',
                 controllerAs: 'vm'
             })
 

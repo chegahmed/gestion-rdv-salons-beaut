@@ -9,8 +9,6 @@
 
         var vm = this;
         vm.submit = function(){ //function to call on form submit
-//vm.upload_form.file.$valid &&
-            console.log($scope.categorie.img)
             if ($scope.categorie.img && $scope.categorie.name!=null ) { //check if from is valid
                 vm.upload($scope.categorie.img,$scope.categorie.name); //call upload function
             }else{
@@ -19,7 +17,7 @@
         }
 
         vm.upload = function (file,name) {
-            console.log($scope.categorie.name);
+
             Upload.upload({
                 url: 'gestionusers/categorie', //webAPI exposed to upload the file
                 data:{file:file,name: name} //pass file as data, should be user ng-model

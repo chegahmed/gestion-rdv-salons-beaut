@@ -19,7 +19,7 @@ var IndisponibiliteSchema = new Schema({
     cause: {
         type: String,
     },
-    employe: {
+    idemploye: {
         type: mongoose.Schema.Types.ObjectId,
         ref: '_id'
     },

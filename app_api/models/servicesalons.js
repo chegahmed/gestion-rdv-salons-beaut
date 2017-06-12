@@ -32,10 +32,14 @@ var ServicesalonSchema = new Schema({
         default: '',
         trim: true
     },
-    employe: {
-        type: []
-
-    },
+    employe: [{
+        name :String,
+        idemploye: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: '_id'
+        }}
+        ]
+    ,
     idsalon: {
         type: mongoose.Schema.Types.ObjectId,
         ref: '_id'

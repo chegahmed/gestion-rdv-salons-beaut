@@ -40,7 +40,7 @@ message : {{message}}
                                   <td class="col-md-2" ><input type="number" ng-disabled="!formData[salon._id][service._id].isChecked" class="form-control" id="phoneNumber" placeholder="Enter your price" ng-model="formData[salon._id][service._id].price"></td>
                                   <td class="col-md-2" >
                                       <select multiple style="height : 45px"  ng-model="formData[salon._id][service._id].employe" class="form-control"  ng-disabled="!formData[salon._id][service._id].isChecked">
-                                          <option ng-repeat="employe in employes" ng-if="employe.idsalon == salon._id" value="{{employe.name}}">{{employe.name}}</option>
+                                          <option ng-repeat="employe in employes" ng-if="employe.idsalon == salon._id" value="{{employe._id+' * '+employe.name}}">{{employe.name}}</option>
                                       </select>
                                   </td>
                                   <td class="col-md-0" ><input type="text" ng-hide="true" ng-disabled="true"  ng-model="formData[salon._id][service._id].idsalon = salon._id" class="form-control" ></td>

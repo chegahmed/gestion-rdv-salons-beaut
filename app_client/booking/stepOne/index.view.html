@@ -109,18 +109,24 @@
     <!-- Search -->
     <div class="advanced-search color" id="booking">
         <div class="wrap">
-
+<form ng-submit="vm.submit()">
                 <!-- Row -->
                 <div class="f-row">
-                    <div class="form-group datepicker one-third">
-                        <label for="dep-date">Departure date and time</label>
-                        <input type="text" id="dep-date" />
+                    <div class="form-group one-third">
+                        <label>Nom salon</label>
+                        <!-- zone de saisie déclenchant l'autocomplétion -->
+                        <input type="text"  placeholder="Recherche de salons ..." list="salons" data-ng-model="salon.name"  />
+
+                        <datalist id="salons">
+                            <option data-ng-repeat="item in salonslist|orderBy :name" value="{{item.name}}" />
+                        </datalist>
                     </div>
+
                     <div class="form-group select one-third">
-                        <label>Ville</label>
+                        <label>Ville </label>
                         <select ng-model="salon.ville">
                             <option selected>&nbsp;</option>
-                            <option ng-repeat="ville in villes" >{{ville.name}}</option>
+                            <option ng-repeat="ville in villes"  value="{{ville.name}}">{{ville.name}}</option>
                         </select>
                     </div>
                     <div class="form-group select one-third">
@@ -128,7 +134,7 @@
                         <select>
                             <option selected>&nbsp;</option>
                             <optgroup ng-repeat="catg in catgs" label="{{catg.name}}">
-                                <option ng-repeat="scatg in souscategories" ng-if="scatg.parent==catg._id" >{{scatg.name}}</option>
+                                <option ng-repeat="scatg in souscategories" ng-if="scatg.parent==catg._id" value="{{scatg.name}}" >{{scatg.name}}</option>
                             </optgroup>
 
                         </select>
@@ -136,11 +142,12 @@
                 </div>
 
                     <div class="form-group right">
-                        <a href="/rdvlistsalons/{{salon.ville}}" class="btn large black">Find a transfer</a>
+                        <button type="submit" class="btn large black">Rechercher</button>
+                       <!-- href="/rdvlistsalons/{{salon.ville}}"-->
                     </div>
 
                 <!--// Row -->
-
+</form>
         </div>
     </div>
     <!-- //Search -->
