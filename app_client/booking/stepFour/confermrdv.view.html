@@ -97,6 +97,51 @@
     </header>
     <!-- //Page info -->
 
+    <style>
+        div.scroll {
+     /*       background-color: #00FFFF;*/
+         /* //  width: 100%;*/
+            height: 400px;
+            overflow: scroll;
+        }
+    </style>
+
+    <div class="wrap">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="box readonly">
+
+                    <div ng-repeat="service in selectedServices">
+
+
+                    <div class="col-md-3">
+                        <h3>{{service.name}}</h3>
+                        <div class="text-center">
+                            <a ng-click="CrenauxPreviousDay(service._id,dateSelected[service._id].empId,dateSelected[service._id].from.datetime)"><span class="glyphicon glyphicon-chevron-left"> </span></a>
+                            {{dateSelected[service._id].from.day}}  {{dateSelected[service._id].from.date}}
+                            <a ng-click="CrenauxNextDay(service._id,dateSelected[service._id].empId,dateSelected[service._id].from.datetime)"><span class="glyphicon glyphicon-chevron-right"> </span></a></div>
+                        <div></div>
+                        <div class="scroll">
+                       <div ng-repeat="crenaux in resSearch[service._id] ">
+                           <a href="" ng-click="AddRdv(service,crenaux)">
+                            {{crenaux.from.hour}}:{{crenaux.from.minute}}
+                           </a>
+                       </div>
+                        </div>
+
+                    </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+ <!--
     <div class="wrap">
         <div class="row">
             <div class="three-fourth">
@@ -122,15 +167,11 @@
                             <div class="one-half">Catégorie</div>
                             <div class="one-half">{{service.categorie}}</div>
                         </div>
-
-
-
-
     </div>
     <div class=" col-md-6">
 
 
-        <!-- Item -->
+        &lt;!&ndash; Item &ndash;&gt;
         <div class="box history" >
             <h6 ng-hide="disprdv">Disponibilité la plus proche  <br>
 
@@ -153,7 +194,7 @@
 
             <button  class="btn btn-primary" ng-click="ChercherRDV(rdv.date,service)" >Vérifier la Dispo</button>
         </div>
-        <!-- //Item -->
+        &lt;!&ndash; //Item &ndash;&gt;
 
 
         <h3></h3>
@@ -169,9 +210,9 @@
                 </form>
             </div>
 
-            <!--- Sidebar -->
+            &lt;!&ndash;- Sidebar &ndash;&gt;
             <aside class="one-fourth sidebar right">
-                <!-- Widget -->
+                &lt;!&ndash; Widget &ndash;&gt;
                 <div class="widget">
                     <h4>Need help booking?</h4>
                     <div class="textwidget">
@@ -179,18 +220,25 @@
                         <p class="contact-data"><span class="icon icon-themeenergy_call black"></span> +1 555 555 555</p>
                     </div>
                 </div>
-                <!-- //Widget -->
+                &lt;!&ndash; //Widget &ndash;&gt;
 
-                <!-- Widget -->
+                &lt;!&ndash; Widget &ndash;&gt;
                 <div class="widget">
                     <h4>Advertisment</h4>
                     <a href="#"><img src="designeFrontoffice/images/uploads/advertisment.jpg" alt="" /></a>
                 </div>
-                <!-- //Widget -->
+                &lt;!&ndash; //Widget &ndash;&gt;
             </aside>
-            <!--- //Sidebar -->
+            &lt;!&ndash;- //Sidebar &ndash;&gt;
         </div>
     </div>
+
+
+    -->
+
+
+
+
 </main>
 <!-- //Main -->
 

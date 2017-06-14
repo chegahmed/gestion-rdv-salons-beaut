@@ -16,7 +16,13 @@
 
 
 
-
+        ///this methode return category and sub-category by id salon
+        $http({
+            method: 'GET',
+            url: '/gestionusers/salon/' + idsalon
+        }).success(function (data) {
+            $scope.salon = data; // response data
+        });
 
 
 
@@ -98,8 +104,9 @@
                 $scope.iconadd[idservice] ="designeFrontoffice/images/add.png"
 
                 angular.forEach( $scope.tab,function (value,key) {
-                    if( JSON.stringify(value) === JSON.stringify(service) ){
+                    if( JSON.stringify(value) == JSON.stringify(service) ){
                         $scope.tab.splice(key, 1)
+                        $scope.notificationMsg = 'Vous pouvez ajouter des services ou continuer';
                     }
                 })
 
@@ -108,6 +115,8 @@
                 $scope.hideimgsuccess[idservice] =false
                 $scope.iconadd[idservice] ="designeFrontoffice/images/success.png"
                 $scope.tab.push(service)
+               $scope.notificationMsg = $scope.tab.length+ ' services ' +service.price +' Dh';
+
             }
         }
 

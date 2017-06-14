@@ -321,6 +321,9 @@ function findAvailableCreanauxByEmlp(minDate, empId, weeksCount) {
 
 
 exports.findRdv = function (req, res) {
+
+
+
     var reqdate = new Date(req.params.date).getTime();
     var nowdate = new Date().getTime();
 
@@ -328,7 +331,10 @@ exports.findRdv = function (req, res) {
         reqdate = nowdate;
     }
 
-    var requestedEmpId = '59319498efa50b137477a14b';
+
+    //var requestedEmpId = '59319498efa50b137477a14b';
+
+    var requestedEmpId = req.params.idemp;
     var requestedDate = moment(reqdate);//min date
     var requestedServiceId = '593547adc5ece4159073e42d';
 
@@ -356,10 +362,20 @@ exports.findRdv = function (req, res) {
                 return c.from.datetime;
             });
 
+          var ferstcrenau=  _.first(sortCrenaux)
+
+            console.log(ferstcrenau.from.date)
+            var resultatcrenaux = _.filter(sortCrenaux, function (c) {
+                console.log(c.from.date)
+                return  c.from.date == ferstcrenau.from.date;;
+            });
+
+          // console.log(resultatcrenaux)
+
             res.jsonp({
                 data: {
                   //  rdvs: sortCrenaux,
-                    rdvs: [_.first(sortCrenaux)],
+                    rdvs: [resultatcrenaux],
                     errors: []
                 }
             })

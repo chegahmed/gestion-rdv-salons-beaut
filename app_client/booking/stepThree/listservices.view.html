@@ -92,11 +92,11 @@
     <header class="site-title color">
         <div class="wrap">
             <div class="container">
-                <h1>Services</h1>
+                <h1>Services salon : {{salon.name}}</h1>
                 <nav role="navigation" class="breadcrumbs">
                     <ul>
                         <li><a href="index.html" title="Home">Home</a></li>
-                        <li>Services</li>
+                        <li>Services </li>
                     </ul>
                 </nav>
             </div>
@@ -113,7 +113,7 @@
                 <!-- Widget -->
                 <div class="widget">
                     <ul class="categories" ng-repeat="catg in AllCatg.categories" >
-                            <li class="active"><a  >{{catg.name}}</a></li>
+                            <li class="active"><a>{{catg.name}}</a></li>
                         <li ng-repeat="scatg in AllCatg.souscategories" ng-if="scatg.parent==catg._id"  ng-click="DisplayService(scatg.name)"><a href="#">{{scatg.name}}</a></li>
                     </ul>
                 </div>
@@ -123,31 +123,69 @@
 
             <!--- Content -->
             <div class="three-fourth content">
+                <div class="col-md-4 text-center">
+                    <span class="alert-info">{{notificationMsg}}</span>
+                </div>
 
 
                 <!-- Tab -->
                 <article class="single hentry" id="tab1">
                     <div class="entry-content">
-                        <div class="list-group" ng-repeat="service in services">
-                            <a href="#" class="list-group-item"   style="height: 180px">
-                                <h4 class="list-group-item-heading">{{service.name}} <b class="list-group-item-heading col-sm-offset-11 ">{{service.price}} Dh</b></h4>
-                                <p class="list-group-item-text">Choisi Employe<strong style="color: #5890AD;" class="col-sm-offset-1">{{service.time}} min</strong>
+                        <div class="wrap">
+                            <div class="row">
+                        <div  ng-repeat="service in services">
+                            <div class="f-row">
+                                <div class="one-half">
+                                    <div class="three-fourth">
+                                      <h3>{{service.name}}   </h3>
+                                    </div>
+                                    <div class="one-fourth">
+                                       <h4>{{service.price}} (Dh)</h4>
+                                    </div>
+                                </div>
+                                <div class="one-half">
+                                    <div class="three-fourth">
+                                        <div class="one-half">
+                                            <p> choisi Employe</p>
+                                        </div>
+                                        <div class="one-half">
+                                            <select id="labemp" ng-model="service.employe">
+                                                <option ng-repeat="employe in service.employe" value="{{employe.idemploye}}">{{employe.name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="one-fourth">
+                                        <img class="col-sm-offset-11"  ng-src="designeFrontoffice/images/add.png" ng-hide="hideimgadd[service._id]" width="40%" ng-click="AddServices(service)">
+                                        <img class="col-sm-offset-11"  ng-src="{{iconadd[service._id]}}" ng-hide="hideimgsuccess[service._id]" width="40%" ng-click="AddServices(service)">
+                                    </div>
+                                </div>
 
-                                    <br/>
-
-
-                                        <select id="labemp" ng-model="service.employe" class="col-md-2">
-                                            <option ng-repeat="employe in service.employe" value="{{employe.idemploye}}">{{employe.name}}</option>
-                                        </select>
-
-
-                                    <img class="col-sm-offset-11"  ng-src="designeFrontoffice/images/add.png" ng-hide="hideimgadd[service._id]" width="4%" ng-click="AddServices(service)">
-                                    <img class="col-sm-offset-11"  ng-src="{{iconadd[service._id]}}" ng-hide="hideimgsuccess[service._id]" width="4%" ng-click="AddServices(service)">
-
-                                </p>
-                            </a>
+                            </div>
+                            <h3>-----------------------------------------------------------------------------------------------------------------</h3>
 
                         </div>
+
+                            </div>
+                        </div>
+
+
+                       <!-- <a href="#" class="list-group-item"   style="height: 180px">
+                            <h4 class="list-group-item-heading">{{service.name}} <b class="list-group-item-heading col-sm-offset-11 ">{{service.price}} Dh</b></h4>
+                            <p class="list-group-item-text">Choisi Employe<strong style="color: #5890AD;" class="col-sm-offset-1">{{service.time}} min</strong>
+
+                                <br/>
+
+
+                                <select id="labemp" ng-model="service.employe" class="col-md-2">
+                                    <option ng-repeat="employe in service.employe" value="{{employe.idemploye}}">{{employe.name}}</option>
+                                </select>
+
+
+                                <img class="col-sm-offset-11"  ng-src="designeFrontoffice/images/add.png" ng-hide="hideimgadd[service._id]" width="4%" ng-click="AddServices(service)">
+                                <img class="col-sm-offset-11"  ng-src="{{iconadd[service._id]}}" ng-hide="hideimgsuccess[service._id]" width="4%" ng-click="AddServices(service)">
+
+                            </p>
+                        </a>-->
                     </div>
                 </article>
                 <!-- //Tab -->
