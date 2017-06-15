@@ -366,7 +366,6 @@ exports.findRdv = function (req, res) {
 
             console.log(ferstcrenau.from.date)
             var resultatcrenaux = _.filter(sortCrenaux, function (c) {
-                console.log(c.from.date)
                 return  c.from.date == ferstcrenau.from.date;;
             });
 

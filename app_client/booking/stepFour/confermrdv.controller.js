@@ -14,11 +14,17 @@
         var today =new Date();
 
 
+        $scope.EmployesByServices =function (idervice) {
+
+        }
+
         $scope.getCalendar =function(){
             var i=0;
             angular.forEach( $scope.selectedServices,function (s) {
                 $scope.resSearch=[];
                 $scope.dateSelected=[];
+                $scope.emplo=[];
+                $scope.tabemp=[]
                 $http({
                     method: 'GET',
                     url: 'routefrontoffice/chercherrdv/date=' + today+'&idemp='+  s.employe                   // item.idemploye/...
@@ -26,6 +32,18 @@
                     $scope.resSearch[s._id] = data.data.rdvs[0];
                     $scope.dateSelected[s._id] = data.data.rdvs[0][0]
                 });
+
+
+                $http({
+                    method: 'GET',
+                    url: '/gestionusers/servicesalon/'+s._id
+                }).success(function (data) {
+                    angular.forEach(data.employe,function (c) {
+                        $scope.tabemp.push(c);
+                    })
+                    $scope.emplo[s._id]=$scope.tabemp;
+                    $scope.tabemp=[];
+                })
             })
         }
 

@@ -106,7 +106,6 @@
                 angular.forEach( $scope.tab,function (value,key) {
                     if( JSON.stringify(value) == JSON.stringify(service) ){
                         $scope.tab.splice(key, 1)
-                        $scope.notificationMsg = 'Vous pouvez ajouter des services ou continuer';
                     }
                 })
 

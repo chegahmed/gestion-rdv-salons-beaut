@@ -112,31 +112,30 @@
                 <form class="box readonly">
 
                     <div ng-repeat="service in selectedServices">
-
-
                     <div class="col-md-3">
                         <h3>{{service.name}}</h3>
+                        <select id="labemp" ng-model="service.employe">
+                            <option ng-repeat="employe in emplo[service._id]" value="{{employe.idemploye}}">{{employe.name}}</option>
+                        </select>
                         <div class="text-center">
                             <a ng-click="CrenauxPreviousDay(service._id,dateSelected[service._id].empId,dateSelected[service._id].from.datetime)"><span class="glyphicon glyphicon-chevron-left"> </span></a>
                             {{dateSelected[service._id].from.day}}  {{dateSelected[service._id].from.date}}
-                            <a ng-click="CrenauxNextDay(service._id,dateSelected[service._id].empId,dateSelected[service._id].from.datetime)"><span class="glyphicon glyphicon-chevron-right"> </span></a></div>
-                        <div></div>
-                        <div class="scroll">
-                       <div ng-repeat="crenaux in resSearch[service._id] ">
-                           <a href="" ng-click="AddRdv(service,crenaux)">
-                            {{crenaux.from.hour}}:{{crenaux.from.minute}}
-                           </a>
-                       </div>
+                            <a ng-click="CrenauxNextDay(service._id,dateSelected[service._id].empId,dateSelected[service._id].from.datetime)"><span class="glyphicon glyphicon-chevron-right"> </span></a>
                         </div>
 
+                        <div class="scroll">
+                           <div ng-repeat="crenaux in resSearch[service._id] ">
+                               <a href="" ng-click="AddRdv(service,crenaux)">
+                                {{crenaux.from.hour}}:{{crenaux.from.minute}}
+                               </a>
+                           </div>
+                        </div>
                     </div>
 
                     </div>
                 </form>
             </div>
         </div>
-
-
     </div>
 
 

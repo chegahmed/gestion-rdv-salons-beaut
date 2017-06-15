@@ -146,10 +146,11 @@
                                 <div class="one-half">
                                     <div class="three-fourth">
                                         <div class="one-half">
-                                            <p> choisi Employe</p>
+                                            <h4>{{service.time}} (min)</h4>
                                         </div>
                                         <div class="one-half">
                                             <select id="labemp" ng-model="service.employe">
+                                                <option>choisi Employe</option>
                                                 <option ng-repeat="employe in service.employe" value="{{employe.idemploye}}">{{employe.name}}</option>
                                             </select>
                                         </div>
