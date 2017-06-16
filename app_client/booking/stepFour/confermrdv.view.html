@@ -106,15 +106,17 @@
         }
     </style>
 
-    <div class="wrap">
+    <div class="wrap three-fourth ">
         <div class="row">
-            <div class="col-md-12">
+            <div class=" col-md-12">
                 <form class="box readonly">
+{{tablecrenauxselected}}
+
 
                     <div ng-repeat="service in selectedServices">
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <h3>{{service.name}}</h3>
-                        <select id="labemp" ng-model="service.employe">
+                        <select id="labemp" ng-model="service.employe" ng-click="ChercheCrenaux(service)">
                             <option ng-repeat="employe in emplo[service._id]" value="{{employe.idemploye}}">{{employe.name}}</option>
                         </select>
                         <div class="text-center">
@@ -131,12 +133,42 @@
                            </div>
                         </div>
                     </div>
-
                     </div>
+
+
+
+
+
+
                 </form>
+
+
+
+
+
             </div>
         </div>
     </div>
+
+    <!--- Sidebar -->
+    <aside class="one-fourth sidebar right ">
+        <!-- Widget -->
+        <div class="widget">
+            <h4>Récapitulatif :</h4>
+            <div class="textwidget">
+                <div ng-repeat="item in tablecrenauxselected">
+                    <div  ng-repeat="sersalon in servicessalon" ng-if="sersalon._id == item.idservice">
+                    <h5>{{sersalon.name}}</h5>
+                        <p> Prix : {{sersalon.price}}(Dh) - durée : {{sersalon.time}}(min)</p>
+                    </div>
+                    <p ng-repeat="empl in employes" ng-if="empl._id == item.crenaux.empId"> Employe : {{empl.name}}</p>
+                    <p>{{item.crenaux.from.day}} - {{item.crenaux.from.date}} à  {{item.crenaux.from.hour}} : {{item.crenaux.from.minute}}</p>
+                </div>
+            </div>
+        </div>
+        <!-- //Widget -->
+    </aside>
+    <!--- //Sidebar -->
 
 
 

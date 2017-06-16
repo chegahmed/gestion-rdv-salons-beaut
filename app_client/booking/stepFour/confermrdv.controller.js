@@ -14,9 +14,7 @@
         var today =new Date();
 
 
-        $scope.EmployesByServices =function (idervice) {
 
-        }
 
         $scope.getCalendar =function(){
             var i=0;
@@ -75,6 +73,8 @@
         }
 
 
+
+        //this function for back to previous day
         $scope.CrenauxPreviousDay =function(serviceId,empId,datetime){
             var date =new Date(datetime*1000);
             var nextdate =new Date();
@@ -102,25 +102,27 @@
 
 
 
+        $scope.ChercheCrenaux= function (service) {
 
-        ////this function fot selectedd crenaux and confirmer
+            var date =new Date();
 
-        $scope.AddRdv =function (s ,crenaux) {
-            $scope.tablecrenauxselected.push(crenaux);
 
-            angular.forEach( $scope.selectedServices,function (s) {
-            angular.forEach( $scope.resSearch[s._id],function (c,key) {
-                if(c.from.datetime.toFixed(0)==crenaux.from.datetime.toFixed(0) && c.empId==crenaux.empId){
-                    $scope.resSearch[s._id].splice(key, 1)
-                    console.log(c)
-                }
+            $http({
+                method: 'GET',
+                url: 'routefrontoffice/chercherrdv/date=' + date+'&idemp='+  service.employe                   // item.idemploye/...
+            }).success(function (data) {
+                $scope.resSearch[service._id] = data.data.rdvs[0];
+                $scope.dateSelected[service._id] = data.data.rdvs[0][0]
+
+
+                angular.forEach($scope.resSearch[service._id],function (s,key) {
+                    angular.forEach($scope.tablecrenauxselected,function (c) {
+                        if(c.from.datetime.toFixed(0)==s.from.datetime.toFixed(0) && c.empId==s.empId){
+                            $scope.resSearch[service._id].splice(key, 1)
+                        }
+                    })
+                });
             });
-            });
-            var serviceId = s._id;
-            var empId =s.employe;
-
-
-
 
         }
 
@@ -128,10 +130,65 @@
 
 
 
+        ////this function fot selectedd crenaux and confirmer
+        $scope.AddRdv =function (s ,crenaux) {
+
+            console.log($scope.tablecrenauxselected.length)
+            var tablength =$scope.tablecrenauxselected.length;
+
+            if(tablength<1){
+                $scope.tablecrenauxselected.push({
+                    "idservice":s._id,
+                    "crenaux":crenaux
+                });
+            }
+
+             angular.forEach($scope.tablecrenauxselected,function (t,key) {
+
+             if(t.idservice == s._id){
+             $scope.tablecrenauxselected.splice(key, 1)
+             $scope.tablecrenauxselected.push({
+             "idservice":s._id,
+             "crenaux":crenaux
+             });
+             }else{
+                 $scope.tablecrenauxselected.push({
+                     "idservice":s._id,
+                     "crenaux":crenaux
+                 });
+             }
+             })
 
 
 
+       /*     angular.forEach( $scope.selectedServices,function (s) {
+            angular.forEach( $scope.resSearch[s._id],function (c,key) {
+                if(c.from.datetime.toFixed(0)==crenaux.from.datetime.toFixed(0) && c.empId==crenaux.empId){
+                    $scope.resSearch[s._id].splice(key, 1)
+                    console.log(c)
+                }
+            });
+            });
 
+
+        else if(key=tablength && t.idservice != s._id){
+        console.log('enter')
+        $scope.tablecrenauxselected.push({
+        "idservice":s._id,
+        "crenaux":crenaux
+        });
+        }
+            */
+
+        }
+
+
+        $http({
+            method: 'GET',
+            url: '/gestionusers/servicesalon/'
+        }).success(function (data) {
+          $scope.servicessalon =data;
+        })
 
         $http({
             method: 'GET',
