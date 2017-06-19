@@ -5,8 +5,8 @@
         .module('userApp')
         .controller('rdvservicesCtrl', rdvservicesCtrl);
 
-    rdvservicesCtrl.$inject = ['$scope', '$http','$window','$location', '$routeParams','$localStorage'];
-    function rdvservicesCtrl($scope, $http,$window, $location ,$routeParams,$localStorage) {
+    rdvservicesCtrl.$inject = ['$scope', '$http','$window','$location', '$routeParams','$sessionStorage'];
+    function rdvservicesCtrl($scope, $http,$window, $location ,$routeParams,$sessionStorage) {
 
         var idsalon = $routeParams.idsalon;
         var namescatg = $routeParams.namescatg;
@@ -81,7 +81,7 @@
         ///this function for stor $scope.tab in session and passing a next page
         $scope.Addsession =function () {
 
-            $localStorage.listservices =$scope.tab;
+            $sessionStorage.listservices =$scope.tab;
 
             $location.path('/rdvconfirmer')
         }

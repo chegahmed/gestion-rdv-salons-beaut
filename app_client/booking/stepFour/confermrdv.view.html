@@ -9,27 +9,28 @@
 </div>
 <!-- //Preloader -->
 
+
 <!-- Header -->
 <header class="header" role="banner">
     <div class="wrap">
         <!-- Logo -->
         <div class="logo">
-            <a href="index.html" title="Transfers"><img src="designeFrontoffice/images/transfers.jpg" alt="Transfers" /></a>
+            <a href="admin.html" title="Transfers"><img src="designeFrontoffice/images/transfers.jpg" alt="Transfers" /></a>
         </div>
         <!-- //Logo -->
 
         <!-- Main Nav -->
         <nav role="navigation" class="main-nav">
             <ul>
-                <li><a href="index.html" title="">Home</a></li>
+                <li class="active"><a href="admin.html" title="">Home</a></li>
                 <li><a href="destinations.html" title="Destinations">Destinations</a>
                     <ul>
                         <li><a href="destination-single.html" title="Single destination">Single destination</a></li>
                         <li><a href="destination-micro.html" title="Micro destination">Micro destination</a></li>
                     </ul>
                 </li>
-                <li><a href="tailor-made.html" title="Tailor made">Tailor made</a></li>
-                <li><a href="blog.html" title="Blog">Blog</a>
+                <li><a href="tailor-made.html" title="Tailor made">Coiffure </a></li>
+                <li><a href="blog.html" title="Blog">visage</a>
                     <ul>
                         <li><a href="blog.html" title="Post">Blog list</a></li>
                         <li><a href="blog2.html" title="Post">Blog grid</a></li>
@@ -37,7 +38,7 @@
                     </ul>
                 </li>
                 <li><a href="contact.html" title="Contact">Contact</a></li>
-                <li><a href="#" title="Pages">Pages</a>
+                <li><a href="#" title="Pages">Corps</a>
                     <div>
                         <div class="one-fourth">
                             <h2>Common</h2>
@@ -49,7 +50,7 @@
                             </ul>
                         </div>
                         <div class="one-fourth">
-                            <h2>Booking</h2>
+                            <h2>Carte Cadeau</h2>
                             <ul>
                                 <li><a href="search-results.html" title="Search results page">Search results page</a></li>
                                 <li><a href="booking-step1.html" title="Booking step 1">Booking step 1</a></li>
@@ -77,13 +78,14 @@
                         </div>
                     </div>
                 </li>
-                <li><a href="http://themeforest.net/item/transfers-transport-and-car-hire-html-template/9366018?ref=themeenergy" title="Purchase">Purchase</a></li>
+                <li><a href="http://themeforest.net/item/transfers-transport-and-car-hire-html-template/9366018?ref=themeenergy" title="Purchase">spa</a></li>
             </ul>
         </nav>
         <!-- //Main Nav -->
     </div>
 </header>
 <!-- //Header -->
+
 <br><br><br>
 <!-- Main -->
 <main class="main" role="main">
@@ -91,7 +93,7 @@
     <header class="site-title color">
         <div class="wrap">
             <div class="container">
-                <h1>Thank you. Your booking is now confirmed.</h1>
+                <h1>Sélectionnez une heure pour votre rendez-vous</h1>
             </div>
         </div>
     </header>
@@ -112,7 +114,7 @@
                 <form class="box readonly">
 {{tablecrenauxselected}}
 
-
+{{selectedServices}}
                     <div ng-repeat="service in selectedServices">
                     <div class="col-md-4">
                         <h3>{{service.name}}</h3>
@@ -169,6 +171,52 @@
         <!-- //Widget -->
     </aside>
     <!--- //Sidebar -->
+
+
+        <!--- Content -->
+        <div class=" col-md-8">
+            <!-- Tab -->
+            <article class="single" id="tab1">
+                <div class="box">
+                    <h2>General settings</h2>
+                    <fieldset>
+                        <form ng-submit="register()">
+                            <div class="f-row">
+                                <div class="one-half">
+                                    <label for="name">Nom</label>
+                                    <input type="text" id="name" ng-model="client.firstname"/>
+                                </div>
+                                <div class="one-half">
+                                    <label for="company">Prenom</label>
+                                    <input type="text" id="company" ng-model="client.lastname"/>
+                                </div>
+                            </div>
+                            <div class="f-row">
+                                <div class="one-half">
+                                    <label for="email">Email address</label>
+                                    <input type="email" id="email" ng-model="client.email"/>
+                                </div>
+                                <div class="one-half">
+                                    <label for="number">Téléphone</label>
+                                    <input type="number" id="number" ng-model="client.tel"/>
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="f-row">
+                                <input type="submit" value="Valider" id="submit1" name="submit" class="btn color medium pull-right" />
+                            </div>
+                        </form>
+                        <span id="msg-reg"></span>
+                    </fieldset>
+                </div>
+            </article>
+            <!-- //Tab -->
+        </div>
+        <!--- //Content -->
+
 
 
 

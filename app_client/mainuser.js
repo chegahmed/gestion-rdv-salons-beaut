@@ -1,7 +1,6 @@
 (function () {
 
     angular.module('userApp', ['ngRoute','angularUtils.directives.dirPagination','ngFileUpload','ngStorage']);
-
     function config($routeProvider, $locationProvider) {
         $routeProvider
 

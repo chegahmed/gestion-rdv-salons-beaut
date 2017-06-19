@@ -5,17 +5,17 @@
         .module('userApp')
         .controller('rdvconfirmCtrl', rdvconfirmCtrl);
 
-    rdvconfirmCtrl.$inject = ['$scope', '$http','$location','$routeParams','$localStorage'];
-    function rdvconfirmCtrl($scope, $http, $location ,$routeParams,$localStorage) {
+    rdvconfirmCtrl.$inject = ['$scope', '$http','$location','$routeParams','$sessionStorage','$timeout'];
+    function rdvconfirmCtrl($scope, $http, $location ,$routeParams,$sessionStorage, $timeout) {
 
 
-        $scope.selectedServices= $localStorage.listservices;
+        $scope.selectedServices= $sessionStorage.listservices;
 
         var today =new Date();
 
 
 
-
+//this method display creneaux when first loading or refreshing page
         $scope.getCalendar =function(){
             var i=0;
             angular.forEach( $scope.selectedServices,function (s) {
@@ -47,6 +47,8 @@
 
         $scope.getCalendar();
 
+
+        //this function for increment to next day
         $scope.tablecrenauxselected =[]
         $scope.CrenauxNextDay =function(serviceId,empId,datetime){
             var date =new Date(datetime*1000);
@@ -95,7 +97,6 @@
                         }
                     })
                 });
-
             });
         }
 
@@ -105,7 +106,6 @@
         $scope.ChercheCrenaux= function (service) {
 
             var date =new Date();
-
 
             $http({
                 method: 'GET',
@@ -123,15 +123,26 @@
                     })
                 });
             });
-
         }
 
 
+        $scope.ExistDeja =function (s ,crenaux) {
+            var res = false;
+            angular.forEach($scope.tablecrenauxselected,function (t,key) {
 
+                if(t.idservice == s._id ){
+                    res = true;
+                }else{
+                    res= false;
+                }
+            })
+            return res;
+        }
 
 
         ////this function fot selectedd crenaux and confirmer
         $scope.AddRdv =function (s ,crenaux) {
+            console.log('tableau :',$scope.tablecrenauxselected)
 
             console.log($scope.tablecrenauxselected.length)
             var tablength =$scope.tablecrenauxselected.length;
@@ -143,7 +154,28 @@
                 });
             }
 
-             angular.forEach($scope.tablecrenauxselected,function (t,key) {
+          var result =  $scope.ExistDeja(s ,crenaux)
+            console.log(result);
+            if(result == false){
+                $scope.tablecrenauxselected.push({
+                    "idservice":s._id,
+                    "crenaux":crenaux
+                });
+            }else {
+                angular.forEach($scope.tablecrenauxselected,function (t,key) {
+                    console.log('id : ',t.idservice)
+
+                    if(t.idservice == s._id ){
+                        $scope.tablecrenauxselected.splice(key, 1)
+                        $scope.tablecrenauxselected.push({
+                            "idservice":s._id,
+                            "crenaux":crenaux
+                        });
+                    }
+                })
+            }
+
+         /*    angular.forEach($scope.tablecrenauxselected,function (t,key) {
 
              if(t.idservice == s._id){
              $scope.tablecrenauxselected.splice(key, 1)
@@ -157,7 +189,7 @@
                      "crenaux":crenaux
                  });
              }
-             })
+             })*/
 
 
 
@@ -196,6 +228,98 @@
         }).success(function (data) {
             $scope.employes = data; // response data
         })
+
+
+
+    
+        ///function for send email
+        $scope.register=function(){
+
+
+
+
+            angular.forEach($scope.tablecrenauxselected,function (t,key) {
+                var date =new Date(t.crenaux.from.datetime*1000)
+                angular.forEach($scope.selectedServices,function (service,ke) {
+                    if(service._id==t.idservice){
+                        $scope.client.type = "register";
+                        $scope.client.idservice = t.idservice;
+                        $scope.client.service = service.name;
+                        $scope.client.price = parseInt(service.price);
+                        $scope.client.date = date;
+                        $scope.client.datetime =t.crenaux.from.datetime ;
+                        $scope.client.time =parseInt(service.time) ;
+                        $scope.client.idemploye =t.crenaux.empId ;
+
+                        $timeout(function() {
+                            getName().then(function(name) {
+                                $scope.name = "Hello " + name;
+                            });
+                        }, 1000);
+
+                        console.log('idservice '+t.idservice)
+                        console.log('datetime '+t.crenaux.from.datetime)
+                        console.log('date '+date)
+                        console.log('employe '+t.crenaux.empId)
+                        console.log('price '+service.price)
+                        console.log('time '+service.time)
+                        console.log('service '+service.name)
+                        console.log('------------------------------ '+key)
+
+
+                     //   $scope.client.type = "register";
+                        $http.post('/routefrontoffice/registerclient/idservice='+t.idservice+'&service='+service.name+'&price='+service.price+'&date='+date+'&datetime='+t.crenaux.from.datetime+'&time='+service.time+'&idemploye='+t.crenaux.empId,  $scope.client)
+                            .success(function (response) {
+                                sweetAlert("félicitation...", "Votre client à été Ajouté avec success", "success");
+                                //  $location.url('/admin/service')
+                            })
+
+                    }
+                })
+            });
+
+
+
+
+           /* if( $scope.client.email==null){
+                sweetAlert("erreur...", "l'un des  champs de votre formulaire est vide!", "error");
+
+            }else {*/
+       /*    $scope.client.type = "register";
+                $http.post('/routefrontoffice/registerclient/',  $scope.client)
+                    .success(function (response) {
+                        sweetAlert("félicitation...", "Votre client à été Ajouté avec success", "success");
+                      //  $location.url('/admin/service')
+                    })
+                    .error(function(err){
+                        alert(err);
+                    })
+                    .then(function(){
+                     //   $location.path('/admin/service');
+                    });*/
+
+          //  };
+            
+            console.log('here function register')
+           /* console.log($scope.client)
+            console.log($scope.client.firstname+' '+$scope.client.lastname+' '+$scope.client.email)*/
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
    //this function for search RDV

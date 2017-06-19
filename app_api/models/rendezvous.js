@@ -8,13 +8,14 @@ var mongoose = require('mongoose'),
  * Rendezvous Schema
  */
 var RendezvouSchema = new Schema({
-    NameClient: {
+    firstname: {
         type: String,
-        //  required: true
+    },
+    lastname: {
+        type: String,
     },
     email: {
         type: String,
-        default: ''
     },
     tel: {
         type: String,
@@ -35,16 +36,22 @@ var RendezvouSchema = new Schema({
     time: {
         type: Number
     },
+    idservice: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: '_id'
+    },
     idemploye: {
         type: mongoose.Schema.Types.ObjectId,
         ref: '_id'
     },
-    idresponsable: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: '_id'
-    },
-    createdAt: {type: Date, default: Date.now},
-    updatedAt: {type: Date, default: Date.now}
+    type: {
+        type: String,
+    } ,
+    createdAt :{type : Date , default : Date.now },
+    updatedAt :{type : Date , default : Date.now },
+    confirm: {
+        type: Boolean
+    }
 });
 
 RendezvouSchema.statics = {

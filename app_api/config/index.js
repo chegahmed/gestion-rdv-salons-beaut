@@ -265,19 +265,19 @@ module.exports = function(mongoose) {
       }
 
       // user has already signed up and confirmed their account
-      if (existingPersistentUser) {
+     /* if (existingPersistentUser) {
         return callback(null, existingPersistentUser, null);
-      }
+      }*/
 
-      options.tempUserModel.findOne(query, function(err, existingTempUser) {
-        if (err) {
+    //  options.tempUserModel.findOne(query, function(err, existingTempUser) {
+      /*  if (err) {
           return callback(err, null, null);
-        }
+        }*/
 
         // user has already signed up but not yet confirmed their account
-        if (existingTempUser) {
+       /* if (existingTempUser) {
           return callback(null, null, null);
-        } else {
+        } else {*/
           var tempUserData = {};
 
           // copy the credentials for the user
@@ -293,8 +293,8 @@ module.exports = function(mongoose) {
           } else {
             return insertTempUser(tempUserData[options.passwordFieldName], tempUserData, callback);
           }
-        }
-      });
+      //  }
+     // });
     });
   };
 

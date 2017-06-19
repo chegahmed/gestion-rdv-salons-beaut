@@ -79,14 +79,19 @@ router.get('/rdvsearch/:q',rdvCtr.search);
 //////////////////////
 
 //send email to client and register data in doc temporary-client
-router.post('/registerclient', clientCtr.post);
+//router.post('/registerclient', clientCtr.post);
+
+router.post('/registerclient/idservice=:idservice&service=:service&price=:price&date=:date&datetime=:datetime&time=:time&idemploye=:idemploye', clientCtr.post);
+
+
+//router.post('/registerclient/:idservice/:price', clientCtr.post);
+
+//router.post('/registerclient/firstname=:firstname&&lastname=:lastname&&tel=:tel&&idservice=:idservice&&service=:service&&price=:price&&date=:date&&datetime=:datetime=&&time=:time&&idemploye=:idemploye', clientCtr.post);
 
 //after verification email client has been register in doc real-client
 router.get('/email-verification/:URL', clientCtr.get);
 
 
-
-// GET /salon
 router.get('/rdvsalon/:ville',salonCtr.getSalonByVille);
 
 //get service salon by id salon
