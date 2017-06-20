@@ -235,9 +235,6 @@
         ///function for send email
         $scope.register=function(){
 
-
-
-
             angular.forEach($scope.tablecrenauxselected,function (t,key) {
                 var date =new Date(t.crenaux.from.datetime*1000)
                 angular.forEach($scope.selectedServices,function (service,ke) {
@@ -251,58 +248,16 @@
                         $scope.client.time =parseInt(service.time) ;
                         $scope.client.idemploye =t.crenaux.empId ;
 
-                        $timeout(function() {
-                            getName().then(function(name) {
-                                $scope.name = "Hello " + name;
-                            });
-                        }, 1000);
+                      
 
-                        console.log('idservice '+t.idservice)
-                        console.log('datetime '+t.crenaux.from.datetime)
-                        console.log('date '+date)
-                        console.log('employe '+t.crenaux.empId)
-                        console.log('price '+service.price)
-                        console.log('time '+service.time)
-                        console.log('service '+service.name)
-                        console.log('------------------------------ '+key)
-
-
-                     //   $scope.client.type = "register";
                         $http.post('/routefrontoffice/registerclient/idservice='+t.idservice+'&service='+service.name+'&price='+service.price+'&date='+date+'&datetime='+t.crenaux.from.datetime+'&time='+service.time+'&idemploye='+t.crenaux.empId,  $scope.client)
                             .success(function (response) {
-                                sweetAlert("félicitation...", "Votre client à été Ajouté avec success", "success");
-                                //  $location.url('/admin/service')
+                                sweetAlert("félicitation...", "consulter votre compte gmail pour confirmer votre RDV", "info");
+                                $location.url('/')
                             })
-
                     }
                 })
             });
-
-
-
-
-           /* if( $scope.client.email==null){
-                sweetAlert("erreur...", "l'un des  champs de votre formulaire est vide!", "error");
-
-            }else {*/
-       /*    $scope.client.type = "register";
-                $http.post('/routefrontoffice/registerclient/',  $scope.client)
-                    .success(function (response) {
-                        sweetAlert("félicitation...", "Votre client à été Ajouté avec success", "success");
-                      //  $location.url('/admin/service')
-                    })
-                    .error(function(err){
-                        alert(err);
-                    })
-                    .then(function(){
-                     //   $location.path('/admin/service');
-                    });*/
-
-          //  };
-            
-            console.log('here function register')
-           /* console.log($scope.client)
-            console.log($scope.client.firstname+' '+$scope.client.lastname+' '+$scope.client.email)*/
         }
 
 

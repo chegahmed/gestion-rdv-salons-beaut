@@ -29,10 +29,31 @@
             url: '/gestionusers/rendezvous/'+id
         }).success(function (data) {
             $scope.rdvs = data; // response data
-            console.log(data)
         }).error(function (response) {
             console.log('error message :',response);
         });
+
+        //this for get all RDV not confirm by id user 'responsable salon'
+        $http({
+            method: 'GET',
+            url: '/gestionusers/rdvnotconfirm/'+id
+        }).success(function (data) {
+            $scope.rdvsnotconfirm = data; // response data
+        }).error(function (response) {
+            console.log('error message :',response);
+        });
+
+
+//this methods for Confirm RDV
+        $scope.confirmRDV =function (rendezvous) {
+            $http.put('/gestionusers/confirmrdv/' + rendezvous._id)
+                .success(function (response) {
+                    var index = $scope.rdvsnotconfirm.indexOf(rendezvous)
+                    $scope.rdvsnotconfirm.splice(index, 1);
+                    sweetAlert("félicitation...", "Votre RDV et Confirmé avec success", "success");
+                })
+        }
+
 
 
 //this methods for delete RDV
@@ -60,7 +81,6 @@
 
 //this method for display search  RDV
         $scope.showSearch =function showSearch(value) {
-            console.log(value)
             if(value==""){
                 $http({
                     method: 'GET',

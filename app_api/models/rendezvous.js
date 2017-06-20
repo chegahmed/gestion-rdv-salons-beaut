@@ -40,6 +40,10 @@ var RendezvouSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: '_id'
     },
+    idresponsable: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: '_id'
+    },
     idemploye: {
         type: mongoose.Schema.Types.ObjectId,
         ref: '_id'

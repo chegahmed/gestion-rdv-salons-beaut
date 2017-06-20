@@ -24,7 +24,10 @@ var rdvCtr = require('../controllers/rendezvousController')
 //////////////////////ici Route GESTION RDV /////////////////
 
 // GET /rdv
-router.get('/rendezvous/:iduser',rdvCtr.get);
+router.get('/rendezvous/:iduser',rdvCtr.getAllRDVByUser);
+
+//get RDV not confirm
+router.get('/rdvnotconfirm/:iduser',rdvCtr.getAllRDVNotConfirmByUser);
 
 // DELETE rdv/fjaslfj478329fsafashf2
 router.delete('/rendezvous/:rdvId',rdvCtr.delete);
@@ -34,6 +37,9 @@ router.get('/rendezvoussearch/:idr/:q',rdvCtr.search);
 
 // GET rdv/fjaslfj478329fsafashf2
 router.get('/rendezvousbyid/:rendezvousId',rdvCtr.show);
+
+
+router.put('/confirmrdv/:rendezvousId/',rdvCtr.confirmrdv);
 
 
 
