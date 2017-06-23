@@ -18,8 +18,33 @@ var serviceproposerCtr = require('../controllers/serviceproposerController')
 var employeCtr = require('../controllers/employeController')
 var servicesalonCtr = require('../controllers/servicesalonController')
 var rdvCtr = require('../controllers/rendezvousController')
+var indispCtr = require('../controllers/indisponibliteController');
 
 
+
+
+
+
+
+///////////////////////here route gestion Indisonibilite   ///////////////
+
+/* POST /indisponible'  */
+router.post('/indisponible',indispCtr.post);
+
+// GET /indisponible
+router.get('/indisponible/:userId',indispCtr.get);
+
+// GET indisponible/fjaslfj478329fsafashf2
+router.get('/indisp/:indisponibiliteId',indispCtr.show);
+
+// PUT indisponible/fjaslfj478329fsafashf2
+router.put('/indisponible/:indisponibiliteId',indispCtr.put);
+
+// DELETE indisponible/fjaslfj478329fsafashf2
+router.delete('/indisponible/:indisponibiliteId',indispCtr.delete);
+
+/// get
+router.get('/indisponiblesearch/:id/:q',indispCtr.search);
 
 //////////////////////ici Route GESTION RDV /////////////////
 

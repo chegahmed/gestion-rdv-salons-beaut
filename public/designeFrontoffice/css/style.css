@@ -613,7 +613,7 @@ input[type="file"] {border:1px solid #DFDFD0;-webkit-border-radius:3px;-moz-bord
 #message p 		{padding:0;}
 
 /* 23 PRELOADER */
-.preloader			{background:#fff;position:fixed;top:0;left:0;width:100%;height:100%;z-index:99999;}
+/*.preloader			{background:#fff;position:fixed;top:0;left:0;width:100%;height:100%;z-index:99999;}
 #followingBallsG	{position:relative;width:256px;height:20px;top:45%;left:43%;}
 .followingBallsG	{background-color:#191F26;position:absolute;top:0;left:0;width:20px;height:20px;-moz-border-radius:10px;-moz-animation-name:bounce_followingBallsG;-moz-animation-duration:2.3s;-moz-animation-iteration-count:infinite;-moz-animation-direction:linear;-webkit-border-radius:10px;-webkit-animation-name:bounce_followingBallsG;-webkit-animation-duration:2.3s;-webkit-animation-iteration-count:infinite;-webkit-animation-direction:linear;-ms-border-radius:10px;-ms-animation-name:bounce_followingBallsG;-ms-animation-duration:2.3s;-ms-animation-iteration-count:infinite;-ms-animation-direction:linear;-o-border-radius:10px;-o-animation-name:bounce_followingBallsG;-o-animation-duration:2.3s;-o-animation-iteration-count:infinite;-o-animation-direction:linear;border-radius:10px;animation-name:bounce_followingBallsG;animation-duration:2.3s;animation-iteration-count:infinite;animation-direction:linear;}
 #followingBallsG_1	{-moz-animation-delay:0s;-webkit-animation-delay:0s;-ms-animation-delay:0s;-o-animation-delay:0s;animation-delay:0s;}
@@ -649,7 +649,7 @@ input[type="file"] {border:1px solid #DFDFD0;-webkit-border-radius:3px;-moz-bord
 0%		{left:0px;background-color:#191F26;}
 50%		{left:236px;background-color:#fff;}
 100%	{left:0px;background-color:#191F26;}
-}
+}*/
 
 /* 24 PLUGINS */
 
@@ -919,13 +919,13 @@ div.radio input 						{opacity: 0;filter: alpha(opacity=0);-moz-opacity: 0;borde
 @media screen and (max-width: 980px) {
 .wrap {width:92%;}
 
-.full-width, 	 	
-.three-fourth, 	
-.one-half,		
-.one-third, 		
-.two-third, 		
-.one-fourth, 		
-.one-fifth, 		
+.full-width,
+.three-fourth,
+.one-half,
+.one-third,
+.two-third,
+.one-fourth,
+.one-fifth,
 .one-sixth {width:100%;}
 
 .header .wrap	{width:100%;max-width:100%;display:block;}

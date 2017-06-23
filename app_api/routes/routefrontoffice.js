@@ -23,25 +23,7 @@ var indispCtr = require('../controllers/indisponibliteController');
 
 
 
-///////////////////////here route Indisonibilite   ///////////////
 
-/* POST /rdv  */
-router.post('/indisponible',indispCtr.post);
-
-// GET /indisponible
-router.get('/indisponible',indispCtr.get);
-
-// GET indisponible/fjaslfj478329fsafashf2
-router.get('/indisponible/:salonId',indispCtr.show);
-
-// PUT indisponible/fjaslfj478329fsafashf2
-router.put('/indisponible/:salonId',indispCtr.put);
-
-// DELETE indisponible/fjaslfj478329fsafashf2
-router.delete('/indisponible/:salonId',indispCtr.delete);
-
-/// get
-router.get('/indisponiblesearch/:q',indispCtr.search);
 
 
 

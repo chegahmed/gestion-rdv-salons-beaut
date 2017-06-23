@@ -32,18 +32,16 @@
 
 
         vm.onSubmit = function () {
-            console.log('Submitting registration');
-            $scope.messaguser="add success";
             $http.post('/gestionusers/servicepropose', $scope.service)
                 .success(function (response) {
                     sweetAlert("félicitation...", "Votre proposition de service à été Envoyer à l'administration avec success", "success");
-                    $location.url('/admin/listsalonservice')
+                    $location.url('/admin/proposerservice')
                 })
                 .error(function(err){
                     alert(err);
                 })
                 .then(function(){
-                    $location.path('/admin/listsalonservice');
+                    $location.path('/admin/proposerservice');
                 });
         };
 

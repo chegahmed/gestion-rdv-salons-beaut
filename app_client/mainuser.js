@@ -40,9 +40,9 @@
 
     function run($rootScope, $location) {
         $rootScope.$on('$routeChangeStart', function (event, nextRoute, currentRoute) {
-          /*  if ($location.path() == '/admin') {
+          /*  if ($location.path() == '/') {
 
-                $location.path('/admin');
+                $location.path('/');
             }*/
         });
     }

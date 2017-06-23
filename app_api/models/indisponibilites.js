@@ -23,6 +23,10 @@ var IndisponibiliteSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: '_id'
     },
+    idresponsable: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: '_id'
+    },
     createdAt :{type : Date , default : Date.now },
     updatedAt :{type : Date , default : Date.now }
 });

@@ -1,4 +1,3 @@
-
 <div class="preloader">
     <div id="followingBallsG">
         <div id="followingBallsG_1" class="followingBallsG"></div>
@@ -101,8 +100,8 @@
 
     <style>
         div.scroll {
-     /*       background-color: #00FFFF;*/
-         /* //  width: 100%;*/
+            /*       background-color: #00FFFF;*/
+            /* //  width: 100%;*/
             height: 400px;
             overflow: scroll;
         }
@@ -112,44 +111,35 @@
         <div class="row">
             <div class=" col-md-12">
                 <form class="box readonly">
-
+<!--{{tablecrenauxselected}}-->
                     <div ng-repeat="service in selectedServices">
-                    <div class="col-md-4">
-                        <h3>{{service.name}}</h3>
-                        <select id="labemp" ng-model="service.employe" ng-click="ChercheCrenaux(service)">
-                            <option ng-repeat="employe in emplo[service._id]" value="{{employe.idemploye}}">{{employe.name}}</option>
-                        </select>
-                        <div class="text-center">
-                            <a ng-click="CrenauxPreviousDay(service._id,dateSelected[service._id].empId,dateSelected[service._id].from.datetime)"><span class="glyphicon glyphicon-chevron-left"> </span></a>
-                            {{dateSelected[service._id].from.day}}  {{dateSelected[service._id].from.date}}
-                            <a ng-click="CrenauxNextDay(service._id,dateSelected[service._id].empId,dateSelected[service._id].from.datetime)"><span class="glyphicon glyphicon-chevron-right"> </span></a>
-                        </div>
+                        <div class="col-md-4">
+                            <h3>{{service.name}}</h3>
+                            <select id="labemp" ng-model="service.employe" ng-click="ChercheCrenaux(service)">
+                                <option ng-repeat="employe in emplo[service._id]" value="{{employe.idemploye}}">{{employe.name}}</option>
+                            </select>
+                            <div class="text-center">
+                                <a ng-click="CrenauxPreviousDay(service._id,dateSelected[service._id].empId,dateSelected[service._id].from.datetime)"><span class="glyphicon glyphicon-chevron-left"> </span></a>
+                                {{dateSelected[service._id].from.day}}  {{dateSelected[service._id].from.date}}
+                                <a ng-click="CrenauxNextDay(service._id,dateSelected[service._id].empId,dateSelected[service._id].from.datetime)"><span class="glyphicon glyphicon-chevron-right"> </span> </a>
+                            </div>
 
-                        <div class="scroll">
-                           <div ng-repeat="crenaux in resSearch[service._id] ">
-                               <a href="" ng-click="AddRdv(service,crenaux)">
-                                {{crenaux.from.hour}}:{{crenaux.from.minute}}
-                               </a>
-                           </div>
+                            <div class="scroll">
+                                <div ng-repeat="(key,crenaux) in resSearch[service._id] ">
+                                    <a href="" ng-click="AddRdv(service,crenaux,key)" >
+                                        <img width="2%" src="designeFrontoffice/images/point.png"  ng-show="imgrdv[service._id][key]" >
+                                        {{crenaux.from.hour}}:{{crenaux.from.minute}}
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    </div>
-
-
-
-
-
 
                 </form>
-
-
-
-
-
             </div>
         </div>
     </div>
-
+<!--{{tablecrenauxselected}}-->
     <!--- Sidebar -->
     <aside class="one-fourth sidebar right ">
         <!-- Widget -->
@@ -158,7 +148,7 @@
             <div class="textwidget">
                 <div ng-repeat="item in tablecrenauxselected">
                     <div  ng-repeat="sersalon in servicessalon" ng-if="sersalon._id == item.idservice">
-                    <h5>{{sersalon.name}}</h5>
+                        <h5>{{sersalon.name}}<a ng-click="RemoveItemRecaputulatif(item.crenaux.from.datetime.toFixed(0),item.idservice)"><span class="fa fa-fw fa-remove"></span></a></h5>
                         <p> Prix : {{sersalon.price}}(Dh) - durée : {{sersalon.time}}(min)</p>
                     </div>
                     <p ng-repeat="empl in employes" ng-if="empl._id == item.crenaux.empId"> Employe : {{empl.name}}</p>
@@ -171,147 +161,147 @@
     <!--- //Sidebar -->
 
 
-        <!--- Content -->
-        <div class=" col-md-8">
-            <!-- Tab -->
-            <article class="single" id="tab1">
-                <div class="box">
-                    <h2>General settings</h2>
-                    <fieldset>
-                        <form ng-submit="register()">
-                            <div class="f-row">
-                                <div class="one-half">
-                                    <label for="name">Nom</label>
-                                    <input type="text" id="name" ng-model="client.firstname"/>
-                                </div>
-                                <div class="one-half">
-                                    <label for="company">Prenom</label>
-                                    <input type="text" id="company" ng-model="client.lastname"/>
-                                </div>
+    <!--- Content -->
+    <div class=" col-md-8">
+        <!-- Tab -->
+        <article class="single" id="tab1">
+            <div class="box">
+                <h2>General settings</h2>
+                <fieldset>
+                    <form ng-submit="register()">
+                        <div class="f-row">
+                            <div class="one-half">
+                                <label for="name">Nom</label>
+                                <input type="text" id="name" ng-model="client.firstname"/>
                             </div>
-                            <div class="f-row">
-                                <div class="one-half">
-                                    <label for="email">Email address</label>
-                                    <input type="email" id="email" ng-model="client.email"/>
-                                </div>
-                                <div class="one-half">
-                                    <label for="number">Téléphone</label>
-                                    <input type="number" id="number" ng-model="client.tel"/>
-                                </div>
-
+                            <div class="one-half">
+                                <label for="company">Prenom</label>
+                                <input type="text" id="company" ng-model="client.lastname"/>
+                            </div>
+                        </div>
+                        <div class="f-row">
+                            <div class="one-half">
+                                <label for="email">Email address</label>
+                                <input type="email" id="email" ng-model="client.email"/>
+                            </div>
+                            <div class="one-half">
+                                <label for="number">Téléphone</label>
+                                <input type="number" id="number" ng-model="client.tel"/>
                             </div>
 
-
-
-                            <div class="f-row">
-                                <input type="submit" value="Valider" id="submit1" name="submit" class="btn color medium pull-right" />
-                            </div>
-                        </form>
-                        <span id="msg-reg"></span>
-                    </fieldset>
-                </div>
-            </article>
-            <!-- //Tab -->
-        </div>
-        <!--- //Content -->
-
-
-
-
- <!--
-    <div class="wrap">
-        <div class="row">
-            <div class="three-fourth">
-                <form class="box readonly">
-
-                    <div ng-repeat="service in selectedServices">
-<div class="col-md-12">
-    <div class="col-md-6">
-                        <h3>{{service.name}}</h3>
-                        <div class="f-row">
-                            <div class="one-half">Prix</div>
-                            <div class="one-half">{{service.price}}  (<strong>Dh</strong>)</div>
                         </div>
+
+
+
                         <div class="f-row">
-                            <div class="one-half">Durée</div>
-                            <div class="one-half">{{service.time}} (<strong>Min</strong>)</div>
+                            <input type="submit" value="Valider" id="submit1" name="submit" class="btn color medium pull-right" />
                         </div>
-                        <div class="f-row">
-                            <div class="one-half">Employe</div>
-                            <div class="one-half"><p ng-repeat="emp in employes" ng-if="emp._id==service.employe">{{emp.name}}</p>   </div>
-                        </div>
-                        <div class="f-row">
-                            <div class="one-half">Catégorie</div>
-                            <div class="one-half">{{service.categorie}}</div>
-                        </div>
-    </div>
-    <div class=" col-md-6">
-
-
-        &lt;!&ndash; Item &ndash;&gt;
-        <div class="box history" >
-            <h6 ng-hide="disprdv">Disponibilité la plus proche  <br>
-
-                {{resSearch[service._id].from.day}} {{resSearch[service._id].from.date}} <small>à</small>{{resSearch[service._id].from.hour}} h {{resSearch[service._id].from.minute}}<br>
-                <a ng-click="ConfirmRDV()" ng-hide="btnrdvsuiv"  href="">confirmer</a>
-                <button class="btn btn-info" ng-hide="btnrdvsuiv" ng-click="ChercherRDVSuivant(resSearch[service._id].from.datetime,service)" >RDV Suivant</button>
-                <span class="alert-success">{{msg}}</span>
-                <br>
-
-            </h6>
-
-            <div class="control-group" style="display:inline-block">
-                <label>changer la Date</label>
-                <div class="controls form-control " style="display:inline-block;width: 55%">
-                    <input type="datetime-local" ng-model="rdv.date" >
-                </div>
+                    </form>
+                    <span id="msg-reg"></span>
+                </fieldset>
             </div>
-
-            <hr>
-
-            <button  class="btn btn-primary" ng-click="ChercherRDV(rdv.date,service)" >Vérifier la Dispo</button>
-        </div>
-        &lt;!&ndash; //Item &ndash;&gt;
-
-
-        <h3></h3>
-
+        </article>
+        <!-- //Tab -->
     </div>
-</div>
+    <!--- //Content -->
 
 
-                        <h3></h3>
-                    </div>
-
-                    <h3></h3>
-                </form>
-            </div>
-
-            &lt;!&ndash;- Sidebar &ndash;&gt;
-            <aside class="one-fourth sidebar right">
-                &lt;!&ndash; Widget &ndash;&gt;
-                <div class="widget">
-                    <h4>Need help booking?</h4>
-                    <div class="textwidget">
-                        <p>Call our customer services team on the number below to speak to one of our advisors who will help you with all of your needs.</p>
-                        <p class="contact-data"><span class="icon icon-themeenergy_call black"></span> +1 555 555 555</p>
-                    </div>
-                </div>
-                &lt;!&ndash; //Widget &ndash;&gt;
-
-                &lt;!&ndash; Widget &ndash;&gt;
-                <div class="widget">
-                    <h4>Advertisment</h4>
-                    <a href="#"><img src="designeFrontoffice/images/uploads/advertisment.jpg" alt="" /></a>
-                </div>
-                &lt;!&ndash; //Widget &ndash;&gt;
-            </aside>
-            &lt;!&ndash;- //Sidebar &ndash;&gt;
-        </div>
-    </div>
 
 
-    -->
+    <!--
+       <div class="wrap">
+           <div class="row">
+               <div class="three-fourth">
+                   <form class="box readonly">
+
+                       <div ng-repeat="service in selectedServices">
+   <div class="col-md-12">
+       <div class="col-md-6">
+                           <h3>{{service.name}}</h3>
+                           <div class="f-row">
+                               <div class="one-half">Prix</div>
+                               <div class="one-half">{{service.price}}  (<strong>Dh</strong>)</div>
+                           </div>
+                           <div class="f-row">
+                               <div class="one-half">Durée</div>
+                               <div class="one-half">{{service.time}} (<strong>Min</strong>)</div>
+                           </div>
+                           <div class="f-row">
+                               <div class="one-half">Employe</div>
+                               <div class="one-half"><p ng-repeat="emp in employes" ng-if="emp._id==service.employe">{{emp.name}}</p>   </div>
+                           </div>
+                           <div class="f-row">
+                               <div class="one-half">Catégorie</div>
+                               <div class="one-half">{{service.categorie}}</div>
+                           </div>
+       </div>
+       <div class=" col-md-6">
+
+
+           &lt;!&ndash; Item &ndash;&gt;
+           <div class="box history" >
+               <h6 ng-hide="disprdv">Disponibilité la plus proche  <br>
+
+                   {{resSearch[service._id].from.day}} {{resSearch[service._id].from.date}} <small>à</small>{{resSearch[service._id].from.hour}} h {{resSearch[service._id].from.minute}}<br>
+                   <a ng-click="ConfirmRDV()" ng-hide="btnrdvsuiv"  href="">confirmer</a>
+                   <button class="btn btn-info" ng-hide="btnrdvsuiv" ng-click="ChercherRDVSuivant(resSearch[service._id].from.datetime,service)" >RDV Suivant</button>
+                   <span class="alert-success">{{msg}}</span>
+                   <br>
+
+               </h6>
+
+               <div class="control-group" style="display:inline-block">
+                   <label>changer la Date</label>
+                   <div class="controls form-control " style="display:inline-block;width: 55%">
+                       <input type="datetime-local" ng-model="rdv.date" >
+                   </div>
+               </div>
+
+               <hr>
+
+               <button  class="btn btn-primary" ng-click="ChercherRDV(rdv.date,service)" >Vérifier la Dispo</button>
+           </div>
+           &lt;!&ndash; //Item &ndash;&gt;
+
+
+           <h3></h3>
+
+       </div>
+   </div>
+
+
+                           <h3></h3>
+                       </div>
+
+                       <h3></h3>
+                   </form>
+               </div>
+
+               &lt;!&ndash;- Sidebar &ndash;&gt;
+               <aside class="one-fourth sidebar right">
+                   &lt;!&ndash; Widget &ndash;&gt;
+                   <div class="widget">
+                       <h4>Need help booking?</h4>
+                       <div class="textwidget">
+                           <p>Call our customer services team on the number below to speak to one of our advisors who will help you with all of your needs.</p>
+                           <p class="contact-data"><span class="icon icon-themeenergy_call black"></span> +1 555 555 555</p>
+                       </div>
+                   </div>
+                   &lt;!&ndash; //Widget &ndash;&gt;
+
+                   &lt;!&ndash; Widget &ndash;&gt;
+                   <div class="widget">
+                       <h4>Advertisment</h4>
+                       <a href="#"><img src="designeFrontoffice/images/uploads/advertisment.jpg" alt="" /></a>
+                   </div>
+                   &lt;!&ndash; //Widget &ndash;&gt;
+               </aside>
+               &lt;!&ndash;- //Sidebar &ndash;&gt;
+           </div>
+       </div>
+
+
+       -->
 
 
 

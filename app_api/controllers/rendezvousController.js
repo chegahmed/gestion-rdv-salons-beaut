@@ -577,7 +577,7 @@ exports.findRdv = function (req, res) {
 
 // search rendezvous
 exports.search = function (req, res) {
-    Rendezvous.find({NameClient: {'$regex': req.params.q}, idresponsable: req.params.idr}, function (err, rendezvous) {
+    Rendezvous.find({firstname: {'$regex': req.params.q}, idresponsable: req.params.idr}, function (err, rendezvous) {
         res.jsonp(rendezvous);
     });
 };

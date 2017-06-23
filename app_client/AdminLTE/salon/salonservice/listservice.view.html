@@ -32,7 +32,7 @@
                                 <td class="col-md-2" >{{service.categorie}}</td>
                                 <td class="col-md-2" >{{service.time}}</td>
                                 <td class="col-md-2" >{{service.price}}</td>
-                                <td class="col-md-2" ><p ng-repeat="employe in service.employe"> {{employe}}</p></td>
+                                <td class="col-md-2" ><p ng-repeat="employe in service.employe"> {{employe.name}}</p></td>
                                 <td>
                                     <a href="" ng-click="deleteServicesalon(service)">
                                         <span class="fa fa-fw fa-remove"></span></a>

@@ -50,7 +50,7 @@
                 .success(function (response) {
                     var index = $scope.rdvsnotconfirm.indexOf(rendezvous)
                     $scope.rdvsnotconfirm.splice(index, 1);
-                    sweetAlert("félicitation...", "Votre RDV et Confirmé avec success", "success");
+                    sweetAlert("félicitation...", "Votre RDV est confirmé avec succès", "success");
                 })
         }
 

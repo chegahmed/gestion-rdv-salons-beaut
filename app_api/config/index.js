@@ -46,7 +46,7 @@ module.exports = function(mongoose) {
     // mongo-stuff
     persistentUserModel: null,
     tempUserModel: null,
-    tempUserCollection: 'temporary_clients',
+    tempUserCollection: 'temporary_rdvs',
     emailFieldName: 'email',
     passwordFieldName: 'password',
     URLFieldName: 'GENERATED_VERIFYING_URL',

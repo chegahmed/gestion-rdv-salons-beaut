@@ -199,7 +199,7 @@
                 controllerAs: 'vm'
             })
             .when('/admin/listsalonservice/:id', {
-                templateUrl: '/AdminLTE/salon/salonservice/listservices.view.html',
+                templateUrl: '/AdminLTE/salon/salonservice/listservice.view.html',
                 controller: 'listserviceCtrl',
                 controllerAs: 'vm'
             })
@@ -251,6 +251,31 @@
             .when('/admin/showrdv/:id', {
                 templateUrl: '/AdminLTE/salon/gestionRDV/showRDV.view.html',
                 controller: 'showrdvCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/admin/addrdv/:id', {
+                templateUrl: '/AdminLTE/salon/gestionRDV/addRDV.view.html',
+                controller: 'addrdvCtrl',
+                controllerAs: 'vm'
+            })        ///////////////////////////GESTION DES Indisponibilite//////////////////
+            .when('/admin/indisp/:id', {
+                templateUrl: '/AdminLTE/salon/gestionIndisp/indisp.view.html',
+                controller: 'indispCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/admin/addindisp/:id', {
+                templateUrl: '/AdminLTE/salon/gestionIndisp/addindisp.view.html',
+                controller: 'addindispCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/admin/showindisp/:id', {
+                templateUrl:'/AdminLTE/salon/gestionIndisp/showindisp.view.html',
+                controller: 'showindispCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/admin/editindisp/:id/:userId', {
+                templateUrl:'/AdminLTE/salon/gestionIndisp/editindisp.view.html',
+                controller: 'editindispCtrl',
                 controllerAs: 'vm'
             })
 

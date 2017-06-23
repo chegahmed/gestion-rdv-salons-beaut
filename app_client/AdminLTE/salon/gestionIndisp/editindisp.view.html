@@ -1,0 +1,58 @@
+<headersalon></headersalon>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="box box-danger">
+            <div class="box-header">
+
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>Ajouter un Indisponibilité</h1>
+                            <form ng-submit="updateIndisp()">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label > Cause :</label>
+                                        <select  class="form-control"  ng-model="indisp.cause">
+                                            <option value="malade">malade</option>
+                                            <option value="repos">repos</option>
+                                            <option value="congé">congé</option>
+                                            <option value="Autre ..">Autre ..</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label >Commence la journée à :</label>
+                                        <input type="datetime-local" class="form-control"  ng-model="indisp.startTime">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label >Terminer la journée à :</label>
+                                        <input type="datetime-local" class="form-control"  ng-model="indisp.endTime">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label > Employe :</label>
+                                        <select  class="form-control"  ng-model="indisp.idemploye">
+                                            <option ng-repeat="employe in employes"   value="{{employe._id}}">{{employe.name}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="pull-right">
+                                        <button type="submit" class="btn btn-primary">Modifier</button>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

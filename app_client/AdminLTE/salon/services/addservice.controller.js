@@ -8,7 +8,6 @@
     function addsalonserviceCtrl($scope, $http, $location, $routeParams) {
 
         var id = $routeParams.id;
-console.log('idsalon '+id)
 
         $http({
             method: 'GET',
@@ -24,7 +23,6 @@ console.log('idsalon '+id)
             url: '/gestionusers/getallmysalon/' + id
         }).success(function (data) {
             $scope.formData = data.servicesalons; // response data
-            console.log($scope.formData)
             $scope.salons = data.salons; // response data
         }).error(function (response) {
             console.log('error message :', response);
@@ -38,7 +36,6 @@ console.log('idsalon '+id)
             url: '/gestionusers/categorie'
         }).success(function (data) {
             $scope.catgs = data; // response data
-            //console.log(data)
         });
 
         $http({
@@ -46,7 +43,6 @@ console.log('idsalon '+id)
             url: '/gestionusers/souscategorie'
         }).success(function (data) {
             $scope.scatgs = data; // response data
-            ///  console.log(data)
         });
 
         $http({
@@ -54,7 +50,6 @@ console.log('idsalon '+id)
             url: '/gestionusers/service'
         }).success(function (data) {
             $scope.services = data; // response data
-            ///  console.log(data)
         });
 
 
@@ -84,8 +79,6 @@ console.log('idsalon '+id)
             url: '/gestionusers/servicesalon'
         }).success(function (data) {
             $scope.service_salon = data; // response data
-         /*   console.log('ici tableaux services')
-            console.log(data)*/
 
         });
 

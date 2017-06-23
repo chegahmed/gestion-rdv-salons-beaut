@@ -1,0 +1,41 @@
+
+
+<headersalon></headersalon>
+
+<!-- Main content -->
+<section class="content ">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Les informations pour cet indisponibilité : </h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Employé</th>
+                            <td ><p ng-repeat="employe in employes" ng-if="employe._id == indisp.idemploye">{{employe.name}}</p></td>
+                        </tr>
+                        <tr>
+                            <th>Cause</th>
+                            <td>{{indisp.cause}}</td>
+                        </tr>
+                        <tr>
+                            <th>Commancé à</th>
+                            <td >{{indisp.startTime}}</td>
+                        </tr>
+                        <tr>
+                            <th>Términé à</th>
+                            <td >{{indisp.endTime}}</td>
+                        </tr>
+
+
+                    </table>
+
+                </div>
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</section>

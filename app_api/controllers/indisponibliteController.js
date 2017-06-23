@@ -15,7 +15,7 @@ exports.post = function(req ,res){
 
 // get indisponibilite
 exports.get = function(req,res){
-    Indisponibilite.find().exec(function(err,indisponibilite){
+    Indisponibilite.find({idresponsable:req.params.userId}).exec(function(err,indisponibilite){
         res.jsonp(indisponibilite);
     });
 };
@@ -23,7 +23,7 @@ exports.get = function(req,res){
 
 // search indisponibilite
 exports.search = function(req,res){
-    Indisponibilite.find({name : {'$regex': req.params.q}}, function(err,indisponibilite){
+    Indisponibilite.find({idresponsable : req.params.id,cause : {'$regex': req.params.q}}, function(err,indisponibilite){
         res.jsonp(indisponibilite);
     }) ;
 };

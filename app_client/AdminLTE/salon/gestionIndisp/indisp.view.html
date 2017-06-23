@@ -1,0 +1,78 @@
+<headersalon></headersalon>
+
+<!-- List RDV Confirmé -->
+<section class="content" >
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+
+                <!-- /.box -->
+
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">liste des Indisponibilité</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <input type="text" ng-model="search"  class="form-control" placeholder="Search">
+                            </div>
+                        </form>
+                        <br>
+
+                        <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/admin/addindisp/{{profile._id}}">Ajouter</a>
+                        <table id="example1" class="table table-bordered table-striped " at-paginated at-list="list" at-config="config">
+                            <thead>
+                            <tr>
+
+                                <th ng-click="sort('startTime')">Date début
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='startTime'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                </th>
+                                <th ng-click="sort('endTime')">Date fin
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='endTime'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                </th>
+                                <th ng-click="sort('cause')">cause
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='cause'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                </th>
+                                <th ng-click="sort('idemploye')">employe
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='idemploye'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                </th>
+                                <th>Action</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr  dir-paginate="indisp in indisps| itemsPerPage: 4| orderBy : sortKey:reverse|filter :search" >
+                                <td>{{indisp.startTime| date:'yyyy-MM-dd HH:mm '}}</td>
+                                <td>{{indisp.endTime| date:'yyyy-MM-dd HH:mm '}}</td>
+                                <td>{{indisp.cause}}</td>
+                                <td><p ng-repeat="employe in employes" ng-if="employe._id == indisp.idemploye">{{employe.name}}</p>  </td>
+                                <td>
+                                    <a href="/admin/editindisp/{{indisp._id}}/{{profile._id}}" >
+                                        <span class="fa fa-fw fa-edit"></span></a>
+                                    <a href="" ng-click="deleteIndisp(indisp)">
+                                        <span class="fa fa-fw fa-remove"></span></a>
+                                    <a href="/admin/showindisp/{{indisp._id}}" >
+                                        <span class="fa fa-fw fa-eye"></span></a>
+                                </td>
+                            </tr>
+                            </tfoot>
+                        </table>
+                        <div class="text-center">
+                            <dir-pagination-controls ></dir-pagination-controls>
+                        </div>
+
+
+
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+    </div>
+</section>

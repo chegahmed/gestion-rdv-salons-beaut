@@ -16,7 +16,7 @@
                     <div class="box-body">
                         <form class="form-inline">
                             <div class="form-group">
-                                <input type="text" ng-model="search" ng-keyup="showSearch(search)" class="form-control" placeholder="Search">
+                                <input type="text" ng-model="search1"  class="form-control" placeholder="Search">
                             </div>
                         </form>
 <br>
@@ -52,7 +52,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr  dir-paginate="rdvnc in rdvsnotconfirm| itemsPerPage: 4| orderBy : sortKey:reverse" >
+                            <tr  dir-paginate="rdvnc in rdvsnotconfirm| itemsPerPage: 4| orderBy : sortKey:reverse|filter :search1" >
                                 <td>{{rdvnc.service}}</td>
                                 <td>{{rdvnc.date| date:'yyyy-MM-dd HH:mm '}}</td>
                                 <td>{{rdvnc.time}}</td>
@@ -113,7 +113,7 @@
                         </form>
                         <br>
 
-
+                        <a class="btn btn-primary pull-right" style="margin-bottom: 2%" href="/admin/addrdv/{{profile._id}}">Ajouter</a>
                         <table id="example1" class="table table-bordered table-striped " at-paginated at-list="list" at-config="config">
                             <thead>
                             <tr>

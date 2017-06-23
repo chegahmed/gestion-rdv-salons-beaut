@@ -27,7 +27,7 @@ req.body.agenda=agenda;
 
 // search employee
 exports.search = function(req,res){
-    Employer.find({idresponsable : req.params.idr},{name : {'$regex': req.params.q}}, function(err,employer){
+    Employer.find({idresponsable : req.params.idr,name : {'$regex': req.params.q}}, function(err,employer){
         res.jsonp(employer);
     }) ;
 };
