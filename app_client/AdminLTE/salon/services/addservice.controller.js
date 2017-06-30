@@ -8,6 +8,7 @@
     function addsalonserviceCtrl($scope, $http, $location, $routeParams) {
 
         var id = $routeParams.id;
+        console.log('idsalon '+id)
 
         $http({
             method: 'GET',
@@ -17,6 +18,7 @@
         }).error(function (response) {
             console.log('error message :', response);
         });
+
 
         $http({
             method: 'GET',
@@ -28,14 +30,13 @@
             console.log('error message :', response);
         });
 
-        // $scope.formData =   {"59318cb0efa50b137477a149":{"593936f34084d416e89ccd70":{"isChecked":true,"name":"Forfait Cils et Sourcils","categorie":"MAQUILLAGE --> Maquillage Jour","time":7,"price":7,"employe":[{"name":"aicha","idemploye":"59319498efa50b137477a14b","_id":"593937e04dc0a8095cfb740e"},{"name":"leila","idemploye":"59319505efa50b137477a1f4","_id":"593937e04dc0a8095cfb740d"}]}}};
-        //   $scope.formData =   {"59318cb0efa50b137477a149":{"593936f34084d416e89ccd70":{"isChecked":true,"name":"Teinture Cils","categorie":"MAQUILLAGE --> Maquillage Jour","time":7,"price":7,"employe":[{"name":"aicha","idemploye":"59319498efa50b137477a14b","_id":"59393e1939c78a0958f87b23"}]}}};
 
         $http({
             method: 'GET',
             url: '/gestionusers/categorie'
         }).success(function (data) {
             $scope.catgs = data; // response data
+            //console.log(data)
         });
 
         $http({
@@ -43,6 +44,7 @@
             url: '/gestionusers/souscategorie'
         }).success(function (data) {
             $scope.scatgs = data; // response data
+            ///  console.log(data)
         });
 
         $http({
@@ -50,6 +52,7 @@
             url: '/gestionusers/service'
         }).success(function (data) {
             $scope.services = data; // response data
+            ///  console.log(data)
         });
 
 
@@ -79,68 +82,79 @@
             url: '/gestionusers/servicesalon'
         }).success(function (data) {
             $scope.service_salon = data; // response data
+            /*   console.log('ici tableaux services')
+             console.log(data)*/
 
         });
 
-     //   $scope.formData = {};
-  /*      $scope.formData = {
-         "59318cb0efa50b137477a149": {//salon
-         "59393272017165136464cd80": {//service
-         isChecked: true,
-         name: "teinture sourcils",
-         categorie: "Maquillage --> Maquillage Soir",
-         time: 2,
-         price: 2,
-         employe: [
-            {
-                "name" : "aicha",
-                "idemploye" : ObjectId("59319498efa50b137477a14b"),
-                "_id" : ObjectId("59393222017165136464cd7d")
+   /*     $scope.formData = {};
+        $scope.formData =  { "59318cb0efa50b137477a149":
+        { "5931827befa50b137477a136":
+        { isChecked: true,
+            name: 'Teinture Cils',
+            categorie: 'MAQUILLAGE --> Maquillage Jour',
+            time: 8,
+            price: 8,
             },
-            {
-                "name" : "leila",
-                "idemploye" : ObjectId("59319505efa50b137477a1f4"),
-                "_id" : ObjectId("59393222017165136464cd7c")
-            }
-        ]
-         },
-         },
-         };
-*/
+            '5931828defa50b137477a137':
+            { isChecked: true,
+                name: 'Forfait Cils et Sourcils',
+                categorie: 'MAQUILLAGE --> Maquillage Jour',
+                time: 5,
+                price: 15,
+                } }}*/
+
 
         $scope.save = function (da) {
 
-
+            /*  if($scope.myagendas == null){
+             $scope.saveService();
+             }else {
+             $scope.updateService();
+             }*/
 
             angular.forEach(da, function (value, key) {
                 angular.forEach(value, function (valu, ke) {
-
-                   // valu.idservice = ke;
-                  console.log(ke);
+                    valu.idservice = ke;
+                    //        console.log(ke);
                     $scope.servicesalon = valu;
                     if (valu.time != null && valu.price != null && valu.employe != null) {
 
-                        $scope.saveService(valu);
+                        $scope.updtser==false;
+                        angular.forEach( $scope.service_salon,function (s) {
+                            console.log('idsalon ' + s.idsalon +' idservice ' + s.idservice)
+                            if( s.idsalon == valu.idsalon && s.idservice == valu.idservice){
+                                $scope.updateService(valu,s._id)
+                                $scope.updtser==true;
 
-/*
+                            }
+                        })
+                        console.log($scope.updtser)
+                        if($scope.updtser == false){
+                            $scope.saveService(valu);
+                        }
 
-                        $http({
+
+
+
+                       /* $http({
                             method: 'GET',
                             url: '/gestionusers/servicesalonbyidsalon/' + valu.idsalon + '/' + valu.idservice
                         }).success(function (data) {
-                            console.log(data)
-                            if(data==null){
-                                console.log('save here').
-                               $scope.saveService(valu);
-                            }else{
+                            console.log(valu)
+                            $scope.updateService(valu,data._id)
 
-                               $scope.updateService(valu,data._id)
-                            }
+
+                          /!*  if(data=null){
+                               // console.log('save here')
+                                $scope.saveService(valu);
+                            }else{
+                                $scope.updateService(valu,data._id)
+                            }*!/
                         }).error(function (response) {
                             console.log('error message :', response);
-                        });
+                        });*/
 
-*/
 
 
                     } else {
@@ -156,6 +170,7 @@
 
 
         $scope.saveService = function saveService(value) {
+            //  console.log('bieeeeeeeeeen')
             $http.post('/gestionusers/servicesalon/', value)
                 .success(function (response) {
                     //  sweetAlert("félicitation...", "Votre service à été Ajouté avec success", "success");
@@ -167,6 +182,7 @@
 
 
         $scope.updateService = function updateService(value,idserv) {
+            //  console.log('bieeeeeeeeeen')
             $http.put('/gestionusers/servicesalon/'+idserv, value)
                 .success(function (response) {
                     //  sweetAlert("félicitation...", "Votre service à été Ajouté avec success", "success");

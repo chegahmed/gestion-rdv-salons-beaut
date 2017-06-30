@@ -7,6 +7,9 @@
   loginCtrl.$inject = ['$location', 'authentication'];
   function loginCtrl($location, authentication) {
 
+
+
+
     var vm = this;
 
     vm.credentials = {

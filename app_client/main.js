@@ -1,6 +1,6 @@
 (function () {
 
-    angular.module('meanApp', ['ngRoute','angularUtils.directives.dirPagination','ngFileUpload']);
+    angular.module('meanApp', ['ngRoute','angularUtils.directives.dirPagination','ngFileUpload','ui.select','ngSanitize']);
 
     function config($routeProvider, $locationProvider) {
         $routeProvider

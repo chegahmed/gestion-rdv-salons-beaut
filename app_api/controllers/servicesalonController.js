@@ -9,6 +9,8 @@ var Servicesalon =mongoose.model("Servicesalon");
 
 // save  Service provided
 exports.post = function(req ,res){
+
+    console.log('ici post ')
     var employe =[];
     _.each(req.body.employe,function (emp) {
         var empl =emp.split(' * ');
@@ -60,18 +62,26 @@ exports.VerifierExistanceSalon = function(req,res){
 exports.put = function(req,res){
     Servicesalon.load(req.params.servicesalonId, function(err,servicesalon){
 
-        console.log(req.body.employe)
 var employe =[];
-        _.each(req.body.employe,function (empl) {
-           // var empl =emp.split(' * ');
-            employe.push({
-                "name":empl.name,
-                "idemploye":empl.idemploye
-            })
-        })
+        _.each(req.body.employe,function (emp) {
+            if(emp[1] == null){
+                employe.push({
+                    "name":emp.name,
+                    "idemploye":emp.idemploye
+                })
+            }else{
+                var empl =emp.split(' * ');
+                employe.push({
+                    "name":empl[1],
+                    "idemploye":empl[0]
+                })
 
-        req.body.employe=employe;
-       // console.log(req.body)
+            }
+
+
+        })
+        req.body.employe=employe
+
         servicesalon = _.extend(servicesalon, req.body);
 
         servicesalon.save(function(err){

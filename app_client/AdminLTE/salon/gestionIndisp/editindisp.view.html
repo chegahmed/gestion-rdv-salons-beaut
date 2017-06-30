@@ -12,7 +12,7 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <h1>Ajouter un Indisponibilité</h1>
+                            <h1>Modifier un Indisponibilité</h1>
                             <form ng-submit="updateIndisp()">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -38,7 +38,7 @@
                                     <div class="form-group">
                                         <label > Employe :</label>
                                         <select  class="form-control"  ng-model="indisp.idemploye">
-                                            <option ng-repeat="employe in employes"   value="{{employe._id}}">{{employe.name}}</option>
+                                            <option ng-repeat="employe in employes" value="employe._id"  {{employe._id == indisp.idemploye ?  selected : }} >{{employe.name}}</option>
                                         </select>
                                     </div>
                                     <div class="pull-right">

@@ -18,7 +18,10 @@
             url: '/gestionusers/indisp/' + id
         }).success(function (data) {
             $scope.indisp = data; // response data
-            console.log(data)
+            $scope.indisp.startTime = new Date(data.startTime); // response data
+            $scope.indisp.endTime = new Date(data.endTime); // response data
+
+            console.log(data.idemploye)
         });
 
 

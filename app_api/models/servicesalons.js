@@ -7,7 +7,15 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 
-
+var employeSchema = mongoose.Schema({
+    name: String,
+    idemploye: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: '_id'
+    }
+}, {
+    _id: false
+});
 
 /**
  * Service Schema
@@ -32,13 +40,7 @@ var ServicesalonSchema = new Schema({
         default: '',
         trim: true
     },
-    employe: [{
-        name :String,
-        idemploye: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: '_id'
-        }}
-        ]
+    employe: [employeSchema]
     ,
     idsalon: {
         type: mongoose.Schema.Types.ObjectId,
