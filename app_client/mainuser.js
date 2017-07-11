@@ -30,6 +30,13 @@
                 controller: 'rdvconfirmCtrl',
                 controllerAs: 'vm'
             })
+ ////////here for profile salon
+            .when('/profilesalon/:idsalon', {
+                templateUrl:'/booking/profilesalon/profilesalon.view.html',
+                controller: 'salonprofileCtrl',
+                controllerAs: 'vm'
+            })
+
 
             .otherwise({redirectTo: '/'});
 

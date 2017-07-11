@@ -42,35 +42,38 @@
 
 
 
-                        if($scope.employe.startTime >$scope.employe.startRepos || $scope.employe.endTime<$scope.employe.endRepos){
-                            sweetAlert("erreur...", "une erreur a été détecté veuillez verifier que votre repos et bien entre l'heure de commence et l'heure de terminée la journée !", "error");
-                        }else{
+           // $scope.showcrenaux($scope.employe.startTime,$scope.employe.endTime,parseInt($scope.employe.rate),$scope.employe.startRepos,$scope.employe.endRepos);
 
 
-                                $scope.employe.idresponsable = $scope.profile._id;
+                       if($scope.employe.startTime >$scope.employe.startRepos || $scope.employe.endTime<$scope.employe.endRepos){
+                           sweetAlert("erreur...", "une erreur a été détecté veuillez verifier que votre repos et bien entre l'heure de commence et l'heure de terminée la journée !", "error");
+                       }else{
 
-                            $scope.showcrenaux($scope.employe.startTime,$scope.employe.endTime,parseInt($scope.employe.rate),$scope.employe.startRepos,$scope.employe.endRepos);
+
+                           $scope.employe.idresponsable = $scope.profile._id;
+
+                           $scope.showcrenaux($scope.employe.startTime,$scope.employe.endTime,parseInt($scope.employe.rate),$scope.employe.startRepos,$scope.employe.endRepos);
 
 
-                                    $scope.employe.margetime=$scope.table;
-                             $http.post('/gestionusers/employer/', $scope.employe)
-                             .success(function (response) {
-                             sweetAlert("félicitation...", "votre employe "+response.name +' a été ajoute avec succès', "success")
-                             $location.url('/admin/employe/'+$scope.profile._id)
-                             })
-                             .error(function(err){
-                             //   alert(err);
-                             sweetAlert("erreur...", "une erreur a été détecté veuillez verifier votre formulaire !", "error");
-                             })
+                                   $scope.employe.margetime=$scope.table;
+                            $http.post('/gestionusers/employer/', $scope.employe)
+                            .success(function (response) {
+                            sweetAlert("félicitation...", "votre employe "+response.name +' a été ajoute avec succès', "success")
+                            $location.url('/admin/employe/'+$scope.profile._id)
+                            })
+                            .error(function(err){
+                            //   alert(err);
+                            sweetAlert("erreur...", "une erreur a été détecté veuillez verifier votre formulaire !", "error");
+                            })
 
-                        }
+                       }
 
 
 
         };
 
 
-     /*   $scope.showcrenaux =function showcrenaux(start,end,rate){
+    /*    $scope.showcrenaux =function showcrenaux(start,end,rate,srepo,erepo){
 
             var hours = new Date(start).getHours();
             var minutes = new Date(start).getMinutes();
@@ -124,7 +127,11 @@
                         hours +=f+1;
                    // }
 
+                }else{
+                    j++;
+                    i+=rate;
                 }
+
 
              /!*   j++;
                 i+=rate;
@@ -138,12 +145,10 @@
                 }*!/
             }
 
-            //    console.log(JSON.stringify($scope.tab))
+               console.log(JSON.stringify($scope.tab))
             $scope.table = $scope.tab;
         }
 */
-
-
 
 
 
@@ -177,25 +182,70 @@
                     var m=0;
                     $scope.tab =[];
                     var j=0;
+                    var n='0';
+                    var d=0;
+                    var f=0;
+
+
 
                     while(i<=r){
 
+                      /*  if(k<10){
+                            n+=k
+                            console.log(hours+' : '+n)
+                            n='0'
+                        }else{
+                            console.log(hours+' : '+k)
+                        }*/
+
         if((srepos*60+srminutes)<=(hours*60+k)  & (hours*60+k)<(erepos*60+srminutes)){
-            console.log(hours+' : '+k   +'  repos '+srepos +' '+ erepos)
-            $scope.tab.push({
-                value:false,
-                content : hours+' : '+k,
-                time:rate,
-                cause :'repos'
-            })
+
+            if(k<10){
+                n+=k
+                $scope.tab.push({
+                    value:false,
+                    content : hours+' : '+n,
+                    time:rate,
+                    cause :'repos'
+                })
+              //  console.log(hours+' : '+n)
+                n='0'
+            }else{
+              //  console.log(hours+' : '+k)
+                $scope.tab.push({
+                    value:false,
+                    content : hours+' : '+k,
+                    time:rate,
+                    cause :'repos'
+                })
+            }
+           // console.log(hours+' : '+k   +'  repos '+srepos +' '+ erepos)
+
         }else{
-            console.log(hours+' : '+k + '    nothing')
-            $scope.tab.push({
-                value:true,
-                content : hours+' : '+k,
-                time:rate,
-                cause :'nothing'
-            })
+
+            if(k<10){
+                n+=k
+                $scope.tab.push({
+                    value:true,
+                    content : hours+' : '+n,
+                    time:rate,
+                    cause :'nothing'
+                })
+              //  console.log(hours+' : '+n)
+                n='0'
+            }else{
+               // console.log(hours+' : '+k)
+                $scope.tab.push({
+                    value:true,
+                    content : hours+' : '+k,
+                    time:rate,
+                    cause :'nothing'
+                })
+            }
+
+
+           // console.log(hours+' : '+k + '    nothing')
+
         }
 
 
@@ -212,10 +262,9 @@
                         }
                     }
 
-                //    console.log(JSON.stringify($scope.tab))
+                    console.log(JSON.stringify($scope.tab))
                     $scope.table = $scope.tab;
                 }
-
 
 
 

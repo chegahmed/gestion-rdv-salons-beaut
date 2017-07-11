@@ -1,10 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-ici add rdv
-</body>
-</html>
+<headersalon></headersalon>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="box box-danger">
+            <div class="box-header">
+
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>Ajouter un RDV</h1>
+                            <form ng-submit="updateIndisp()">
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <label >Nom :</label>
+                                        <input type="text" class="form-control"  ng-model="rdv.firstname">
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Prénom :</label>
+                                        <input type="text" class="form-control"  ng-model="rdv.lastname">
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Email :</label>
+                                        <input type="email" class="form-control"  ng-model="rdv.email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Télephone :</label>
+                                        <input type="NUMBER" class="form-control"  ng-model="rdv.tel">
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label > Salons :</label>
+                                        <select  class="form-control"  ng-model="rdv.idsalon">
+                                            <option ng-repeat="salon in salons " value="{{salon._id}}"  >{{salon.name}}</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label > Service :</label>
+                                        <select  class="form-control"  ng-model="rdv.service">
+                                                <option ng-repeat="service in services" ng-if="service.idsalon == rdv.idsalon "  value="{{service.idservice}}" >{{service.name}}</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label > Employé :</label>
+                                        <select  class="form-control"  ng-model="rdv.idemploye">
+                                            <option ng-repeat="employe in employes" value="{{employe._id}}" ng-if="employe.idsalon == rdv.idsalon "  >{{employe.name}}</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <div class="col-md-4">
+                                            <h3>{{rdv.service}}</h3>
+                                            <div class="text-center">
+                                                <a ng-click="CrenauxPreviousDay(service._id,dateSelected[service._id].empId,dateSelected[service._id].from.datetime)"><span class="glyphicon glyphicon-chevron-left"> </span></a>
+                                                {{dateSelected[service._id].from.day}}  {{dateSelected[service._id].from.date}}
+                                                <a ng-click="CrenauxNextDay(service._id,dateSelected[service._id].empId,dateSelected[service._id].from.datetime)"><span class="glyphicon glyphicon-chevron-right"> </span> </a>
+                                            </div>
+
+                                            <div class="scroll">
+                                                <div ng-repeat="(key,crenaux) in resSearch[service._id] ">
+                                                    <a href="" ng-click="AddRdv(service,crenaux,key)" >
+                                                        <img width="2%" src="designeFrontoffice/images/point.png"  ng-show="imgrdv[service._id][key]" >
+                                                        {{crenaux.from.hour}}:{{crenaux.from.minute}}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <input type="submit" ng-click="getCalendar(rdv.service)" value="cherche rdv">
+
+                                    <div class="pull-right">
+                                        <button type="submit" class="btn btn-primary">Modifier</button>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

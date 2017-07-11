@@ -257,7 +257,9 @@
                 templateUrl: '/AdminLTE/salon/gestionRDV/addRDV.view.html',
                 controller: 'addrdvCtrl',
                 controllerAs: 'vm'
-            })        ///////////////////////////GESTION DES Indisponibilite//////////////////
+            })
+
+            ///////////////////////////GESTION DES Indisponibilite//////////////////
             .when('/admin/indisp/:id', {
                 templateUrl: '/AdminLTE/salon/gestionIndisp/indisp.view.html',
                 controller: 'indispCtrl',
@@ -278,6 +280,36 @@
                 controller: 'editindispCtrl',
                 controllerAs: 'vm'
             })
+
+            //////////////////////////////////Gestion profile salons/////////////
+            .when('/admin/salonprofile/:id', {
+                templateUrl: '/AdminLTE/salon/profilesalon/profilesalon.view.html',
+                controller: 'profilesalonCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/admin/addsalonprofile/:id', {
+                templateUrl: '/AdminLTE/salon/profilesalon/addprofilesalon.view.html',
+                controller: 'addsalonprofileCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/admin/editsalonprofile/:idprofilesalon/:id', {
+                templateUrl: '/AdminLTE/salon/profilesalon/editprofilesalon.view.html',
+                controller: 'editsalonprofileCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/admin/showsalonprofile/:idprofilesalon', {
+                templateUrl: '/AdminLTE/salon/profilesalon/showprofilesalon.view.html',
+                controller: 'showsalonprofileCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/admin/galerie/:idprofilesalon/:id', {
+                templateUrl: '/AdminLTE/salon/profilesalon/galerie.view.html',
+                controller: 'galerieCtrl',
+                controllerAs: 'vm'
+            })
+
+
+
 
 
 

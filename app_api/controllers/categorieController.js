@@ -81,6 +81,13 @@ exports.getAll = function(req,res){
     });
 };
 
+// find last four categories
+exports.getLastcatg = function(req,res){
+    Categorie.find({"parent":null}).limit(4).sort({_id:-1}).exec(function(err,categorie){
+        res.jsonp(categorie);
+    });
+};
+
 
 // search a category
 exports.search = function(req,res){

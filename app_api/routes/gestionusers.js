@@ -19,11 +19,64 @@ var employeCtr = require('../controllers/employeController')
 var servicesalonCtr = require('../controllers/servicesalonController')
 var rdvCtr = require('../controllers/rendezvousController')
 var indispCtr = require('../controllers/indisponibliteController');
+var profilsalonCtr = require('../controllers/profilesalonController');
+var galerieCtr = require('../controllers/galerieController');
 
 
 
 
 
+
+
+
+/////////////ici Route Galerie///////////
+
+/* POST /galerie  */
+router.post('/galerie',galerieCtr.post);
+
+// GET /galerie by salon
+router.get('/galerie/:idprofilesalon',galerieCtr.getAllbysalon);
+
+// GET /galerie by salon
+router.get('/lastimggalerie/:idprofilesalon',galerieCtr.getlastNelementbysalon);
+
+
+// GET galerie/fjaslfj478329fsafashf2
+router.get('/galerie/:galerieId',galerieCtr.show);
+
+// PUT galerie/fjaslfj478329fsafashf2
+router.put('/galerie/:galerieId',galerieCtr.put);
+
+
+// DELETE galerie/fjaslfj478329fsafashf2
+router.delete('/galerie/:galerieId',galerieCtr.delete);
+
+
+///////////////////////here route gestion profilsalon   ///////////////
+
+/* POST /profilsalon'  */
+router.post('/profilsalon',profilsalonCtr.post);
+
+// GET /profilsalon
+router.get('/profilsalon/',profilsalonCtr.get);
+
+// GET profilsalon/fjaslfj478329fsafashf2
+router.get('/profilsalon/:profilsalonId',profilsalonCtr.show);
+
+// GET profilsalon/fjaslfj478329fsafashf2
+router.get('/profilsalonbysalon/:salonId',profilsalonCtr.showbysalon);
+
+// GET profilsalon/fjaslfj478329fsafashf2
+router.get('/profilsalonbyresp/:responsableId',profilsalonCtr.getAllprofilesalon);
+
+// PUT profilsalon/fjaslfj478329fsafashf2
+router.put('/profilsalon/:profilsalonId',profilsalonCtr.put);
+
+// DELETE profilsalon/fjaslfj478329fsafashf2
+router.delete('/profilsalon/:profilsalonId',profilsalonCtr.delete);
+
+/// get
+router.get('/profilsalonsearch/:id/:q',profilsalonCtr.search);
 
 
 ///////////////////////here route gestion Indisonibilite   ///////////////
@@ -137,6 +190,10 @@ router.get('/servicesalon/:servicesalonId',servicesalonCtr.show);
 router.get('/servicesalonbyidsalon/:q/:p',servicesalonCtr.VerifierExistanceSalon);
 
 
+//get by id salon
+router.get('/servicesalonbyidsalonselement/:idsalon',servicesalonCtr.getllserviceBysalon);
+
+
 // PUT servicesalon/fjaslfj478329fsafashf2
 router.put('/servicesalon/:servicesalonId',servicesalonCtr.put);
 
@@ -219,6 +276,9 @@ router.delete('/categorie/:categorieId',categorieCtr.delete);
 
 // GET getAll catg and scatg
 router.get('/categandscatg',categorieCtr.getAll);
+
+// GET getAll catg and scatg
+router.get('/lastcateg',categorieCtr.getLastcatg);
 
 
 

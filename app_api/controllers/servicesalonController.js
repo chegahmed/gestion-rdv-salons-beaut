@@ -57,6 +57,13 @@ exports.VerifierExistanceSalon = function(req,res){
     });
 };
 
+//get salon by idsalon
+exports.getllserviceBysalon = function(req,res){
+    Servicesalon.find({idsalon : req.params.idsalon}).exec(function(err,servicesalon){
+        res.jsonp(servicesalon);
+    });
+};
+
 
 // Edit Service provided
 exports.put = function(req,res){

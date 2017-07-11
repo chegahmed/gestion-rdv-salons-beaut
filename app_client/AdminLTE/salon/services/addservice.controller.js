@@ -120,7 +120,9 @@
                     $scope.servicesalon = valu;
                     if (valu.time != null && valu.price != null && valu.employe != null) {
 
-                        $scope.updtser==false;
+                        $scope.saveService(valu);
+
+                   /*     $scope.updtser==false;
                         angular.forEach( $scope.service_salon,function (s) {
                             console.log('idsalon ' + s.idsalon +' idservice ' + s.idservice)
                             if( s.idsalon == valu.idsalon && s.idservice == valu.idservice){
@@ -132,7 +134,7 @@
                         console.log($scope.updtser)
                         if($scope.updtser == false){
                             $scope.saveService(valu);
-                        }
+                        }*/
 
 
 

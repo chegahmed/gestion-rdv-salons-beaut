@@ -471,6 +471,12 @@ function generateEmpCalendarFrom(empId, agenda, minDate, weeksCount) {
  * @return Promise
  */
 function findAvailableCreanauxByEmlp(minDate, empId, weeksCount) {
+
+   /* console.log(minDate)
+    console.log(empId)
+    console.log(weeksCount)
+    console.log("-----------------------")*/
+
     var empPromise = Employer.findOne({_id: empId});
     var rdvPromise = Rendezvous.find({idemploye: empId, date: {$gte: minDate}});
     var indispPromise = Indispo.find({idemploye: empId, startTime: {$gte: minDate}});
@@ -481,22 +487,28 @@ function findAvailableCreanauxByEmlp(minDate, empId, weeksCount) {
         var rdvs = values[1];
         var indisps = values[2];
 
+
+
+
         var rdvCrenaux = rdvToCrenaux(rdvs);
         var indisCrenaux = indispToCrenaux(indisps);
         var empCrenaux = generateEmpCalendarFrom(empId, emp.agenda, minDate, weeksCount);
+
 
         var crenauxOccupes = _.union(rdvCrenaux, indisCrenaux);
 
         var empCreWithOutRepos = _.filter(empCrenaux, function (c) {
             return c.cause == 'nothing';
         });
+
+console.log(empCreWithOutRepos)
         var result = _.filter(empCreWithOutRepos, function (c1) {
             return undefined === _.find(crenauxOccupes, function (c2) {
                     return c1.to.datetime <= c2.from.datetime || c2.to.datetime <= c1.from.datetime;
                 });
         });
 
-        return result;
+        return empCreWithOutRepos;
     });
 }
 
@@ -513,15 +525,14 @@ exports.findRdv = function (req, res) {
     }
 
 
-    //var requestedEmpId = '59319498efa50b137477a14b';
 
     var requestedEmpId = req.params.idemp;
     var requestedDate = moment(reqdate);//min date
-    var requestedServiceId = '593547adc5ece4159073e42d';
+    var requestedServiceId = '5931827befa50b137477a136';
 
     requestedDate.locale('fr');
 
-    var availbaleCrenauxPromise = findAvailableCreanauxByEmlp(requestedDate.toDate(), requestedEmpId, 5);
+    var availbaleCrenauxPromise = findAvailableCreanauxByEmlp(requestedDate.toDate(), requestedEmpId, 1);
     var servPromise = Service.findOne({_id: requestedServiceId});
 
 
@@ -535,26 +546,26 @@ exports.findRdv = function (req, res) {
             //  throw 'Service not found';
 
             //1. Filter only crenaux with duree >= service.time
-            var crenauxAvailable = _.filter(crenaux, function (c) {
+         /*   var crenauxAvailable = _.filter(crenaux, function (c) {
                 return true;//c.sizeInMinute >= service.time
-            });
+            });*/
             //2. Get the nearest crenaux (using sort by date asc)
-            var sortCrenaux = _.sortBy(crenauxAvailable, function (c) {
+            var sortCrenaux = _.sortBy(crenaux, function (c) {
                 return c.from.datetime;
             });
 
-          var ferstcrenau=  _.first(sortCrenaux)
+            var ferstcrenau=  _.first(sortCrenaux)
 
-            console.log(ferstcrenau.from.date)
             var resultatcrenaux = _.filter(sortCrenaux, function (c) {
                 return  c.from.date == ferstcrenau.from.date;;
             });
 
-          // console.log(resultatcrenaux)
+         //   console.log("resultatcrenaux ",crenaux)
+            // console.log("ferstcrenau ",ferstcrenau)
 
             res.jsonp({
                 data: {
-                  //  rdvs: sortCrenaux,
+                    //rdvs: [crenaux],
                     rdvs: [resultatcrenaux],
                     errors: []
                 }

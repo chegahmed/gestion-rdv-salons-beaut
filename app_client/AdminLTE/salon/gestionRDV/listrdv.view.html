@@ -52,7 +52,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr  dir-paginate="rdvnc in rdvsnotconfirm| itemsPerPage: 4| orderBy : sortKey:reverse|filter :search1" >
+                            <tr  dir-paginate="rdvnc in rdvsnotconfirm| itemsPerPage: 4|filter :search1" >
                                 <td>{{rdvnc.service}}</td>
                                 <td>{{rdvnc.date| date:'yyyy-MM-dd HH:mm '}}</td>
                                 <td>{{rdvnc.time}}</td>

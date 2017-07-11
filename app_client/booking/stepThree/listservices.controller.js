@@ -16,7 +16,7 @@
 
 
 
-        ///this methode return category and sub-category by id salon
+        ///this methode return salon by id salon
         $http({
             method: 'GET',
             url: '/gestionusers/salon/' + idsalon

@@ -79,5 +79,21 @@
             });
         };
 
+
+
+
+/////this for get last categorie
+
+        $http({
+            method: 'GET',
+            url: '/gestionusers/lastcateg'
+        }).success(function (data) {
+            $scope.lastcategs = data; // response data
+            //   console.log(data)
+        });
+
+
+
+
     }
 })();

@@ -8,7 +8,6 @@
     function listserviceCtrl($scope, $http, $location,Upload, $routeParams,$window) {
 
 
-        $scope.message ="hello world";
 
         var id = $routeParams.id;
 
