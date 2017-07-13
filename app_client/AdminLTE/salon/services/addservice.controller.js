@@ -172,7 +172,6 @@
 
 
         $scope.saveService = function saveService(value) {
-            //  console.log('bieeeeeeeeeen')
             $http.post('/gestionusers/servicesalon/', value)
                 .success(function (response) {
                     //  sweetAlert("félicitation...", "Votre service à été Ajouté avec success", "success");

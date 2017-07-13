@@ -233,8 +233,9 @@
 
         $scope.RemoveItemRecaputulatif = function (datetime,idserv) {
             console.log(datetime)
-            console.log(idserv)
+            console.log('id'+idserv)
             angular.forEach($scope.tablecrenauxselected,function (c) {
+
                 if(c.idservice==idserv & c.crenaux.from.datetime.toFixed(0)==datetime ){
                     var index = $scope.tablecrenauxselected.indexOf(c)
                     $scope.tablecrenauxselected.splice(index, 1);

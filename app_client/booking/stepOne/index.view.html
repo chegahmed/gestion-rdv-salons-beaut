@@ -62,11 +62,11 @@
         <div class="wrap">
 <form ng-submit="vm.submit()">
                 <!-- Row -->
-                <div class="f-row">
+                <div class="f-roww">
                     <div class="form-group one-third">
                         <label>Nom salon</label>
                         <!-- zone de saisie déclenchant l'autocomplétion -->
-                        <input type="text"  placeholder="Recherche de salons ..." list="salons" data-ng-model="salon.name"  />
+                        <input class="form-control" type="text"  placeholder="Recherche de salons ..." list="salons" data-ng-model="salon.name"  />
 
                         <datalist id="salons">
                             <option data-ng-repeat="item in salonslist|orderBy :name" value="{{item.name}}" />
@@ -75,14 +75,13 @@
 
                     <div class="form-group select one-third">
                         <label>Ville </label>
-                        <select ng-model="salon.ville">
-                            <option selected></option>
+                        <select class="form-control" ng-model="salon.ville">
                             <option ng-repeat="ville in villes"  value="{{ville.name}}">{{ville.name}}</option>
                         </select>
                     </div>
                     <div class="form-group select one-third">
-                        <label>Type de Salon(Service)</label>
-                        <select>
+                        <label>Type de Salon</label>
+                        <select class="form-control">
                             <option selected>&nbsp;</option>
                             <optgroup ng-repeat="catg in catgs" label="{{catg.name}}">
                                 <option ng-repeat="scatg in souscategories" ng-if="scatg.parent==catg._id" value="{{scatg.name}}" >{{scatg.name}}</option>
