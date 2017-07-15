@@ -61,11 +61,11 @@ module.exports = function(mongoose) {
       }
     },
     verifyMailOptions: {
-      from: 'Do Not Reply <user@gmail.com>',
-      subject: 'Confirm your account',
-      html: '<p>Please verify your account by clicking <a href="${URL}">this link</a>. If you are unable to do so, copy and ' +
+      from: 'Confirm RDV <user@gmail.com>',
+      subject: 'Confirm your RDV',
+      html: '<p>Please verify your RDV by clicking <a href="${URL}">this link</a>. If you are unable to do so, copy and ' +
         'paste the following link into your browser:</p><p>${URL}</p>',
-      text: 'Please verify your account by clicking the following link, or by copying and pasting it into your browser: ${URL}'
+      text: 'Please verify your RDV by clicking the following link, or by copying and pasting it into your browser: ${URL}'
     },
     verifySendMailCallback: function(err, info) {
       if (err) {
@@ -79,7 +79,7 @@ module.exports = function(mongoose) {
       from: 'Do Not Reply <user@gmail.com>',
       subject: 'Successfully verified!',
       html: '<p>Your account has been successfully verified.</p>',
-      text: 'Your account has been successfully verified.'
+      text: 'Your RDV has been successfully verified.'
     },
     confirmSendMailCallback: function(err, info) {
       if (err) {
