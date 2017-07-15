@@ -1,0 +1,83 @@
+<headersalon></headersalon>
+
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="box box-danger">
+            <div class="box-header">
+
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>Modifier profile salon</h1>
+                            <form ng-submit="vm.EditSalonprofile()">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label > Salon :</label>
+                                        <select  class="form-control"  ng-model="salonprofile.idsalon">
+                                            <option ng-repeat="salon in salons" value="{{salon._id}}">{{salon.name}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label > Ville :</label>
+                                        <select  class="form-control"  ng-model="salonprofile.ville">
+                                            <option ng-repeat="ville in villes" value="{{ville.name}}">{{ville.name}}</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label >Adresse :</label>
+                                        <input type="text" class="form-control"  ng-model="salonprofile.address">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label >Télephone :</label>
+                                        <input type="NUMBER" class="form-control"  ng-model="salonprofile.tel">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label >Lien Position on google Maps :</label>
+                                        <input type="text" class="form-control"  ng-model="salonprofile.maps">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label >Commence la journée à :</label>
+                                        <input type="time" class="form-control"  ng-model="salonprofile.startTime">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label >Terminer la journée à :</label>
+                                        <input type="time" class="form-control"  ng-model="salonprofile.endTime">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label >description :</label>
+                                        <textarea  class="form-control"  ng-model="salonprofile.description"></textarea>
+                                    </div>
+
+
+
+
+
+
+
+
+
+                                    <div class="pull-right">
+                                        <button type="submit" class="btn btn-primary">Modifier</button>
+                                        <button type="reset" class="btn btn-danger">Annuler</button>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
